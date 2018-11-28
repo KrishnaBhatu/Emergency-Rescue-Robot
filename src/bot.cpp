@@ -34,7 +34,7 @@
  * C++ implementation of the Bot class which implements the functionalities of the
  * robot to navigate in the unknown environment.
  */
-#include "../include/bot.hpp"
+#include "../include/bot.h"
 Bot::Bot() {
 }
 void Bot::moveForward() {

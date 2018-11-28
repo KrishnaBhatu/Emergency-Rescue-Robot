@@ -34,7 +34,7 @@
  * C++ implementation of the Enviroment class which initializes and keeps track
  * of the robot and stops it when robot reaches the goal position.
  */
-#include "../include/environment.hpp"
+#include "../include/environment.h"
 Environment::Environment() {
 }
 void Environment::initiateBot() {
