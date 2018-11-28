@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
 <h1 align = "center">
-  Emergency Rescue Robot
+  DAREDEVIL
 </h1>
 ENPM808X-Final Project (Frontier Exploration Robot: Explore an unknown space)
 
