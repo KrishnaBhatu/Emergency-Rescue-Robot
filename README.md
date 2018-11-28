@@ -30,6 +30,9 @@ After the planning is done, the UML folw diagram and the UML class diagram of th
 
 Following is the link to the spreadsheet that contains the detailed entries of the product backlog, time log, error log and release backlog - [link](https://docs.google.com/spreadsheets/d/1O63iHQKQJ4rw-KZTfBKcTz6vqTiGLA_Ci8IV8-E5Vwg/edit?ts=5bfdd247#gid=0)
 
+## Sprint Planning and Review
+
+Following is the link to google doc with the sprint planning and review - [link](https://docs.google.com/document/d/1R3kuxY5z7W4jexqUmMMtAAA1UcctKT3b8epEXvo6OiU/edit?ts=5bfe07c4)
 
 ## Dependencies
 
@@ -84,7 +87,7 @@ source /opt/ros/kinetic/setup.bash
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/
 cd src/
-git clone https://github.com/KrishnaBhatu/turtle_walker
+git clone https://github.com/KrishnaBhatu/Emergency-Rescue-Robot
 cd ..
 catkin_make
 ```
