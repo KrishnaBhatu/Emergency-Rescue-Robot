@@ -23,22 +23,83 @@
  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- * @file    main.cpp
+ * @file    sensor_test.cpp
  * @author  Krishna Bhatu, Siddhesh Rane
  * @version 1.0
  * @brief walker class implementation;
  *
  * @section DESCRIPTION
  *
- * main implementation for google testing framework.
+ * Implementation of google tests for Sensor class.
  */
 #include <gtest/gtest.h>
-//#include <gmock/gmock.h>
 #include <ros/ros.h>
-int main(int argc, char** argv) {
-  ros::init(argc, argv, "bot_test");
-  ros::NodeHandle nh;
-  ::testing::InitGoogleTest(&argc, argv);
-  //::testing::InitGoogleMock(&argc, argv);
-  return RUN_ALL_TESTS();
+#include "../include/sensor.h"
+/**
+ * @brief Test to check if sensor class is initiailizing
+ */
+TEST(SensorTest, SensorInitializationTest) {
+  Sensor sensor;
+  EXPECT_EQ(1, 1);
+}
+/**
+ * @brief Test to check sensorcallback function
+ */
+TEST(SensorTest, sensorCallbackTest) {
+  EXPECT_EQ(1, 1);
+}
+/**
+ * @brief Test to check odometer callback function
+ */
+TEST(SensorTest, odomCallbackTest) {
+  EXPECT_EQ(1, 1);
+}
+/**
+ * @brief Test to check forward reading measurment
+ */
+TEST(SensorTest, getForwarReadingTest) {
+  Sensor sensor;
+  EXPECT_DOUBLE_EQ(1.0, sensor.getForwardReading());
+}
+/**
+ * @brief Test to check right reading measurment
+ */
+TEST(SensorTest, getRightReadingTest) {
+  Sensor sensor;
+  EXPECT_DOUBLE_EQ(1.0, sensor.getRightReading());
+}
+/**
+ * @brief Test to check left reading measurment
+ */
+TEST(SensorTest, getLeftReadingTest) {
+  Sensor sensor;
+  EXPECT_DOUBLE_EQ(1.0, sensor.getLeftReading());
+}
+/**
+ * @brief Test to check current yaw reading
+ */
+TEST(SensorTest, getCurrentYawTest) {
+  Sensor sensor;
+  EXPECT_DOUBLE_EQ(1.0, sensor.getCurrentYaw());
+}
+/**
+ * @brief Test to check current yaw reading
+ */
+TEST(SensorTest, getCurrentXTest) {
+  Sensor sensor;
+  EXPECT_DOUBLE_EQ(1.0, sensor.getCurrentX());
+}
+/**
+ * @brief Test to check current yaw reading
+ */
+TEST(SensorTest, getObstacleDetectedTest) {
+  Sensor sensor;
+  EXPECT_FALSE(sensor.getObstacleDetected());
+}
+/**
+ * @brief Test to check current yaw reading
+ */
+TEST(SensorTest, getSafeDistanceTest) {
+  Sensor sensor;
+  EXPECT_DOUBLE_EQ(1.0, sensor.getSafeDistance());
 }

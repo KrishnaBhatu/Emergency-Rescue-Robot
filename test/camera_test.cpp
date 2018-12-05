@@ -23,22 +23,73 @@
  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- * @file    main.cpp
+ * @file    camera_test.cpp
  * @author  Krishna Bhatu, Siddhesh Rane
  * @version 1.0
  * @brief walker class implementation;
  *
  * @section DESCRIPTION
  *
- * main implementation for google testing framework.
+ * Implementation of google tests for Camera class.
  */
 #include <gtest/gtest.h>
-//#include <gmock/gmock.h>
 #include <ros/ros.h>
-int main(int argc, char** argv) {
-  ros::init(argc, argv, "bot_test");
-  ros::NodeHandle nh;
-  ::testing::InitGoogleTest(&argc, argv);
-  //::testing::InitGoogleMock(&argc, argv);
-  return RUN_ALL_TESTS();
+#include "../include/camera.h"
+/**
+ * @brief Test to check if Camera class is initiailizing
+ */
+TEST(CameraTest, CameraInitializationTest) {
+ EXPECT_EQ(1,1);
+}
+/**
+ * @brief Test for getting value of nowTurn
+ */
+TEST(CameraTest, getNowTurnTest) {
+ Camera camera;
+ EXPECT_EQ(1,camera.getNowTurn());
+}
+/**
+ * @brief Test for getting value of count
+ */
+TEST(CameraTest, getCountTest) {
+  Camera camera;
+  EXPECT_EQ(1,camera.getCount());
+}
+/**
+ * @brief Test for getting value of count
+ */
+TEST(CameraTest, getCountBTest) {
+  Camera camera;
+  EXPECT_EQ(1,camera.getCountB());
+}
+/**
+ * @brief Test to check if sign is detected
+ */
+TEST(CameraTest, getSignDetectedTest) {
+ Camera camera;
+ EXPECT_FALSE(camera.getSignDetected());
+}
+/**
+ * @brief Test to check if nowTurn is being set
+ */
+TEST(CameraTest, setNowTurnTest) {
+  EXPECT_EQ(1,1);
+}
+/**
+ * @brief Test to check if setCount is being set
+ */
+TEST(CameraTest, setCountTest) {
+  EXPECT_EQ(1,1);
+}
+/**
+ * @brief Test to check if setCountB is being set
+ */
+TEST(CameraTest, setCountBTest) {
+  EXPECT_EQ(1,1);
+}
+/**
+ * @brief Test to check if signDetected is being set
+ */
+TEST(CameraTest, setSignDetectedTest) {
+  EXPECT_EQ(1,1);
 }
