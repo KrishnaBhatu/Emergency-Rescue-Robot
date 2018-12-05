@@ -27,3 +27,31 @@ target_link_libraries(walker
   ${catkin_LIBRARIES}
 )
 target_link_libraries( walker ${OpenCV_LIBS} )
+
+if (CATKIN_ENABLE_TESTING)
+  set(CMAKE_BUILD_TYPE Debug)
+  find_package(rostest REQUIRED)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0 --coverage")
+  add_rostest_gtest(
+   test_rescue_bot
+   test/test_launch.launch 
+   test/main.cpp 
+   test/bot_test.cpp 
+   test/camera_test.cpp 
+   test/sensor_test.cpp 
+   src/bot.cpp 
+   src/camera.cpp 
+   src/sensor.cpp)
+
+  target_link_libraries(
+   test_rescue_bot 
+   ${catkin_LIBRARIES}
+   ${OpenCV_LIBS})
+  
+  add_dependencies(
+    walker
+    test_rescue_bot
+    ${catkin_EXPORTED_TARGETS}
+  )
+endif()
+
