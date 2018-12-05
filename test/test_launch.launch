@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="turtlebot_walker" type="walker" name="walker"/>
+  <test test-name="test_rescue_bot" pkg="turtlebot_walker" type="test_rescue_bot" />
+</launch>

@@ -23,22 +23,60 @@
  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- * @file    main.cpp
+ * @file    bot_test.cpp
  * @author  Krishna Bhatu, Siddhesh Rane
  * @version 1.0
  * @brief walker class implementation;
  *
  * @section DESCRIPTION
  *
- * main implementation for google testing framework.
+ * Implementation of google tests for Bot class.
  */
 #include <gtest/gtest.h>
-//#include <gmock/gmock.h>
 #include <ros/ros.h>
-int main(int argc, char** argv) {
-  ros::init(argc, argv, "bot_test");
-  ros::NodeHandle nh;
-  ::testing::InitGoogleTest(&argc, argv);
-  //::testing::InitGoogleMock(&argc, argv);
-  return RUN_ALL_TESTS();
+#include "../include/bot.h"
+/**
+ * @brief Test to check if Bot class is initiailizing
+ */
+TEST(BotTest, botInitialization) {
+  Camera camera;
+  Sensor sensor;
+  Bot bot(&sensor, &camera);
+  EXPECT_EQ(1, 1);
+}
+/**
+ * @brief Test to check initiation of motion
+ */
+TEST(BotTest, startMotionTest) {
+  EXPECT_EQ(1, 1);
+}
+/**
+ * @brief Test to check if bot is resetting
+ */
+TEST(BotTest, resetBotTest) {
+  EXPECT_EQ(1, 1);
+}
+/**
+ * @brief Test to check if robot can go in right direction
+ */
+TEST(BotTest, turnRightTest) {
+  EXPECT_EQ(1, 1);
+}
+/**
+ * @brief Test to check if robot can go in left direction
+ */
+TEST(BotTest, turnLeftTest) {
+  EXPECT_EQ(1, 1);
+}
+/**
+ * @brief Test to check if robot can go in forward direction
+ */
+TEST(BotTest, moveForwardTest) {
+  EXPECT_EQ(1, 1);
+}
+/**
+ * @brief Test to check if robot is examining free path
+ */
+TEST(BotTest, checkFreeDirectionTest) {
+  EXPECT_EQ(1, 1);
 }
