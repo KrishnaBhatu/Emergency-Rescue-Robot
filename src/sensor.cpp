@@ -35,6 +35,16 @@
  */
 #include "../include/sensor.h"
 Sensor::Sensor() {
+  /// Default obstacle detection flag
+  obstacleDetected = false;
+  /// Default safe distance
+   safeDistance = 1.2;
+  /// Sensor reading at 0 deg
+  forwardReading = 0;
+  /// Sensor reading at -30 deg
+  rightReading = 0;
+  /// Sensor reading at 30 deg
+  leftReading = 0;
   /// Subscribe to /scan topic where we get obstacle distance
    subSensor = nh.subscribe < sensor_msgs::LaserScan
        > ("/scan", 10, &Sensor::sensorCallback, this);
@@ -42,34 +52,50 @@ Sensor::Sensor() {
    odom = nh.subscribe("/odom", 10, &Sensor::odomCallback, this);
 }
 Sensor::~Sensor() {
-  
+
 }
 void Sensor::sensorCallback(const sensor_msgs::LaserScan::ConstPtr& msg) {
-  /// Callback function of the Laser Data, code for using laser distance data
+  /// ranges array contains float values of sensor reading
+  float size = msg->ranges.size();
+  rightReading = msg->ranges[0];
+  forwardReading = msg->ranges[319];
+  leftReading = msg->ranges[msg->ranges.size() - 1];
+  /// Read all readings of the sensor and check if any object/wall
+  /// is within the safe distance.
+  for (const float &m : msg->ranges) {
+    if (m < safeDistance) {
+      obstacleDetected = true;
+      return;
+    }
+  }
+  obstacleDetected = false;
 }
 void Sensor::odomCallback(const nav_msgs::Odometry::ConstPtr& msg) {
-  /** Callback function of the Odometry data, code for using current poistion 
-    * and orientation of turtlebot
-    */
+  tf::Quaternion q(msg->pose.pose.orientation.x, msg->pose.pose.orientation.y,
+                     msg->pose.pose.orientation.z, msg->pose.pose.orientation.w);
+  tf::Matrix3x3 m(q);
+  double r, p;
+  m.getRPY(r, p, currentYaw);
+  currentX = msg->pose.pose.position.x;
 }
 float Sensor::getForwardReading() {
-  return 1.0;
+  return forwardReading;
 }
 float Sensor::getRightReading() {
-  return 1.0;
+  return rightReading;
 }
 float Sensor::getLeftReading() {
-  return 1.0;
+  return leftReading;
 }
 double Sensor::getCurrentYaw() {
-  return 1.0;
+  return currentYaw;
 }
 double Sensor::getCurrentX() {
-  return 1.0;
+  return currentX;
 }
 bool Sensor::getObstacleDetected() {
-  return false;
+  return obstacleDetected;
 }
 double Sensor::getSafeDistance() {
-  return 1.0;
+  return safeDistance;
 }
