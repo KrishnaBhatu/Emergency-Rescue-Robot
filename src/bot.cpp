@@ -113,9 +113,39 @@ void Bot::setMaxSpeed(const float& speed) {
 }
 /// turn the robot in right direction
 void Bot::turnRight(double desiredAngle) {
+ROS_INFO("Turning in right direction");
+  //double currentYaw = sensor->getCurrentYaw();
+  ros::Rate loop_rate(10);
+  desiredAngle = desiredAngle - sensor->getCurrentYaw();
+  while (ros::ok()) {
+    double error = fabs(fabs(sensor->getCurrentYaw()) - fabs(desiredAngle));
+    msg.angular.z = -1.5 * error;
+    pubVel.publish(msg);
+    ros::spinOnce();
+    loop_rate.sleep();
+    if (error <= 0.01 && error >= -0.99) {
+      ROS_INFO_STREAM("break");
+      break;
+    }
+  }
 }
 /// turn the robot in left direction
 void Bot::turnLeft(double desiredAngle) {
+  ROS_INFO("Turning in left direction");
+  //double currentYaw = sensor->getCurrentYaw();
+  ros::Rate loop_rate(10);
+  desiredAngle = sensor->getCurrentYaw() + desiredAngle;
+  while (ros::ok()) {
+    double error = fabs(fabs(desiredAngle) - fabs(sensor->getCurrentYaw()));
+    msg.angular.z = 1.5 * error;
+    pubVel.publish(msg);
+    ros::spinOnce();
+    loop_rate.sleep();
+    if (error <= 0.01 && error >= -0.99) {
+      ROS_INFO_STREAM("break");
+      break;
+    }
+  }
 }
 /// move forward by certain distance
 void Bot::moveForward(double desiredPos) {
