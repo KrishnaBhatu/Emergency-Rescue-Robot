@@ -40,60 +40,54 @@
  */
 TEST(SensorTest, SensorInitializationTest) {
   Sensor sensor;
-  EXPECT_EQ(1, 1);
+  EXPECT_EQ(1.2, sensor.getSafeDistance());
 }
 /**
  * @brief Test to check sensorcallback function
  */
 TEST(SensorTest, sensorCallbackTest) {
-  EXPECT_EQ(1, 1);
+  Sensor sensor;
+  EXPECT_NEAR(0, sensor.getForwardReading(), 1);
+  EXPECT_NEAR(0, sensor.getRightReading(), 1);
+  EXPECT_NEAR(0, sensor.getLeftReading(), 1.5);
 }
 /**
  * @brief Test to check odometer callback function
  */
 TEST(SensorTest, odomCallbackTest) {
-  EXPECT_EQ(1, 1);
+  Sensor sensor;
+  /// Initially yaw angle should be near to 0
+  EXPECT_NEAR(0, sensor.getCurrentYaw(), 0.2);
+  /// Initially x position should be near to 0
+  EXPECT_NEAR(0, sensor.getCurrentX(), 1);
 }
 /**
  * @brief Test to check forward reading measurment
  */
 TEST(SensorTest, getForwarReadingTest) {
   Sensor sensor;
-  EXPECT_DOUBLE_EQ(1.0, sensor.getForwardReading());
+  EXPECT_NEAR(0, sensor.getForwardReading(), 1);
 }
 /**
  * @brief Test to check right reading measurment
  */
 TEST(SensorTest, getRightReadingTest) {
   Sensor sensor;
-  EXPECT_DOUBLE_EQ(1.0, sensor.getRightReading());
+  EXPECT_NEAR(0, sensor.getRightReading(), 1);
 }
 /**
  * @brief Test to check left reading measurment
  */
 TEST(SensorTest, getLeftReadingTest) {
   Sensor sensor;
-  EXPECT_DOUBLE_EQ(1.0, sensor.getLeftReading());
-}
-/**
- * @brief Test to check current yaw reading
- */
-TEST(SensorTest, getCurrentYawTest) {
-  Sensor sensor;
-  EXPECT_DOUBLE_EQ(1.0, sensor.getCurrentYaw());
-}
-/**
- * @brief Test to check current yaw reading
- */
-TEST(SensorTest, getCurrentXTest) {
-  Sensor sensor;
-  EXPECT_DOUBLE_EQ(1.0, sensor.getCurrentX());
+  EXPECT_NEAR(0, sensor.getLeftReading(), 1.5);
 }
 /**
  * @brief Test to check current yaw reading
  */
 TEST(SensorTest, getObstacleDetectedTest) {
   Sensor sensor;
+  /// Initially their is no obstacle.
   EXPECT_FALSE(sensor.getObstacleDetected());
 }
 /**
@@ -101,5 +95,5 @@ TEST(SensorTest, getObstacleDetectedTest) {
  */
 TEST(SensorTest, getSafeDistanceTest) {
   Sensor sensor;
-  EXPECT_DOUBLE_EQ(1.0, sensor.getSafeDistance());
+  EXPECT_DOUBLE_EQ(1.2, sensor.getSafeDistance());
 }
