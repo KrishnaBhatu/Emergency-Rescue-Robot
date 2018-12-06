@@ -152,6 +152,56 @@ void Bot::moveForward(double desiredPos) {
 }
 /// Search for the free path
 void Bot::checkFreeDirection() {
+  ROS_INFO("Checking free direction");
+  /// Get values from the sensor
+  double safeDistance = sensor->getSafeDistance();
+  turnRight(1.2);
+  /// turn 60 and get right value which will be 180deg
+  /// value for original configuration
+  ROS_INFO("Right reading: %f", sensor->getRightReading());
+  float extremeRightVal = sensor->getRightReading();
+  turnLeft(1.2);
+  turnLeft(1.2);
+  /// turn 60 and get left value which will be 180deg
+  /// value for original configuration
+  ROS_INFO("Left reading: %f", sensor->getLeftReading());
+  float extremeLeftVal = sensor->getLeftReading();
+  turnRight(1.2);
+  ROS_INFO("Straight: %f, Right: %f, Left: %f", sensor->getForwardReading(), sensor->getRightReading(),
+           sensor->getLeftReading());
+  if (isnanf(sensor->getForwardReading()) || sensor->getForwardReading() > 4) {
+    ROS_INFO("Forward Path is longer");
+    moveForward(2.0);
+    return;
+  }
+  if (isnanf(extremeRightVal)) {
+    ROS_INFO("Right Path is longer");
+    turnRight(1.57);
+    return;
+  }
+  if (isnanf(extremeLeftVal)) {
+    ROS_INFO("Left Path is longer");
+    turnLeft(1.57);
+    return;
+  }
+  if (sensor->getForwardReading() < safeDistance && extremeRightVal > extremeLeftVal
+      && extremeRightVal > 3) {
+    ROS_INFO("Right Path is longer");
+    turnRight(1.57);
+    return;
+  }
+  if (sensor->getForwardReading() < safeDistance && extremeRightVal < extremeLeftVal
+      && extremeLeftVal > 3) {
+    ROS_INFO("Left Path is longer");
+    turnLeft(1.57);
+    return;
+  }
+  if (sensor->getForwardReading() < safeDistance && extremeRightVal < 3 && extremeLeftVal < 3) {
+    ROS_INFO("Turn Around");
+    turnLeft(1.57);
+    turnLeft(1.57);
+    return;
+  }
 }
 /// Pass through the door without colliding
 void Bot::doorDetection() {
