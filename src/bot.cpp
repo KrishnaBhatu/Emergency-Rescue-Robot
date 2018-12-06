@@ -82,10 +82,63 @@ void Bot::startMotion() {
         }
       }
         pubVel.publish(msg);
+        ROS_INFO("No Adjustment");
+        checkFreeDirection();
     } else {
       ROS_INFO("Path is clear!");
-      msg.angular.z = 0.0;
-      msg.linear.x = maxSpeed;
+      double error = fabs(fabs(sensor->getRightReading()) - fabs(sensor->getLeftReading()));
+      if (!isnanf(sensor->getRightReading()) && !isnanf(sensor->getLeftReading())) {
+        double gain = 0;
+        if (error > 0.5)
+          gain = 0.05;
+        else
+          gain = 0.2;
+        ROS_INFO("Error: %f, gain: %f", error, gain);
+        if (sensor->getRightReading() > sensor->getLeftReading()) {
+          msg.angular.z = -gain * error;
+        } else {
+          msg.angular.z = gain * error;
+        }
+      }
+      if (camera->getNowTurn() == 10 && sensor->getRightReading() > 3 && !nextTurnRight) {
+        nextTurnRight = true;
+        nextTurnLeft = false;
+        camera->setNowTurn(0);
+        camera->setCountB(0);
+        camera->setSignDetected(false);
+      } else if (camera->getNowTurn() == 5 && sensor->getLeftReading() > 3 && !nextTurnLeft) {
+        nextTurnLeft = true;
+        nextTurnRight = false;
+        camera->setNowTurn(0);
+        camera->setCount(0);
+        camera->setSignDetected(false);
+      } else if (camera->getNowTurn() == 15) {
+        msg.angular.z = 0.0;
+        doorDetection();
+      }
+      if (nextTurnRight) {
+        msg.angular.z = -0.5;
+        ROS_INFO_STREAM("Right Turn Initiate");
+        camera->setNowTurn(0);
+        if (isnanf(sensor->getForwardReading()) || sensor->getForwardReading() > 5) {
+          nextTurnRight = false;
+          msg.angular.z = 0;
+          camera->setCountB(0);
+          camera->setNowTurn(0);
+        }
+      }
+      if (nextTurnLeft) {
+        msg.angular.z = 0.5;
+        ROS_INFO_STREAM("Left Turn Initiate");
+        camera->setNowTurn(0);
+        if (isnanf(sensor->getForwardReading()) || sensor->getForwardReading() > 5) {
+          nextTurnLeft = false;  //added
+          msg.angular.z = 0;
+          camera->setCount(0);
+          camera->setNowTurn(0);
+        }
+      }
+        msg.linear.x = maxSpeed;
     }
     /// Publish the velocity information
     pubVel.publish(msg);
@@ -113,7 +166,7 @@ void Bot::setMaxSpeed(const float& speed) {
 }
 /// turn the robot in right direction
 void Bot::turnRight(double desiredAngle) {
-ROS_INFO("Turning in right direction");
+  ROS_INFO("Turning in right direction");
   //double currentYaw = sensor->getCurrentYaw();
   ros::Rate loop_rate(10);
   desiredAngle = desiredAngle - sensor->getCurrentYaw();
@@ -149,6 +202,14 @@ void Bot::turnLeft(double desiredAngle) {
 }
 /// move forward by certain distance
 void Bot::moveForward(double desiredPos) {
+  //ros::Rate loop_rate(10);
+  //desiredPos = desiredPos + currentX;
+
+    //double error = fabs(fabs(currentX) - fabs(desiredPos));
+    msg.linear.x = 1.0;
+    pubVel.publish(msg);
+    //ros::spinOnce();
+    //loop_rate.sleep();
 }
 /// Search for the free path
 void Bot::checkFreeDirection() {
@@ -205,7 +266,7 @@ void Bot::checkFreeDirection() {
 }
 /// Pass through the door without colliding
 void Bot::doorDetection() {
-ros::Rate loop_rate(10);
+  ros::Rate loop_rate(10);
   while (ros::ok()) {
     float rightDist = sensor->getRightReading();
     float leftDist = sensor->getLeftReading();
