@@ -205,4 +205,30 @@ void Bot::checkFreeDirection() {
 }
 /// Pass through the door without colliding
 void Bot::doorDetection() {
+ros::Rate loop_rate(10);
+  while (ros::ok()) {
+    float rightDist = sensor->getRightReading();
+    float leftDist = sensor->getLeftReading();
+    float forwardDist = sensor->getForwardReading();
+    ROS_INFO("Door detection");
+    ROS_INFO("Left: %f, Forward: %f, Right: %f", leftDist, rightDist, forwardDist);
+    if (isnanf(sensor->getForwardReading()))
+      forwardDist = 5;
+    if (isnanf(sensor->getRightReading()))
+      rightDist = 5;
+    if (isnanf(sensor->getLeftReading()))
+      leftDist = 5;
+    msg.linear.x = 0.3;
+    double error = fabs(fabs(rightDist) - fabs(leftDist));
+    double gain = 0.2;
+    ROS_INFO("Error: %f, gain: %f", error, gain);
+    if (rightDist > leftDist) {
+      msg.angular.z = -gain * error;
+    } else {
+      msg.angular.z = gain * error;
+    }
+    pubVel.publish(msg);
+    ros::spinOnce();
+    loop_rate.sleep();
+  }
 }
