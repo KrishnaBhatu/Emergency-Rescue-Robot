@@ -35,10 +35,17 @@
 #include <gtest/gtest.h>
 //#include <gmock/gmock.h>
 #include <ros/ros.h>
+#include "geometry_msgs/Twist.h"
 int main(int argc, char** argv) {
   ros::init(argc, argv, "bot_test");
   ros::NodeHandle nh;
-  ::testing::InitGoogleTest(&argc, argv);
+  ros::Publisher pubVel = nh.advertise < geometry_msgs::Twist
+      > ("/cmd_vel_mux/input/navi", 1000);
+  geometry_msgs::Twist msg;
+  msg.linear.x = 0.0;
+  msg.angular.z = 0.0;
+  pubVel.publish(msg);
+  testing::InitGoogleTest(&argc, argv);
   //::testing::InitGoogleMock(&argc, argv);
   return RUN_ALL_TESTS();
 }
