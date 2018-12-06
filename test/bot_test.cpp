@@ -42,41 +42,5 @@ TEST(BotTest, botInitialization) {
   Camera camera;
   Sensor sensor;
   Bot bot(&sensor, &camera);
-  EXPECT_EQ(1, 1);
-}
-/**
- * @brief Test to check initiation of motion
- */
-TEST(BotTest, startMotionTest) {
-  EXPECT_EQ(1, 1);
-}
-/**
- * @brief Test to check if bot is resetting
- */
-TEST(BotTest, resetBotTest) {
-  EXPECT_EQ(1, 1);
-}
-/**
- * @brief Test to check if robot can go in right direction
- */
-TEST(BotTest, turnRightTest) {
-  EXPECT_EQ(1, 1);
-}
-/**
- * @brief Test to check if robot can go in left direction
- */
-TEST(BotTest, turnLeftTest) {
-  EXPECT_EQ(1, 1);
-}
-/**
- * @brief Test to check if robot can go in forward direction
- */
-TEST(BotTest, moveForwardTest) {
-  EXPECT_EQ(1, 1);
-}
-/**
- * @brief Test to check if robot is examining free path
- */
-TEST(BotTest, checkFreeDirectionTest) {
-  EXPECT_EQ(1, 1);
+  EXPECT_DOUBLE_EQ(0.5, bot.getMaxSpeed());
 }
