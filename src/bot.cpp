@@ -35,38 +35,94 @@
 #include "../include/bot.h"
 /// Implementation of default Bot constructor
 Bot::Bot(Sensor* iSensor, Camera* iCamera) {
+  sensor = iSensor;
+  camera = iCamera;
+  nextTurnRight = false;
+  nextTurnLeft = false;
+  maxSpeed = 0.5;
   /// Publisher to publish messages on /navi topic
   pubVel = nh.advertise < geometry_msgs::Twist> ("/cmd_vel_mux/input/navi",1000);
+  ROS_INFO("Default ROBOT Created!");
+  resetBot();
 }
-
+/// Destructor that resets the velocity of the bot
 Bot::~Bot() {
+  resetBot();
 }
-
+/// Start the bot with obstacle avoidance functionality
 void Bot::startMotion() {
-  /// Main loop for the autonomy of robot
+  ros::Rate loop_rate(5);
+  while (ros::ok()) {
+    /// Get values from the sensor
+    //float sensor->getRightReading() = sensor->getRightReading();
+    //float leftDist = sensor->getLeftReading();
+    //float forwardDist = sensor->getForwardReading();
+    //int nowTurn = camera->getNowTurn();
+    ROS_INFO("Right: %f, left: %f, forward: %f, nowturn: %d", sensor->getRightReading(),
+             sensor->getLeftReading(), sensor->getForwardReading(),camera->getNowTurn());
+    if (sensor->getObstacleDetected()) {
+      ROS_INFO("Wall Detected");
+      msg.linear.x = 0.0;
+      pubVel.publish(msg);
+      /// Adjust itself to be perpendicular to the wall
+      if (!isnanf(sensor->getRightReading())
+          && !isnanf(sensor->getLeftReading()) && sensor->getRightReading() < 3
+          && sensor->getLeftReading() < 3 && fabs(sensor->getRightReading() - sensor->getLeftReading()) < 1) {
+        double error = fabs(fabs(sensor->getRightReading()) - fabs(sensor->getLeftReading()));
+        ROS_INFO("Adjusting");
+        if (sensor->getRightReading() > sensor->getLeftReading() && error > 0.05 && error < 1) {
+          turnLeft(error);
+          ROS_INFO("Adjusting left");
+        } else if (sensor->getRightReading() < sensor->getLeftReading() && error > 0.05 && error < 1) {
+          turnRight(error);
+          ROS_INFO("Adjusting right");
+        } else {
+          msg.angular.z = 0.0;
+          ROS_INFO("Adjustment zero");
+        }
+      }
+        pubVel.publish(msg);
+    } else {
+      ROS_INFO("Path is clear!");
+      msg.angular.z = 0.0;
+      msg.linear.x = maxSpeed;
+    }
+    /// Publish the velocity information
+    pubVel.publish(msg);
+    ros::spinOnce();
+    loop_rate.sleep();
+  }
 }
-
+/// Set translational and rotational properties to zero
 void Bot::resetBot() {
+  msg.linear.x = 0.0;
+  msg.linear.y = 0.0;
+  msg.linear.z = 0.0;
+  msg.angular.x = 0.0;
+  msg.angular.y = 0.0;
+  msg.angular.z = 0.0;
+  pubVel.publish(msg);
 }
-
+/// get maximum linear speed by the bot
 float Bot::getMaxSpeed() {
-  return 1.0;
+  return maxSpeed;
 }
-
+/// Set maximum linear speed by the bot
 void Bot::setMaxSpeed(const float& speed) {
+  maxSpeed = speed;
 }
-
+/// turn the robot in right direction
 void Bot::turnRight(double desiredAngle) {
 }
-
+/// turn the robot in left direction
 void Bot::turnLeft(double desiredAngle) {
 }
-
+/// move forward by certain distance
 void Bot::moveForward(double desiredPos) {
 }
-
+/// Search for the free path
 void Bot::checkFreeDirection() {
 }
-
+/// Pass through the door without colliding
 void Bot::doorDetection() {
 }
