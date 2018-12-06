@@ -39,57 +39,52 @@
  * @brief Test to check if Camera class is initiailizing
  */
 TEST(CameraTest, CameraInitializationTest) {
- EXPECT_EQ(1,1);
-}
-/**
- * @brief Test for getting value of nowTurn
- */
-TEST(CameraTest, getNowTurnTest) {
- Camera camera;
- EXPECT_EQ(1,camera.getNowTurn());
-}
-/**
- * @brief Test for getting value of count
- */
-TEST(CameraTest, getCountTest) {
   Camera camera;
-  EXPECT_EQ(1,camera.getCount());
+  EXPECT_EQ(0, camera.getNowTurn());
+  EXPECT_EQ(0, camera.getCount());
+  EXPECT_EQ(0, camera.getCountB());
+  EXPECT_FALSE(camera.getSignDetected());
 }
 /**
- * @brief Test for getting value of count
+ * @brief Test to check checkImage is detecting signs
  */
-TEST(CameraTest, getCountBTest) {
+TEST(CameraTest, checkImageTest) {
   Camera camera;
-  EXPECT_EQ(1,camera.getCountB());
-}
-/**
- * @brief Test to check if sign is detected
- */
-TEST(CameraTest, getSignDetectedTest) {
- Camera camera;
- EXPECT_FALSE(camera.getSignDetected());
+  ros::WallDuration(5, 0).sleep();
+  ros::spinOnce();
+  EXPECT_TRUE(camera.getSignDetected());
 }
 /**
  * @brief Test to check if nowTurn is being set
  */
 TEST(CameraTest, setNowTurnTest) {
-  EXPECT_EQ(1,1);
+  Camera camera;
+  camera.setNowTurn(15);
+  EXPECT_EQ(15, camera.getNowTurn());
 }
 /**
  * @brief Test to check if setCount is being set
  */
 TEST(CameraTest, setCountTest) {
-  EXPECT_EQ(1,1);
+  Camera camera;
+  camera.setCount(30);
+  EXPECT_EQ(30, camera.getCount());
 }
 /**
  * @brief Test to check if setCountB is being set
  */
 TEST(CameraTest, setCountBTest) {
-  EXPECT_EQ(1,1);
+  Camera camera;
+  camera.setCountB(10);
+  EXPECT_EQ(10, camera.getCountB());
 }
 /**
  * @brief Test to check if signDetected is being set
  */
 TEST(CameraTest, setSignDetectedTest) {
-  EXPECT_EQ(1,1);
+  Camera camera;
+  camera.setSignDetected(true);
+  EXPECT_TRUE(camera.getSignDetected());
+  camera.setSignDetected(false);
+  EXPECT_FALSE(camera.getSignDetected());
 }
