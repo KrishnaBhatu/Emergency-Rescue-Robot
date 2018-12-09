@@ -167,7 +167,12 @@ void Bot::setMaxSpeed(const float& speed) {
 /// turn the robot in right direction
 void Bot::turnRight(double desiredAngle) {
   ROS_INFO("Turning in right direction");
-  //double currentYaw = sensor->getCurrentYaw();
+  /// clear previously stored sign flags
+  nextTurnRight = false;
+  nextTurnLeft = false;
+  camera->setNowTurn(0);
+  camera->setCountB(0);
+  camera->setSignDetected(false);
   ros::Rate loop_rate(10);
   desiredAngle = desiredAngle - sensor->getCurrentYaw();
   while (ros::ok()) {
@@ -185,7 +190,12 @@ void Bot::turnRight(double desiredAngle) {
 /// turn the robot in left direction
 void Bot::turnLeft(double desiredAngle) {
   ROS_INFO("Turning in left direction");
-  //double currentYaw = sensor->getCurrentYaw();
+  /// clear previously stored sign flags
+  nextTurnRight = false;
+  nextTurnLeft = false;
+  camera->setNowTurn(0);
+  camera->setCount(0);
+  camera->setSignDetected(false);
   ros::Rate loop_rate(10);
   desiredAngle = sensor->getCurrentYaw() + desiredAngle;
   while (ros::ok()) {
