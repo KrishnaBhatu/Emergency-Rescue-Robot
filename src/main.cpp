@@ -24,16 +24,24 @@
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * @file    main.cpp
- * @version 1.0
  * @author  Krishna Bhatu, Siddhesh Rane
- * @brief main class for emergency rescue robot
+ * @version 1.0
+ * @brief Main method;
  *
  * @section DESCRIPTION
  *
- * This is C++ program that implements main function which starts
- * the execution of the program.
+ * C++ source code implementation of Main method.
  */
 #include "../include/bot.h"
 int main(int argc, char* argv[]) {
+  /// Initialize the ros node
+  ros::init(argc, argv, "turtlebot_walker");
+  ros::WallDuration(1, 0).sleep();
+  /// Create the sensor objects
+  Camera camera;
+  Sensor sensor;
+  /// Create the bot object
+  Bot robot(&sensor, &camera);
+  robot.startMotion();
   return 0;
 }
