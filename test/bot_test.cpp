@@ -44,3 +44,23 @@ TEST(BotTest, botInitialization) {
   Bot bot(&sensor, &camera);
   EXPECT_DOUBLE_EQ(0.5, bot.getMaxSpeed());
 }
+/**
+ * @brief Test setMax speed function
+ */
+TEST(BotTest, startMotionTest) {
+  Camera camera;
+  Sensor sensor;
+  Bot bot(&sensor, &camera);
+  bot.startMotion();
+  EXPECT_FALSE(sensor.getObstacleDetected());
+}
+/**
+ * @brief Test moveFoward function
+ */
+TEST(BotTest, moveForwardTest) {
+  Camera camera;
+  Sensor sensor;
+  Bot bot(&sensor, &camera);
+  bot.moveForward(0.5);
+  EXPECT_EQ(1.0, bot.getMaxSpeed());
+}

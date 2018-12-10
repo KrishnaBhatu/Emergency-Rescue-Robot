@@ -1,7 +1,0 @@
-<launch>
-  <include file="$(find turtlebot_gazebo)/launch/turtlebot_world.launch">
-	<arg name="world_file" value="$(find turtlebot_walker)/world/testWorld"/>
-    </include>
-  <node pkg="turtlebot_walker" type="walker" name="walker"/>
-  <test test-name="test_rescue_bot" pkg="turtlebot_walker" type="test_rescue_bot" />
-</launch>

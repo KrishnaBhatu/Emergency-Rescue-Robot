@@ -52,6 +52,7 @@ TEST(CameraTest, checkImageTest) {
   Camera camera;
   ros::WallDuration(5, 0).sleep();
   ros::spinOnce();
+  /// Initially bot is far away from
   EXPECT_TRUE(camera.getSignDetected());
 }
 /**

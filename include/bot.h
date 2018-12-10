@@ -41,7 +41,7 @@
 #include "camera.h"
 class Bot {
  private:
-  
+
   /// Check if robot is in safe decision
   bool obstacleDetected;
   /// Publisher msg of type Twist
@@ -117,11 +117,5 @@ class Bot {
    * @return float
    */
   float getMaxSpeed();
-  /**
-   * @brief set maximum speed of robot
-   * @param speed
-   * @return void
-   */
-  void setMaxSpeed(const float& speed);
 };
 #endif  // INCLUDE_BOT_H_

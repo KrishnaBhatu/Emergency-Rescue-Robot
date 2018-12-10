@@ -54,10 +54,6 @@ void Bot::startMotion() {
   ros::Rate loop_rate(5);
   while (ros::ok()) {
     /// Get values from the sensor
-    //float sensor->getRightReading() = sensor->getRightReading();
-    //float leftDist = sensor->getLeftReading();
-    //float forwardDist = sensor->getForwardReading();
-    //int nowTurn = camera->getNowTurn();
     ROS_INFO("Right: %f, left: %f, forward: %f, nowturn: %d", sensor->getRightReading(),
              sensor->getLeftReading(), sensor->getForwardReading(),camera->getNowTurn());
     if (sensor->getObstacleDetected()) {
@@ -115,6 +111,7 @@ void Bot::startMotion() {
       } else if (camera->getNowTurn() == 15) {
         msg.angular.z = 0.0;
         doorDetection();
+        return;
       }
       if (nextTurnRight) {
         msg.angular.z = -0.5;
@@ -159,10 +156,6 @@ void Bot::resetBot() {
 /// get maximum linear speed by the bot
 float Bot::getMaxSpeed() {
   return maxSpeed;
-}
-/// Set maximum linear speed by the bot
-void Bot::setMaxSpeed(const float& speed) {
-  maxSpeed = speed;
 }
 /// turn the robot in right direction
 void Bot::turnRight(double desiredAngle) {
@@ -212,14 +205,17 @@ void Bot::turnLeft(double desiredAngle) {
 }
 /// move forward by certain distance
 void Bot::moveForward(double desiredPos) {
-  //ros::Rate loop_rate(10);
-  //desiredPos = desiredPos + currentX;
-
-    //double error = fabs(fabs(currentX) - fabs(desiredPos));
-    msg.linear.x = 1.0;
+  ros::Time start = ros::Time::now();
+  ros::Duration duration(2, 0);
+  ros::Rate loop_rate(10);
+  maxSpeed = 1.0;
+  while ((ros::Time::now() - start) < duration) {
+    msg.linear.x = desiredPos;
+    msg.angular.z = 0.0;
     pubVel.publish(msg);
-    //ros::spinOnce();
-    //loop_rate.sleep();
+    ros::spinOnce();
+    loop_rate.sleep();
+  }
 }
 /// Search for the free path
 void Bot::checkFreeDirection() {
@@ -243,6 +239,7 @@ void Bot::checkFreeDirection() {
   if (isnanf(sensor->getForwardReading()) || sensor->getForwardReading() > 4) {
     ROS_INFO("Forward Path is longer");
     moveForward(2.0);
+    maxSpeed = 0.5;
     return;
   }
   if (isnanf(extremeRightVal)) {
@@ -267,7 +264,7 @@ void Bot::checkFreeDirection() {
     turnLeft(1.57);
     return;
   }
-  if (sensor->getForwardReading() < safeDistance && extremeRightVal < 3 && extremeLeftVal < 3) {
+  else {
     ROS_INFO("Turn Around");
     turnLeft(1.57);
     turnLeft(1.57);
@@ -276,8 +273,10 @@ void Bot::checkFreeDirection() {
 }
 /// Pass through the door without colliding
 void Bot::doorDetection() {
+  ros::Time start = ros::Time::now();
+  ros::Duration duration(12, 0);
   ros::Rate loop_rate(10);
-  while (ros::ok()) {
+  while ((ros::Time::now() - start) < duration) {
     float rightDist = sensor->getRightReading();
     float leftDist = sensor->getLeftReading();
     float forwardDist = sensor->getForwardReading();

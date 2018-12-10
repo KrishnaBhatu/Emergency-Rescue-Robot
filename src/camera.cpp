@@ -132,8 +132,8 @@ void Camera::checkImage(const sensor_msgs::Image::ConstPtr& dataImage) {
         }
       }
     }
-    cv::imshow("Window", imageHSVB);
-    cv::waitKey(3);
+  //cv::imshow("Window", imageHSVB);
+  //cv::waitKey(3);
 }
 int Camera::getNowTurn() {
   return nowTurn;
