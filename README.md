@@ -16,13 +16,17 @@ ENPM808X-Final Project (Frontier Exploration Robot: Explore an unknown space)
 
  - Krishna Bhatu (kbhatu@terpmail.umd.edu): A student of Masters in Robotics Engineering at the University of Maryland, College Park. My area of intrest is computer vision, machine learning and aerial robotics.
   
- - Siddhesh Rane (srane96@terpmail.umd.edu): A student of Masters in Robotics Engineering at the University of Maryland, College Park. 
+ - Siddhesh Rane (srane96@terpmail.umd.edu): A student of Masters in Robotics Engineering at the University of Maryland, College Park. My area of intrest is quadroters, control systems, algorithms and data structures.
  
 ## Project Overview
 
 This project implements the frontier exploration task where the robot has to react in an emergency situation and lead the person to the exit of the building. The project is just a simulation of the robot in Gazrbo which will show the autonomous exploration of the unknown environment and finding the exit of the building by following the exit signs.
 
 While travelling and exploring the unknown environment, the robot will face static obstacles which it has to avoid and also the robot has to interpret the direction of the exit signs and turn accordingly. Robot moves in the direction of the exit sign until an obstacle is detected by the laser sensor. Robot then follows the boundary of the obstacle until sign is visible again. Also, for the demonstration purpose, the direction of the exit signs are interpreted by different colors.
+
+<p align="center">
+<img src="readmeImages/map.png" width="75%" height="75%">
+</p>
 
 ## Application
 
@@ -40,8 +44,12 @@ surrounding objects or walls and always maintain the center line in between the 
   For this method we have used a basic <b>proportional gain</b> method where the difference in the distance from the right-most reading of distance(laser) sensor and the left-most reading of the distance(laser) sensor and feeding this correcting factor to move to the desired trajectory.
   Now this correcting factor is multiplied by the gain and this feedback value is given to the angular velocity.
 <p align="center">
-correcting factor = left distance - right distance
-angular velocity = gain * correcting factor
+correcting factor = left distance - right distance;
+</p>
+<p align="center">
+angular velocity = gain * correcting factor;
+</p>
+<p align="center">
 <img src="readmeImages/1.gif" width="75%" height="75%">
 </p>
 
@@ -151,6 +159,11 @@ roslaunch rescue_robot daredevil_map1.launch
 
 ## Run Test Instructions
 
+We have built the following world file for running the test.
+<p align="center">
+<img src="readmeImages/testMap.png" width="75%" height="75%">
+</p>  
+
 To run the ros tests follow the commands;
 ```
 cd ~/catkin_ws/
@@ -164,7 +177,7 @@ roslaunch rescue_robot daredevi_test.launch
 In order to check if the google style guide is followed, we run the cpplint check;
 To install Cpplint follow the given command;
 ```
-sudo apt-get install python-pip  
+sudo apt-get install python-pip
 sudo pip install cpplint
 ```
 
