@@ -41,9 +41,6 @@
 #include "camera.h"
 class Bot {
  private:
-
-  /// Check if robot is in safe decision
-  bool obstacleDetected;
   /// Publisher msg of type Twist
   geometry_msgs::Twist msg;
   /// Publisher object

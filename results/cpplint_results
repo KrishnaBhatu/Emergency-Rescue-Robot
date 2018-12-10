@@ -1,0 +1,12 @@
+Command:
+$ cpplint $( find . -name \*.hpp -or -name \*.cpp | grep -vE -e "^./build/" -e "^./vendor/" -e "^./docs/" -e "^./results" )
+
+Result:
+Done processing ./src/sensor.cpp
+Done processing ./src/camera.cpp
+Done processing ./src/main.cpp
+Done processing ./src/bot.cpp
+Done processing ./test/bot_test.cpp
+Done processing ./test/camera_test.cpp
+Done processing ./test/sensor_test.cpp
+Done processing ./test/main.cpp
