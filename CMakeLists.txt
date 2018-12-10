@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(turtlebot_walker)
+project(rescue_robot)
 add_compile_options(-std=c++11)
 find_package( OpenCV REQUIRED)
 find_package(catkin REQUIRED COMPONENTS
@@ -34,10 +34,10 @@ if (CATKIN_ENABLE_TESTING)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0 --coverage")
   add_rostest_gtest(
    test_rescue_bot
-   test/test_launch.launch 
+   test/daredevil_test.launch 
    test/main.cpp 
-   test/bot_test.cpp 
    test/camera_test.cpp 
+   test/bot_test.cpp 
    test/sensor_test.cpp 
    src/bot.cpp 
    src/camera.cpp 

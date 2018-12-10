@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>turtlebot_walker</name>
+  <name>rescue_robot</name>
   <version>0.0.0</version>
   <description>The rescue_bot package</description>
 

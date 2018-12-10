@@ -1,0 +1,11 @@
+<launch>
+    <include file="$(find turtlebot_gazebo)/launch/turtlebot_world.launch">
+	<arg name="world_file" value="$(find rescue_robot)/world/no_signs"/>
+    </include>
+    <node
+        pkg="rescue_robot"
+        name="walker"
+        type="walker"
+        output="screen"
+    />
+</launch>
