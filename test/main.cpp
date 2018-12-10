@@ -33,7 +33,6 @@
  * main implementation for google testing framework.
  */
 #include <gtest/gtest.h>
-//#include <gmock/gmock.h>
 #include <ros/ros.h>
 #include "geometry_msgs/Twist.h"
 int main(int argc, char** argv) {
@@ -46,6 +45,5 @@ int main(int argc, char** argv) {
   msg.angular.z = 0.0;
   pubVel.publish(msg);
   testing::InitGoogleTest(&argc, argv);
-  //::testing::InitGoogleMock(&argc, argv);
   return RUN_ALL_TESTS();
 }

@@ -41,7 +41,8 @@ Bot::Bot(Sensor* iSensor, Camera* iCamera) {
   nextTurnLeft = false;
   maxSpeed = 0.5;
   /// Publisher to publish messages on /navi topic
-  pubVel = nh.advertise < geometry_msgs::Twist> ("/cmd_vel_mux/input/navi",1000);
+  pubVel = nh.advertise < geometry_msgs::Twist
+      > ("/cmd_vel_mux/input/navi", 1000);
   ROS_INFO("Default ROBOT Created!");
   resetBot();
 }
@@ -54,8 +55,9 @@ void Bot::startMotion() {
   ros::Rate loop_rate(5);
   while (ros::ok()) {
     /// Get values from the sensor
-    ROS_INFO("Right: %f, left: %f, forward: %f, nowturn: %d", sensor->getRightReading(),
-             sensor->getLeftReading(), sensor->getForwardReading(),camera->getNowTurn());
+    ROS_INFO("Right: %f, left: %f, forward: %f, nowturn: %d",
+             sensor->getRightReading(), sensor->getLeftReading(),
+             sensor->getForwardReading(), camera->getNowTurn());
     if (sensor->getObstacleDetected()) {
       ROS_INFO("Wall Detected");
       msg.linear.x = 0.0;
@@ -63,13 +65,17 @@ void Bot::startMotion() {
       /// Adjust itself to be perpendicular to the wall
       if (!isnanf(sensor->getRightReading())
           && !isnanf(sensor->getLeftReading()) && sensor->getRightReading() < 3
-          && sensor->getLeftReading() < 3 && fabs(sensor->getRightReading() - sensor->getLeftReading()) < 1) {
-        double error = fabs(fabs(sensor->getRightReading()) - fabs(sensor->getLeftReading()));
+          && sensor->getLeftReading() < 3
+          && fabs(sensor->getRightReading() - sensor->getLeftReading()) < 1) {
+        double error = fabs(
+            fabs(sensor->getRightReading()) - fabs(sensor->getLeftReading()));
         ROS_INFO("Adjusting");
-        if (sensor->getRightReading() > sensor->getLeftReading() && error > 0.05 && error < 1) {
+        if (sensor->getRightReading() > sensor->getLeftReading() && error > 0.05
+            && error < 1) {
           turnLeft(error);
           ROS_INFO("Adjusting left");
-        } else if (sensor->getRightReading() < sensor->getLeftReading() && error > 0.05 && error < 1) {
+        } else if (sensor->getRightReading() < sensor->getLeftReading()
+            && error > 0.05 && error < 1) {
           turnRight(error);
           ROS_INFO("Adjusting right");
         } else {
@@ -77,13 +83,15 @@ void Bot::startMotion() {
           ROS_INFO("Adjustment zero");
         }
       }
-        pubVel.publish(msg);
-        ROS_INFO("No Adjustment");
-        checkFreeDirection();
+      pubVel.publish(msg);
+      ROS_INFO("No Adjustment");
+      checkFreeDirection();
     } else {
       ROS_INFO("Path is clear!");
-      double error = fabs(fabs(sensor->getRightReading()) - fabs(sensor->getLeftReading()));
-      if (!isnanf(sensor->getRightReading()) && !isnanf(sensor->getLeftReading())) {
+      double error = fabs(
+          fabs(sensor->getRightReading()) - fabs(sensor->getLeftReading()));
+      if (!isnanf(sensor->getRightReading())
+          && !isnanf(sensor->getLeftReading())) {
         double gain = 0;
         if (error > 0.5)
           gain = 0.05;
@@ -96,47 +104,51 @@ void Bot::startMotion() {
           msg.angular.z = gain * error;
         }
       }
-      if (camera->getNowTurn() == 10 && sensor->getRightReading() > 3 && !nextTurnRight) {
+      if (camera->getNowTurn() == 10 && sensor->getRightReading() > 3
+          && !nextTurnRight) {
         nextTurnRight = true;
         nextTurnLeft = false;
         camera->setNowTurn(0);
         camera->setCountB(0);
         camera->setSignDetected(false);
-      } else if (camera->getNowTurn() == 5 && sensor->getLeftReading() > 3 && !nextTurnLeft) {
+      } else if (camera->getNowTurn() == 5 && sensor->getLeftReading() > 3
+          && !nextTurnLeft) {
         nextTurnLeft = true;
         nextTurnRight = false;
         camera->setNowTurn(0);
         camera->setCount(0);
         camera->setSignDetected(false);
       } else if (camera->getNowTurn() == 15) {
-        msg.angular.z = 0.0;
+          msg.angular.z = 0.0;
         doorDetection();
         return;
-      }
+        }
       if (nextTurnRight) {
         msg.angular.z = -0.5;
         ROS_INFO_STREAM("Right Turn Initiate");
-        camera->setNowTurn(0);
-        if (isnanf(sensor->getForwardReading()) || sensor->getForwardReading() > 5) {
+          camera->setNowTurn(0);
+        if (isnanf(sensor->getForwardReading())
+            || sensor->getForwardReading() > 5) {
           nextTurnRight = false;
           msg.angular.z = 0;
           camera->setCountB(0);
           camera->setNowTurn(0);
         }
-      }
+        }
       if (nextTurnLeft) {
         msg.angular.z = 0.5;
         ROS_INFO_STREAM("Left Turn Initiate");
-        camera->setNowTurn(0);
-        if (isnanf(sensor->getForwardReading()) || sensor->getForwardReading() > 5) {
-          nextTurnLeft = false;  //added
+          camera->setNowTurn(0);
+        if (isnanf(sensor->getForwardReading())
+            || sensor->getForwardReading() > 5) {
+          nextTurnLeft = false;
           msg.angular.z = 0;
           camera->setCount(0);
           camera->setNowTurn(0);
         }
+        }
+      msg.linear.x = maxSpeed;
       }
-        msg.linear.x = maxSpeed;
-    }
     /// Publish the velocity information
     pubVel.publish(msg);
     ros::spinOnce();
@@ -234,7 +246,8 @@ void Bot::checkFreeDirection() {
   ROS_INFO("Left reading: %f", sensor->getLeftReading());
   float extremeLeftVal = sensor->getLeftReading();
   turnRight(1.2);
-  ROS_INFO("Straight: %f, Right: %f, Left: %f", sensor->getForwardReading(), sensor->getRightReading(),
+  ROS_INFO("Straight: %f, Right: %f, Left: %f", sensor->getForwardReading(),
+           sensor->getRightReading(),
            sensor->getLeftReading());
   if (isnanf(sensor->getForwardReading()) || sensor->getForwardReading() > 4) {
     ROS_INFO("Forward Path is longer");
@@ -252,19 +265,20 @@ void Bot::checkFreeDirection() {
     turnLeft(1.57);
     return;
   }
-  if (sensor->getForwardReading() < safeDistance && extremeRightVal > extremeLeftVal
+  if (sensor->getForwardReading() < safeDistance
+      && extremeRightVal > extremeLeftVal
       && extremeRightVal > 3) {
     ROS_INFO("Right Path is longer");
     turnRight(1.57);
     return;
   }
-  if (sensor->getForwardReading() < safeDistance && extremeRightVal < extremeLeftVal
+  if (sensor->getForwardReading() < safeDistance
+      && extremeRightVal < extremeLeftVal
       && extremeLeftVal > 3) {
     ROS_INFO("Left Path is longer");
     turnLeft(1.57);
     return;
-  }
-  else {
+  } else {
     ROS_INFO("Turn Around");
     turnLeft(1.57);
     turnLeft(1.57);
@@ -281,7 +295,8 @@ void Bot::doorDetection() {
     float leftDist = sensor->getLeftReading();
     float forwardDist = sensor->getForwardReading();
     ROS_INFO("Door detection");
-    ROS_INFO("Left: %f, Forward: %f, Right: %f", leftDist, rightDist, forwardDist);
+    ROS_INFO("Left: %f, Forward: %f, Right: %f", leftDist, rightDist,
+             forwardDist);
     if (isnanf(sensor->getForwardReading()))
       forwardDist = 5;
     if (isnanf(sensor->getRightReading()))

@@ -38,7 +38,7 @@ Sensor::Sensor() {
   /// Default obstacle detection flag
   obstacleDetected = false;
   /// Default safe distance
-   safeDistance = 1.2;
+  safeDistance = 1.2;
   /// Sensor reading at 0 deg
   forwardReading = 0;
   /// Sensor reading at -30 deg
@@ -46,17 +46,15 @@ Sensor::Sensor() {
   /// Sensor reading at 30 deg
   leftReading = 0;
   /// Subscribe to /scan topic where we get obstacle distance
-   subSensor = nh.subscribe < sensor_msgs::LaserScan
+  subSensor = nh.subscribe < sensor_msgs::LaserScan
        > ("/scan", 10, &Sensor::sensorCallback, this);
-   /// Subscribe to /odom topic to get the position
-   odom = nh.subscribe("/odom", 10, &Sensor::odomCallback, this);
+  /// Subscribe to /odom topic to get the position
+  odom = nh.subscribe("/odom", 10, &Sensor::odomCallback, this);
 }
 Sensor::~Sensor() {
-
 }
 void Sensor::sensorCallback(const sensor_msgs::LaserScan::ConstPtr& msg) {
   /// ranges array contains float values of sensor reading
-  float size = msg->ranges.size();
   rightReading = msg->ranges[0];
   forwardReading = msg->ranges[319];
   leftReading = msg->ranges[msg->ranges.size() - 1];
@@ -72,7 +70,7 @@ void Sensor::sensorCallback(const sensor_msgs::LaserScan::ConstPtr& msg) {
 }
 void Sensor::odomCallback(const nav_msgs::Odometry::ConstPtr& msg) {
   tf::Quaternion q(msg->pose.pose.orientation.x, msg->pose.pose.orientation.y,
-                     msg->pose.pose.orientation.z, msg->pose.pose.orientation.w);
+                   msg->pose.pose.orientation.z, msg->pose.pose.orientation.w);
   tf::Matrix3x3 m(q);
   double r, p;
   m.getRPY(r, p, currentYaw);
