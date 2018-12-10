@@ -57,14 +57,14 @@ angular velocity = gain * correcting factor;
   Now in our environment the major obstacle to the robot is the wall which has to be avoided and if we encounter a dead end then the robot has to find the path to escape the building. Sometimes, unfortunately if the exit sign is not detected by the robot due to many reasons like smoke present in the building due to fire or if the sign is broken.
   Then the robot will not be able to make a decision to turn, so the robot will reach the dead end facing the wall. Now the robot will check for left and right path and select the longest path and then look for exit signs in that direction. The same algorithm will be used to remove the robot from the dead ends, like when there is only one free path and walls on the other three sides.
 <p align="center">
-<img src="image/2.gif" width="75%" height="75%">
+<img src="images/2.gif" width="75%" height="75%">
 </p>
 
 3) <b>Image Processing:</b>
   The direction of the exit sign are determined by the color, so for the color detection, the image is first converted to the HSV format and the applied with the mask of the color that needs to be extracted from the image. Thus we were able to determine the color of the signs. According to which the direction of the sign was determined. 
   The turning point of the robot was determined when the exit sign approched close enough , that is, the exit sign was about to escape the camera frame, then the robot would know that the turning point has arrived and it has to make the turn according to the color of the sign. 
 <p align="center">
-<img src="image/imageProcessing.png" width="75%" height="75%">
+<img src="images/imageProcessing.png" width="75%" height="75%">
 </p>  
 
 ## Development using Solo Iterative Process (SIP) and Test-Driven Development (TDD)
@@ -161,7 +161,7 @@ roslaunch rescue_robot daredevil_map1.launch
 
 We have built the following world file for running the test.
 <p align="center">
-<img src="image/testMap.png" width="75%" height="75%">
+<img src="images/testMap.png" width="75%" height="75%">
 </p>  
 
 To run the ros tests follow the commands;
