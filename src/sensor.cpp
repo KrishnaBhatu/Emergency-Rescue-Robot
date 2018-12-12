@@ -34,17 +34,12 @@
  * sensor data.
  */
 #include "../include/sensor.h"
-Sensor::Sensor() {
-  /// Default obstacle detection flag
-  obstacleDetected = false;
-  /// Default safe distance
-  safeDistance = 1.2;
-  /// Sensor reading at 0 deg
-  forwardReading = 0;
-  /// Sensor reading at -30 deg
-  rightReading = 0;
-  /// Sensor reading at 30 deg
-  leftReading = 0;
+Sensor::Sensor()
+    : obstacleDetected(false),
+      safeDistance(1.2),
+      forwardReading(0),
+      rightReading(0),
+      leftReading(0) {
   /// Subscribe to /scan topic where we get obstacle distance
   subSensor = nh.subscribe < sensor_msgs::LaserScan
        > ("/scan", 10, &Sensor::sensorCallback, this);

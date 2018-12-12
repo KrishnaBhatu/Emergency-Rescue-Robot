@@ -33,11 +33,11 @@
  * C++ implementation for Camera which collects image data.
  */
 #include "../include/camera.h"
-Camera::Camera() {
-  signDetected = false;
-  nowTurn = 0;
-  count = 0;
-  countB = 0;
+Camera::Camera()
+    : signDetected(false),
+      nowTurn(0),
+      count(0),
+      countB(0) {
   /// Subscribe to /camera/rgb/image_raw topic
     subImage = nh.subscribe < sensor_msgs::Image
         > ("/camera/rgb/image_raw", 10, &Camera::checkImage, this);
@@ -66,18 +66,19 @@ void Camera::checkImage(const sensor_msgs::Image::ConstPtr& dataImage) {
   cv::bitwise_and(imageHSV, imageHSV, res, mask);
   cv::cvtColor(res, res_gray, CV_BGR2GRAY);
   cv::threshold(res_gray, thresh, 40, 255, cv::THRESH_BINARY);
-  for (int i = 0; i < thresh.size().height; i++) {
-    for (int j = 0; j < thresh.size().width; j++) {
+  for (auto i = 0; i < thresh.size().height; i++) {
+    for (auto j = 0; j < thresh.size().width; j++) {
       if (thresh.at<int>(i, j) == 255) {
         signDetected = true;
         if (i < 2) {
           count = count + 1;
+          ROS_INFO("count: %d", count);
           if (count > 45) {
             count = 0;
             nowTurn = 5;
           }
         }
-	break;
+        break;
       }
     }
   }
@@ -91,8 +92,8 @@ void Camera::checkImage(const sensor_msgs::Image::ConstPtr& dataImage) {
   cv::bitwise_and(imageHSVB, imageHSVB, resB, maskB);
   cv::cvtColor(resB, res_grayB, CV_BGR2GRAY);
   cv::threshold(res_grayB, threshB, 40, 255, cv::THRESH_BINARY);
-  for (int i = 0; i < threshB.size().height; i++) {
-    for (int j = 0; j < threshB.size().width; j++) {
+  for (auto i = 0; i < threshB.size().height; i++) {
+    for (auto j = 0; j < threshB.size().width; j++) {
       if (threshB.at<int>(i, j) == 255) {
         signDetected = true;
         if (i < 2) {
@@ -116,8 +117,8 @@ void Camera::checkImage(const sensor_msgs::Image::ConstPtr& dataImage) {
   cv::bitwise_and(imageHSVR, imageHSVR, resR, maskR);
   cv::cvtColor(resR, res_grayR, CV_BGR2GRAY);
   cv::threshold(res_grayR, threshR, 40, 255, cv::THRESH_BINARY);
-  for (int i = 0; i < threshR.size().height; i++) {
-    for (int j = 0; j < threshR.size().width; j++) {
+  for (auto i = 0; i < threshR.size().height; i++) {
+    for (auto j = 0; j < threshR.size().width; j++) {
       if (threshR.at<int>(i, j) == 255) {
         signDetected = true;
         if (i < 2) {

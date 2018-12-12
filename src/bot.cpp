@@ -34,12 +34,12 @@
  */
 #include "../include/bot.h"
 /// Implementation of default Bot constructor
-Bot::Bot(Sensor* iSensor, Camera* iCamera) {
-  sensor = iSensor;
-  camera = iCamera;
-  nextTurnRight = false;
-  nextTurnLeft = false;
-  maxSpeed = 0.5;
+Bot::Bot(Sensor* iSensor, Camera* iCamera)
+    : sensor(iSensor),
+      camera(iCamera),
+      nextTurnRight(false),
+      nextTurnLeft(false),
+      maxSpeed(0.5) {
   /// Publisher to publish messages on /navi topic
   pubVel = nh.advertise < geometry_msgs::Twist
       > ("/cmd_vel_mux/input/navi", 1000);
@@ -67,8 +67,9 @@ void Bot::startMotion() {
           && !isnanf(sensor->getLeftReading()) && sensor->getRightReading() < 3
           && sensor->getLeftReading() < 3
           && fabs(sensor->getRightReading() - sensor->getLeftReading()) < 1) {
-        double error = fabs(
-            fabs(sensor->getRightReading()) - fabs(sensor->getLeftReading()));
+        auto error = fabs(
+            fabs(sensor->getRightReading()) - fabs(sensor->getLeftReading()))
+            * 1.0;
         ROS_INFO("Adjusting");
         if (sensor->getRightReading() > sensor->getLeftReading() && error > 0.05
             && error < 1) {
@@ -88,11 +89,12 @@ void Bot::startMotion() {
       checkFreeDirection();
     } else {
       ROS_INFO("Path is clear!");
-      double error = fabs(
-          fabs(sensor->getRightReading()) - fabs(sensor->getLeftReading()));
+      auto error = fabs(
+          fabs(sensor->getRightReading()) - fabs(sensor->getLeftReading()))
+          * 1.0;
       if (!isnanf(sensor->getRightReading())
           && !isnanf(sensor->getLeftReading())) {
-        double gain = 0;
+        auto gain = 0.0;
         if (error > 0.5)
           gain = 0.05;
         else
@@ -181,7 +183,7 @@ void Bot::turnRight(double desiredAngle) {
   ros::Rate loop_rate(10);
   desiredAngle = desiredAngle - sensor->getCurrentYaw();
   while (ros::ok()) {
-    double error = fabs(fabs(sensor->getCurrentYaw()) - fabs(desiredAngle));
+    auto error = fabs(fabs(sensor->getCurrentYaw()) - fabs(desiredAngle)) * 1.0;
     msg.angular.z = -1.5 * error;
     pubVel.publish(msg);
     ros::spinOnce();
@@ -204,7 +206,7 @@ void Bot::turnLeft(double desiredAngle) {
   ros::Rate loop_rate(10);
   desiredAngle = sensor->getCurrentYaw() + desiredAngle;
   while (ros::ok()) {
-    double error = fabs(fabs(desiredAngle) - fabs(sensor->getCurrentYaw()));
+    auto error = fabs(fabs(desiredAngle) - fabs(sensor->getCurrentYaw())) * 1.0;
     msg.angular.z = 1.5 * error;
     pubVel.publish(msg);
     ros::spinOnce();
@@ -233,18 +235,18 @@ void Bot::moveForward(double desiredPos) {
 void Bot::checkFreeDirection() {
   ROS_INFO("Checking free direction");
   /// Get values from the sensor
-  double safeDistance = sensor->getSafeDistance();
+  auto safeDistance = sensor->getSafeDistance();
   turnRight(1.2);
   /// turn 60 and get right value which will be 180deg
   /// value for original configuration
   ROS_INFO("Right reading: %f", sensor->getRightReading());
-  float extremeRightVal = sensor->getRightReading();
+  auto extremeRightVal = sensor->getRightReading();
   turnLeft(1.2);
   turnLeft(1.2);
   /// turn 60 and get left value which will be 180deg
   /// value for original configuration
   ROS_INFO("Left reading: %f", sensor->getLeftReading());
-  float extremeLeftVal = sensor->getLeftReading();
+  auto extremeLeftVal = sensor->getLeftReading();
   turnRight(1.2);
   ROS_INFO("Straight: %f, Right: %f, Left: %f", sensor->getForwardReading(),
            sensor->getRightReading(),
@@ -291,9 +293,9 @@ void Bot::doorDetection() {
   ros::Duration duration(12, 0);
   ros::Rate loop_rate(10);
   while ((ros::Time::now() - start) < duration) {
-    float rightDist = sensor->getRightReading();
-    float leftDist = sensor->getLeftReading();
-    float forwardDist = sensor->getForwardReading();
+    auto rightDist = sensor->getRightReading();
+    auto leftDist = sensor->getLeftReading();
+    auto forwardDist = sensor->getForwardReading();
     ROS_INFO("Door detection");
     ROS_INFO("Left: %f, Forward: %f, Right: %f", leftDist, rightDist,
              forwardDist);
@@ -304,8 +306,8 @@ void Bot::doorDetection() {
     if (isnanf(sensor->getLeftReading()))
       leftDist = 5;
     msg.linear.x = 0.3;
-    double error = fabs(fabs(rightDist) - fabs(leftDist));
-    double gain = 0.2;
+    auto error = fabs(fabs(rightDist) - fabs(leftDist)) * 1.0;
+    auto gain = 0.2;
     ROS_INFO("Error: %f, gain: %f", error, gain);
     if (rightDist > leftDist) {
       msg.angular.z = -gain * error;
