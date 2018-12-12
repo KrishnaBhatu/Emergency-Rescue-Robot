@@ -77,6 +77,7 @@ void Camera::checkImage(const sensor_msgs::Image::ConstPtr& dataImage) {
             nowTurn = 5;
           }
         }
+	break;
       }
     }
   }

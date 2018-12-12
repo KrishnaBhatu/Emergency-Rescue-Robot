@@ -45,7 +45,7 @@ TEST(BotTest, botInitialization) {
   EXPECT_DOUBLE_EQ(0.5, bot.getMaxSpeed());
 }
 /**
- * @brief Test setMax speed function
+ * @brief Test robot motion function
  */
 TEST(BotTest, startMotionTest) {
   Camera camera;
