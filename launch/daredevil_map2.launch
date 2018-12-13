@@ -1,4 +1,8 @@
 <launch>
+    <arg
+	        name="run_rosbag"
+	        default = "false"
+    />
     <include file="$(find turtlebot_gazebo)/launch/turtlebot_world.launch">
 	<arg name="world_file" value="$(find rescue_robot)/world/large_map"/>
     </include>
@@ -8,4 +12,11 @@
         type="walker"
         output="screen"
     />
+    <node
+		pkg="rosbag"
+		name="record"
+		type="record"
+		args="--duration=15 --all --output-name=$(find rescue_robot)/results/map_2BagFile.bag"
+		if="$(arg run_rosbag)"
+/>
 </launch>
