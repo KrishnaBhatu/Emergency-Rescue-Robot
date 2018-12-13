@@ -61,6 +61,6 @@ TEST(BotTest, moveForwardTest) {
   Camera camera;
   Sensor sensor;
   Bot bot(&sensor, &camera);
-  bot.moveForward(0.5);
+  bot.moveForward(2.0);
   EXPECT_EQ(1.0, bot.getMaxSpeed());
 }

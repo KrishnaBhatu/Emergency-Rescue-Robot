@@ -208,11 +208,12 @@ void Bot::turnLeft(double desiredAngle) {
 /// move forward by certain distance
 void Bot::moveForward(double desiredPos) {
   ros::Time start = ros::Time::now();
-  ros::Duration duration(1, 0);
+  ros::Duration duration(2, 0);
   ros::Rate loop_rate(10);
-  maxSpeed = 1.0;
+  /// velocity = distance / time
+  maxSpeed = desiredPos / 2;
   while ((ros::Time::now() - start) < duration) {
-    msg.linear.x = desiredPos;
+    msg.linear.x = maxSpeed;
     msg.angular.z = 0.0;
     pubVel.publish(msg);
     ros::spinOnce();
@@ -241,7 +242,7 @@ void Bot::checkFreeDirection() {
            sensor->getLeftReading());
   if (isnanf(sensor->getForwardReading()) || sensor->getForwardReading() > 4) {
     ROS_INFO("Forward Path is longer");
-    moveForward(2.0);
+    moveForward(1);
     maxSpeed = 0.5;
     return;
   }
