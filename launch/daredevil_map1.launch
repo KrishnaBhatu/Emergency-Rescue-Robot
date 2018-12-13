@@ -16,7 +16,7 @@
 		pkg="rosbag"
 		name="record"
 		type="record"
-		args="--duration=15 --all --output-name=$(find rescue_robot)/results/map_1BagFile.bag"
+		args="--duration=15 --all --output-name=$(find rescue_robot)/results/map_1BagFile.bag -x /camera/(.*)"
 		if="$(arg run_rosbag)"
 />
 </launch>
