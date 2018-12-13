@@ -126,7 +126,7 @@ void Bot::startMotion() {
         return;
         }
       if (nextTurnRight) {
-        msg.angular.z = -0.5;
+        msg.angular.z = -0.48;
         ROS_INFO_STREAM("Right Turn Initiate");
           camera->setNowTurn(0);
         if (isnanf(sensor->getForwardReading())
@@ -138,7 +138,7 @@ void Bot::startMotion() {
         }
         }
       if (nextTurnLeft) {
-        msg.angular.z = 0.5;
+        msg.angular.z = 0.48;
         ROS_INFO_STREAM("Left Turn Initiate");
           camera->setNowTurn(0);
         if (isnanf(sensor->getForwardReading())
@@ -174,12 +174,6 @@ float Bot::getMaxSpeed() {
 /// turn the robot in right direction
 void Bot::turnRight(double desiredAngle) {
   ROS_INFO("Turning in right direction");
-  /// clear previously stored sign flags
-  nextTurnRight = false;
-  nextTurnLeft = false;
-  camera->setNowTurn(0);
-  camera->setCountB(0);
-  camera->setSignDetected(false);
   ros::Rate loop_rate(10);
   desiredAngle = desiredAngle - sensor->getCurrentYaw();
   while (ros::ok()) {
@@ -197,12 +191,6 @@ void Bot::turnRight(double desiredAngle) {
 /// turn the robot in left direction
 void Bot::turnLeft(double desiredAngle) {
   ROS_INFO("Turning in left direction");
-  /// clear previously stored sign flags
-  nextTurnRight = false;
-  nextTurnLeft = false;
-  camera->setNowTurn(0);
-  camera->setCount(0);
-  camera->setSignDetected(false);
   ros::Rate loop_rate(10);
   desiredAngle = sensor->getCurrentYaw() + desiredAngle;
   while (ros::ok()) {
@@ -220,7 +208,7 @@ void Bot::turnLeft(double desiredAngle) {
 /// move forward by certain distance
 void Bot::moveForward(double desiredPos) {
   ros::Time start = ros::Time::now();
-  ros::Duration duration(2, 0);
+  ros::Duration duration(1, 0);
   ros::Rate loop_rate(10);
   maxSpeed = 1.0;
   while ((ros::Time::now() - start) < duration) {

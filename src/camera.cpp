@@ -78,7 +78,6 @@ void Camera::checkImage(const sensor_msgs::Image::ConstPtr& dataImage) {
             nowTurn = 5;
           }
         }
-        break;
       }
     }
   }
@@ -102,11 +101,11 @@ void Camera::checkImage(const sensor_msgs::Image::ConstPtr& dataImage) {
             countB = 0;
             nowTurn = 10;
           }
-            }
-        break;
-          }
         }
+        break;
       }
+    }
+  }
   cv::Mat imageHSVR;
   cv::Mat maskR;
   cv::Mat resR;
