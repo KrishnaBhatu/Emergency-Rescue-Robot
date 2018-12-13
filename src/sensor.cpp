@@ -40,21 +40,21 @@ Sensor::Sensor()
       forwardReading(0),
       rightReading(0),
       leftReading(0) {
-  /// Subscribe to /scan topic where we get obstacle distance
+  // Subscribe to /scan topic where we get obstacle distance
   subSensor = nh.subscribe < sensor_msgs::LaserScan
        > ("/scan", 10, &Sensor::sensorCallback, this);
-  /// Subscribe to /odom topic to get the position
+  // Subscribe to /odom topic to get the position
   odom = nh.subscribe("/odom", 10, &Sensor::odomCallback, this);
 }
 Sensor::~Sensor() {
 }
 void Sensor::sensorCallback(const sensor_msgs::LaserScan::ConstPtr& msg) {
-  /// ranges array contains float values of sensor reading
+  // ranges array contains float values of sensor reading
   rightReading = msg->ranges[0];
   forwardReading = msg->ranges[319];
   leftReading = msg->ranges[msg->ranges.size() - 1];
-  /// Read all readings of the sensor and check if any object/wall
-  /// is within the safe distance.
+  // Read all readings of the sensor and check if any object/wall
+  // is within the safe distance.
   for (const float &m : msg->ranges) {
     if (m < safeDistance) {
       obstacleDetected = true;

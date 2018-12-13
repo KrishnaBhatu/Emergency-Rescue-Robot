@@ -34,13 +34,13 @@
  */
 #include "../include/bot.h"
 int main(int argc, char* argv[]) {
-  /// Initialize the ros node
+  // Initialize the ros node
   ros::init(argc, argv, "turtlebot_walker");
   ros::WallDuration(1, 0).sleep();
-  /// Create the sensor objects
+  // Create the sensor objects
   Camera camera;
   Sensor sensor;
-  /// Create the bot object
+  // Create the bot object
   Bot robot(&sensor, &camera);
   robot.startMotion();
   return 0;

@@ -106,29 +106,29 @@ class Camera {
   bool getSignDetected();
   /**
     * @brief Set value of the integer which represents the direction of turn
-    * @param value to be set
+   * @param turn nowTurn value to be set
     * @return void
     */
-  void setNowTurn(int);
+  void setNowTurn(int turn);
   /**
     * @brief Set value of the counter which determines the time after which the
     *        robot has to take turn after detecting the left turning point
-    * @param value to be set
+   * @param c blue count value to be set
     * @return void
     */
-  void setCount(int);
+  void setCount(int c);
   /**
     * @brief Set value of the counter which determines the time after which the
     *        robot has to take turn after detecting the right turning point
-    * @param value to be set
+   * @param cB green count value to be set
     * @return void
     */
-  void setCountB(int);
+  void setCountB(int cB);
   /**
     * @brief Set the flag when sign is detected
-    * @param A boolean value that is given to the flag
+   * @param sD boolean value that is given to the flag
     * @return void
     */
-  void setSignDetected(bool);
+  void setSignDetected(bool sD);
 };
 #endif // INCLUDE_CAMERA_H_

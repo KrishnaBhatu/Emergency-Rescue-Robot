@@ -38,7 +38,7 @@ Camera::Camera()
       nowTurn(0),
       count(0),
       countB(0) {
-  /// Subscribe to /camera/rgb/image_raw topic
+  // Subscribe to /camera/rgb/image_raw topic
     subImage = nh.subscribe < sensor_msgs::Image
         > ("/camera/rgb/image_raw", 10, &Camera::checkImage, this);
 }

@@ -66,6 +66,8 @@ class Bot {
  public:
   /**
    * @brief Bot class constructor
+   * @param iSensor pointer to Sensor object
+   * @param iCamera pointer to Sensor object
    */
   Bot(Sensor* iSensor, Camera* iCamera);
   /**
@@ -84,29 +86,31 @@ class Bot {
   void resetBot();
   /**
    * @brief turn robot in right direction
-   * @param desired_angle turn angle in radians
+   * @param desiredAngle turn angle in radians
    * @return void
    */
   void turnRight(double desiredAngle);
   /**
    * @brief turn robot in left direction
-   * @param desired_angle turn angle in radians
+   * @param desiredAngle turn angle in radians
    * @return void
    */
   void turnLeft(double desiredAngle);
   /**
    * @brief move forward by some distance
-   * @param desiredPos distancez
+   * @param desiredPos distance
    * @return void
    */
   void moveForward(double desiredPos);
   /**
    * @brief if sign is not present make decisions
    * based on sensor reading to turn left or right
+   * @return void
    */
   void checkFreeDirection();
   /**
    * @brief if door is detected, move through the door
+   * @return void
    */
   void doorDetection();
   /**

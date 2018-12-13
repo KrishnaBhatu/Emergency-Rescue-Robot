@@ -33,28 +33,28 @@
  * C++ implementation for Bot class which controls motion of the robot
  */
 #include "../include/bot.h"
-/// Implementation of default Bot constructor
+// Implementation of default Bot constructor
 Bot::Bot(Sensor* iSensor, Camera* iCamera)
     : sensor(iSensor),
       camera(iCamera),
       nextTurnRight(false),
       nextTurnLeft(false),
       maxSpeed(0.5) {
-  /// Publisher to publish messages on /navi topic
+  // Publisher to publish messages on /navi topic
   pubVel = nh.advertise < geometry_msgs::Twist
       > ("/cmd_vel_mux/input/navi", 1000);
   ROS_INFO("Default ROBOT Created!");
   resetBot();
 }
-/// Destructor that resets the velocity of the bot
+// Destructor that resets the velocity of the bot
 Bot::~Bot() {
   resetBot();
 }
-/// Start the bot with obstacle avoidance functionality
+// Start the bot with obstacle avoidance functionality
 void Bot::startMotion() {
   ros::Rate loop_rate(5);
   while (ros::ok()) {
-    /// Get values from the sensor
+    // Get values from the sensor
     ROS_INFO("Right: %f, left: %f, forward: %f, nowturn: %d",
              sensor->getRightReading(), sensor->getLeftReading(),
              sensor->getForwardReading(), camera->getNowTurn());
@@ -62,7 +62,7 @@ void Bot::startMotion() {
       ROS_INFO("Wall Detected");
       msg.linear.x = 0.0;
       pubVel.publish(msg);
-      /// Adjust itself to be perpendicular to the wall
+      // Adjust itself to be perpendicular to the wall
       if (!isnanf(sensor->getRightReading())
           && !isnanf(sensor->getLeftReading()) && sensor->getRightReading() < 3
           && sensor->getLeftReading() < 3
@@ -151,13 +151,13 @@ void Bot::startMotion() {
         }
       msg.linear.x = maxSpeed;
       }
-    /// Publish the velocity information
+    // Publish the velocity information
     pubVel.publish(msg);
     ros::spinOnce();
     loop_rate.sleep();
   }
 }
-/// Set translational and rotational properties to zero
+// Set translational and rotational properties to zero
 void Bot::resetBot() {
   msg.linear.x = 0.0;
   msg.linear.y = 0.0;
@@ -167,11 +167,11 @@ void Bot::resetBot() {
   msg.angular.z = 0.0;
   pubVel.publish(msg);
 }
-/// get maximum linear speed by the bot
+// get maximum linear speed by the bot
 float Bot::getMaxSpeed() {
   return maxSpeed;
 }
-/// turn the robot in right direction
+// turn the robot in right direction
 void Bot::turnRight(double desiredAngle) {
   ROS_INFO("Turning in right direction");
   ros::Rate loop_rate(10);
@@ -188,7 +188,7 @@ void Bot::turnRight(double desiredAngle) {
     }
   }
 }
-/// turn the robot in left direction
+// turn the robot in left direction
 void Bot::turnLeft(double desiredAngle) {
   ROS_INFO("Turning in left direction");
   ros::Rate loop_rate(10);
@@ -205,12 +205,12 @@ void Bot::turnLeft(double desiredAngle) {
     }
   }
 }
-/// move forward by certain distance
+// move forward by certain distance
 void Bot::moveForward(double desiredPos) {
   ros::Time start = ros::Time::now();
   ros::Duration duration(2, 0);
   ros::Rate loop_rate(10);
-  /// velocity = distance / time
+  // velocity = distance / time
   maxSpeed = desiredPos / 2;
   while ((ros::Time::now() - start) < duration) {
     msg.linear.x = maxSpeed;
@@ -220,20 +220,20 @@ void Bot::moveForward(double desiredPos) {
     loop_rate.sleep();
   }
 }
-/// Search for the free path
+// Search for the free path
 void Bot::checkFreeDirection() {
   ROS_INFO("Checking free direction");
-  /// Get values from the sensor
+  // Get values from the sensor
   auto safeDistance = sensor->getSafeDistance();
   turnRight(1.2);
-  /// turn 60 and get right value which will be 180deg
-  /// value for original configuration
+  // turn 60 and get right value which will be 180deg
+  // value for original configuration
   ROS_INFO("Right reading: %f", sensor->getRightReading());
   auto extremeRightVal = sensor->getRightReading();
   turnLeft(1.2);
   turnLeft(1.2);
-  /// turn 60 and get left value which will be 180deg
-  /// value for original configuration
+  // turn 60 and get left value which will be 180deg
+  // value for original configuration
   ROS_INFO("Left reading: %f", sensor->getLeftReading());
   auto extremeLeftVal = sensor->getLeftReading();
   turnRight(1.2);
@@ -276,7 +276,7 @@ void Bot::checkFreeDirection() {
     return;
   }
 }
-/// Pass through the door without colliding
+// Pass through the door without colliding
 void Bot::doorDetection() {
   ros::Time start = ros::Time::now();
   ros::Duration duration(12, 0);
