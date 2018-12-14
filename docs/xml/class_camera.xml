@@ -1,0 +1,424 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="class_camera" kind="class" language="C++" prot="public">
+    <compoundname>Camera</compoundname>
+    <includes refid="camera_8h" local="no">camera.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_camera_1a5cad2aac63933c6112ba3645ccbab7b7" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber Camera::subImage</definition>
+        <argsstring></argsstring>
+        <name>subImage</name>
+        <briefdescription>
+<para>Subscriber to images. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" line="47" column="1" bodyfile="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_camera_1aa3f6bb43c9365a1167714eb5190d7243" prot="private" static="no" mutable="no">
+        <type>cv_bridge::CvImagePtr</type>
+        <definition>cv_bridge::CvImagePtr Camera::cv_ptr</definition>
+        <argsstring></argsstring>
+        <name>cv_ptr</name>
+        <briefdescription>
+<para>Pointer to an image. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" line="49" column="1" bodyfile="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_camera_1a212bb0a6d7d67c3fff6eeeb5f2e8ce2e" prot="private" static="no" mutable="no">
+        <type>cv::Scalar</type>
+        <definition>cv::Scalar Camera::lowerRed</definition>
+        <argsstring></argsstring>
+        <name>lowerRed</name>
+        <briefdescription>
+<para>HSV vlaue for Red lower bound. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" line="51" column="1" bodyfile="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_camera_1a9ac1fc448135710ae600e4fe30346884" prot="private" static="no" mutable="no">
+        <type>cv::Scalar</type>
+        <definition>cv::Scalar Camera::higherRed</definition>
+        <argsstring></argsstring>
+        <name>higherRed</name>
+        <briefdescription>
+<para>HSV vlaue for Red higher bound. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" line="53" column="1" bodyfile="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_camera_1a5c3b932218027d3c6c510546288c93be" prot="private" static="no" mutable="no">
+        <type>cv::Scalar</type>
+        <definition>cv::Scalar Camera::lowerGreen</definition>
+        <argsstring></argsstring>
+        <name>lowerGreen</name>
+        <briefdescription>
+<para>HSV vlaue for Green lower bound. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" line="55" column="1" bodyfile="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_camera_1a834a625982d096ab8c435ca9df091737" prot="private" static="no" mutable="no">
+        <type>cv::Scalar</type>
+        <definition>cv::Scalar Camera::higherGreen</definition>
+        <argsstring></argsstring>
+        <name>higherGreen</name>
+        <briefdescription>
+<para>HSV vlaue for Green higher bound. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" line="57" column="1" bodyfile="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_camera_1a8a777b5f3e6d2c055b8ee622103a3e08" prot="private" static="no" mutable="no">
+        <type>cv::Scalar</type>
+        <definition>cv::Scalar Camera::lowerBlue</definition>
+        <argsstring></argsstring>
+        <name>lowerBlue</name>
+        <briefdescription>
+<para>HSV vlaue for Blue lower bound. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" line="59" column="1" bodyfile="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_camera_1a4aef0595b1fec2b3e38eefb5a5c21cfc" prot="private" static="no" mutable="no">
+        <type>cv::Scalar</type>
+        <definition>cv::Scalar Camera::higherBlue</definition>
+        <argsstring></argsstring>
+        <name>higherBlue</name>
+        <briefdescription>
+<para>HSV vlaue for Blue higher bound. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" line="61" column="1" bodyfile="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_camera_1a5791ef345f719ea7747ba3e2c017fd6a" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Camera::nowTurn</definition>
+        <argsstring></argsstring>
+        <name>nowTurn</name>
+        <briefdescription>
+<para>Indicate when to start to turn as per the sign. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" line="63" column="1" bodyfile="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_camera_1a2d8958392b67bc37090ead843af51a71" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Camera::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <briefdescription>
+<para>Sign position tracker for green arrow. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" line="65" column="1" bodyfile="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_camera_1a8544ca9432e62957eec89fba33b3cefe" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Camera::countB</definition>
+        <argsstring></argsstring>
+        <name>countB</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Sign position tracker for bluw arrow. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" line="67" column="1" bodyfile="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_camera_1a83af6914a14bbe6da2d2938746c9a97f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Camera::signDetected</definition>
+        <argsstring></argsstring>
+        <name>signDetected</name>
+        <briefdescription>
+<para>Check if sign is detected. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" line="69" column="1" bodyfile="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_camera_1a8e5072bfde6efd4cb45a7231cca8ed52" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle Camera::nh</definition>
+        <argsstring></argsstring>
+        <name>nh</name>
+        <briefdescription>
+<para>Initiate NodeHandle object. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" line="71" column="1" bodyfile="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_camera_1a01f94c3543f56ede7af49dc778f19331" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Camera::Camera</definition>
+        <argsstring>()</argsstring>
+        <name>Camera</name>
+        <briefdescription>
+<para>Default constructor for <ref refid="class_camera" kindref="compound">Camera</ref>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" line="76" column="1" bodyfile="camera.cpp" bodystart="36" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="class_camera_1ad1897942d0ccf91052386388a497349f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Camera::~Camera</definition>
+        <argsstring>()</argsstring>
+        <name>~Camera</name>
+        <briefdescription>
+<para>Default destructor for <ref refid="class_camera" kindref="compound">Camera</ref>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" line="80" column="1" bodyfile="camera.cpp" bodystart="45" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="class_camera_1a0b67f2af6df1296fb25f3b0e160cc99f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Camera::checkImage</definition>
+        <argsstring>(const sensor_msgs::Image::ConstPtr &amp;dataImage)</argsstring>
+        <name>checkImage</name>
+        <param>
+          <type>const sensor_msgs::Image::ConstPtr &amp;</type>
+          <declname>dataImage</declname>
+        </param>
+        <briefdescription>
+<para>Callback function for camera subscriber. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>data from camera node </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>void </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" line="86" column="1" bodyfile="camera.cpp" bodystart="47" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="class_camera_1a6b27e3016f42ac8af96601426e009c1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Camera::getNowTurn</definition>
+        <argsstring>()</argsstring>
+        <name>getNowTurn</name>
+        <briefdescription>
+<para>Get status for making turning decision. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>int </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" line="91" column="1" bodyfile="camera.cpp" bodystart="131" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="class_camera_1ac33d3b84891fdc56e4cce90e59be1905" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Camera::getCount</definition>
+        <argsstring>()</argsstring>
+        <name>getCount</name>
+        <briefdescription>
+<para>Get value of sign tracker for green arrow. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>int </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" line="96" column="1" bodyfile="camera.cpp" bodystart="134" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="class_camera_1ae345bbfa5530387acf5143a3e70bf103" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Camera::getCountB</definition>
+        <argsstring>()</argsstring>
+        <name>getCountB</name>
+        <briefdescription>
+<para>Get value of sign tracker for blue arrow. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>int </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" line="101" column="1" bodyfile="camera.cpp" bodystart="137" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="class_camera_1a0f8951959a2822e6b729a9fe05b428ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Camera::getSignDetected</definition>
+        <argsstring>()</argsstring>
+        <name>getSignDetected</name>
+        <briefdescription>
+<para>Check if sign is detected. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>bool </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" line="106" column="1" bodyfile="camera.cpp" bodystart="140" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="class_camera_1a77cd72118fd9d03e04beaf60f7345138" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Camera::setNowTurn</definition>
+        <argsstring>(int turn)</argsstring>
+        <name>setNowTurn</name>
+        <param>
+          <type>int</type>
+          <declname>turn</declname>
+        </param>
+        <briefdescription>
+<para>Set value of the integer which represents the direction of turn. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>turn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>nowTurn value to be set </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>void </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" line="112" column="1" bodyfile="camera.cpp" bodystart="143" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="class_camera_1a3186b8e7cf648308237a2ba440379e34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Camera::setCount</definition>
+        <argsstring>(int c)</argsstring>
+        <name>setCount</name>
+        <param>
+          <type>int</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Set value of the counter which determines the time after which the robot has to take turn after detecting the left turning point. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>blue count value to be set </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>void </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" line="119" column="1" bodyfile="camera.cpp" bodystart="146" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="class_camera_1a66d6f05a42feb58468bc4039b07b1b23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Camera::setCountB</definition>
+        <argsstring>(int cB)</argsstring>
+        <name>setCountB</name>
+        <param>
+          <type>int</type>
+          <declname>cB</declname>
+        </param>
+        <briefdescription>
+<para>Set value of the counter which determines the time after which the robot has to take turn after detecting the right turning point. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>green count value to be set </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>void </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" line="126" column="1" bodyfile="camera.cpp" bodystart="149" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="class_camera_1ab51102514272832890346b414759e716" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Camera::setSignDetected</definition>
+        <argsstring>(bool sD)</argsstring>
+        <name>setSignDetected</name>
+        <param>
+          <type>bool</type>
+          <declname>sD</declname>
+        </param>
+        <briefdescription>
+<para>Set the flag when sign is detected. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sD</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean value that is given to the flag </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>void </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" line="132" column="1" bodyfile="camera.cpp" bodystart="152" bodyend="154"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" line="44" column="1" bodyfile="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h" bodystart="44" bodyend="133"/>
+    <listofallmembers>
+      <member refid="class_camera_1a01f94c3543f56ede7af49dc778f19331" prot="public" virt="non-virtual"><scope>Camera</scope><name>Camera</name></member>
+      <member refid="class_camera_1a0b67f2af6df1296fb25f3b0e160cc99f" prot="public" virt="non-virtual"><scope>Camera</scope><name>checkImage</name></member>
+      <member refid="class_camera_1a2d8958392b67bc37090ead843af51a71" prot="private" virt="non-virtual"><scope>Camera</scope><name>count</name></member>
+      <member refid="class_camera_1a8544ca9432e62957eec89fba33b3cefe" prot="private" virt="non-virtual"><scope>Camera</scope><name>countB</name></member>
+      <member refid="class_camera_1aa3f6bb43c9365a1167714eb5190d7243" prot="private" virt="non-virtual"><scope>Camera</scope><name>cv_ptr</name></member>
+      <member refid="class_camera_1ac33d3b84891fdc56e4cce90e59be1905" prot="public" virt="non-virtual"><scope>Camera</scope><name>getCount</name></member>
+      <member refid="class_camera_1ae345bbfa5530387acf5143a3e70bf103" prot="public" virt="non-virtual"><scope>Camera</scope><name>getCountB</name></member>
+      <member refid="class_camera_1a6b27e3016f42ac8af96601426e009c1b" prot="public" virt="non-virtual"><scope>Camera</scope><name>getNowTurn</name></member>
+      <member refid="class_camera_1a0f8951959a2822e6b729a9fe05b428ef" prot="public" virt="non-virtual"><scope>Camera</scope><name>getSignDetected</name></member>
+      <member refid="class_camera_1a4aef0595b1fec2b3e38eefb5a5c21cfc" prot="private" virt="non-virtual"><scope>Camera</scope><name>higherBlue</name></member>
+      <member refid="class_camera_1a834a625982d096ab8c435ca9df091737" prot="private" virt="non-virtual"><scope>Camera</scope><name>higherGreen</name></member>
+      <member refid="class_camera_1a9ac1fc448135710ae600e4fe30346884" prot="private" virt="non-virtual"><scope>Camera</scope><name>higherRed</name></member>
+      <member refid="class_camera_1a8a777b5f3e6d2c055b8ee622103a3e08" prot="private" virt="non-virtual"><scope>Camera</scope><name>lowerBlue</name></member>
+      <member refid="class_camera_1a5c3b932218027d3c6c510546288c93be" prot="private" virt="non-virtual"><scope>Camera</scope><name>lowerGreen</name></member>
+      <member refid="class_camera_1a212bb0a6d7d67c3fff6eeeb5f2e8ce2e" prot="private" virt="non-virtual"><scope>Camera</scope><name>lowerRed</name></member>
+      <member refid="class_camera_1a8e5072bfde6efd4cb45a7231cca8ed52" prot="private" virt="non-virtual"><scope>Camera</scope><name>nh</name></member>
+      <member refid="class_camera_1a5791ef345f719ea7747ba3e2c017fd6a" prot="private" virt="non-virtual"><scope>Camera</scope><name>nowTurn</name></member>
+      <member refid="class_camera_1a3186b8e7cf648308237a2ba440379e34" prot="public" virt="non-virtual"><scope>Camera</scope><name>setCount</name></member>
+      <member refid="class_camera_1a66d6f05a42feb58468bc4039b07b1b23" prot="public" virt="non-virtual"><scope>Camera</scope><name>setCountB</name></member>
+      <member refid="class_camera_1a77cd72118fd9d03e04beaf60f7345138" prot="public" virt="non-virtual"><scope>Camera</scope><name>setNowTurn</name></member>
+      <member refid="class_camera_1ab51102514272832890346b414759e716" prot="public" virt="non-virtual"><scope>Camera</scope><name>setSignDetected</name></member>
+      <member refid="class_camera_1a83af6914a14bbe6da2d2938746c9a97f" prot="private" virt="non-virtual"><scope>Camera</scope><name>signDetected</name></member>
+      <member refid="class_camera_1a5cad2aac63933c6112ba3645ccbab7b7" prot="private" virt="non-virtual"><scope>Camera</scope><name>subImage</name></member>
+      <member refid="class_camera_1ad1897942d0ccf91052386388a497349f" prot="public" virt="non-virtual"><scope>Camera</scope><name>~Camera</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

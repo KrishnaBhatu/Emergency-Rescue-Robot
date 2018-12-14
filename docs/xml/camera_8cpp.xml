@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="camera_8cpp" kind="file" language="C++">
+    <compoundname>camera.cpp</compoundname>
+    <includes refid="camera_8h" local="yes">../include/camera.h</includes>
+    <incdepgraph>
+      <node id="72">
+        <label>image_transport/image_transport.h</label>
+      </node>
+      <node id="71">
+        <label>sensor_msgs/Image.h</label>
+      </node>
+      <node id="73">
+        <label>cv_bridge/cv_bridge.h</label>
+      </node>
+      <node id="77">
+        <label>fstream</label>
+      </node>
+      <node id="70">
+        <label>../include/camera.h</label>
+        <link refid="camera_8h"/>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+      </node>
+      <node id="74">
+        <label>sensor_msgs/image_encodings.h</label>
+      </node>
+      <node id="75">
+        <label>opencv2/imgproc/imgproc.hpp</label>
+      </node>
+      <node id="69">
+        <label>camera.cpp</label>
+        <link refid="camera_8cpp"/>
+        <childnode refid="70" relation="include">
+        </childnode>
+      </node>
+      <node id="76">
+        <label>opencv2/highgui/highgui.hpp</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+<para><ref refid="class_camera" kindref="compound">Camera</ref> class implementation;. </para>    </briefdescription>
+    <detaileddescription>
+<para>BSD 3-Clause License <simplesect kind="copyright"><para>(c) 2018, Krishna Bhatu, Siddhesh Rane All rights reserved. Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</para></simplesect>
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</para><para><simplesect kind="author"><para>Krishna Bhatu, Siddhesh Rane </para></simplesect>
+<simplesect kind="version"><para>1.0 </para></simplesect>
+</para><sect1 id="sensor_8cpp_1DESCRIPTION">
+<title>DESCRIPTION</title>
+<para>C++ implementation for <ref refid="class_camera" kindref="compound">Camera</ref> which collects image data. </para></sect1>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="35"><highlight class="preprocessor">#include<sp/>&quot;../include/camera.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="class_camera_1a01f94c3543f56ede7af49dc778f19331" refkind="member"><highlight class="normal"><ref refid="class_camera_1a01f94c3543f56ede7af49dc778f19331" kindref="member">Camera::Camera</ref>()</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>signDetected(false),</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>nowTurn(0),</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>count(0),</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>countB(0)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Subscribe<sp/>to<sp/>/camera/rgb/image_raw<sp/>topic</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>subImage<sp/>=<sp/>nh.subscribe<sp/>&lt;<sp/>sensor_msgs::Image</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;<sp/>(</highlight><highlight class="stringliteral">&quot;/camera/rgb/image_raw&quot;</highlight><highlight class="normal">,<sp/>10,<sp/>&amp;<ref refid="class_camera_1a0b67f2af6df1296fb25f3b0e160cc99f" kindref="member">Camera::checkImage</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="45" refid="class_camera_1ad1897942d0ccf91052386388a497349f" refkind="member"><highlight class="normal"><ref refid="class_camera_1ad1897942d0ccf91052386388a497349f" kindref="member">Camera::~Camera</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="47" refid="class_camera_1a0b67f2af6df1296fb25f3b0e160cc99f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_camera_1a0b67f2af6df1296fb25f3b0e160cc99f" kindref="member">Camera::checkImage</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>sensor_msgs::Image::ConstPtr&amp;<sp/>dataImage)<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>cv_ptr<sp/>=<sp/>cv_bridge::toCvCopy(dataImage,<sp/>sensor_msgs::image_encodings::BGR8);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(cv_bridge::Exception<sp/>&amp;e)<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>lowerRed<sp/>=<sp/>cv::Scalar(0,<sp/>70,<sp/>50);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>higherRed<sp/>=<sp/>cv::Scalar(10,<sp/>255,<sp/>250);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>lowerGreen<sp/>=<sp/>cv::Scalar(45,<sp/>100,<sp/>50);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>higherGreen<sp/>=<sp/>cv::Scalar(65,<sp/>255,<sp/>255);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>lowerBlue<sp/>=<sp/>cv::Scalar(110,<sp/>50,<sp/>50);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>higherBlue<sp/>=<sp/>cv::Scalar(130,<sp/>255,<sp/>255);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>cv::Mat<sp/>imageHSV;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>cv::Mat<sp/>mask;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>cv::Mat<sp/>res;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>cv::Mat<sp/>res_gray;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>cv::Mat<sp/>thresh;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>cv::cvtColor(cv_ptr-&gt;image,<sp/>imageHSV,<sp/>cv::COLOR_BGR2HSV);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>cv::inRange(imageHSV,<sp/>lowerGreen,<sp/>higherGreen,<sp/>mask);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>cv::bitwise_and(imageHSV,<sp/>imageHSV,<sp/>res,<sp/>mask);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>cv::cvtColor(res,<sp/>res_gray,<sp/>CV_BGR2GRAY);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>cv::threshold(res_gray,<sp/>thresh,<sp/>40,<sp/>255,<sp/>cv::THRESH_BINARY);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>thresh.size().height;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>thresh.size().width;<sp/>j++)<sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(thresh.at&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">&gt;(i,<sp/>j)<sp/>==<sp/>255)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>signDetected<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>&lt;<sp/>2)<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>count<sp/>=<sp/>count<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;count:<sp/>%d&quot;</highlight><highlight class="normal">,<sp/>count);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(count<sp/>&gt;<sp/>45)<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>count<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nowTurn<sp/>=<sp/>5;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>cv::Mat<sp/>imageHSVB;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>cv::Mat<sp/>maskB;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>cv::Mat<sp/>resB;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>cv::Mat<sp/>res_grayB;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/>cv::Mat<sp/>threshB;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>cv::cvtColor(cv_ptr-&gt;image,<sp/>imageHSVB,<sp/>cv::COLOR_BGR2HSV);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/>cv::inRange(imageHSVB,<sp/>lowerBlue,<sp/>higherBlue,<sp/>maskB);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>cv::bitwise_and(imageHSVB,<sp/>imageHSVB,<sp/>resB,<sp/>maskB);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>cv::cvtColor(resB,<sp/>res_grayB,<sp/>CV_BGR2GRAY);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>cv::threshold(res_grayB,<sp/>threshB,<sp/>40,<sp/>255,<sp/>cv::THRESH_BINARY);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>threshB.size().height;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>threshB.size().width;<sp/>j++)<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(threshB.at&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">&gt;(i,<sp/>j)<sp/>==<sp/>255)<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>signDetected<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>&lt;<sp/>2)<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>countB<sp/>=<sp/>countB<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(countB<sp/>&gt;<sp/>45)<sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>countB<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nowTurn<sp/>=<sp/>10;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>cv::Mat<sp/>imageHSVR;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>cv::Mat<sp/>maskR;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>cv::Mat<sp/>resR;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/>cv::Mat<sp/>res_grayR;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>cv::Mat<sp/>threshR;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/>cv::cvtColor(cv_ptr-&gt;image,<sp/>imageHSVR,<sp/>cv::COLOR_BGR2HSV);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>cv::inRange(imageHSVR,<sp/>lowerRed,<sp/>higherRed,<sp/>maskR);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>cv::bitwise_and(imageHSVR,<sp/>imageHSVR,<sp/>resR,<sp/>maskR);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>cv::cvtColor(resR,<sp/>res_grayR,<sp/>CV_BGR2GRAY);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/>cv::threshold(res_grayR,<sp/>threshR,<sp/>40,<sp/>255,<sp/>cv::THRESH_BINARY);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>threshR.size().height;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>threshR.size().width;<sp/>j++)<sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(threshR.at&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">&gt;(i,<sp/>j)<sp/>==<sp/>255)<sp/>{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>signDetected<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>&lt;<sp/>2)<sp/>{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nowTurn<sp/>=<sp/>15;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="131" refid="class_camera_1a6b27e3016f42ac8af96601426e009c1b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_camera_1a6b27e3016f42ac8af96601426e009c1b" kindref="member">Camera::getNowTurn</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nowTurn;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="134" refid="class_camera_1ac33d3b84891fdc56e4cce90e59be1905" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_camera_1ac33d3b84891fdc56e4cce90e59be1905" kindref="member">Camera::getCount</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>count;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="137" refid="class_camera_1ae345bbfa5530387acf5143a3e70bf103" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_camera_1ae345bbfa5530387acf5143a3e70bf103" kindref="member">Camera::getCountB</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>countB;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="140" refid="class_camera_1a0f8951959a2822e6b729a9fe05b428ef" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_camera_1a0f8951959a2822e6b729a9fe05b428ef" kindref="member">Camera::getSignDetected</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>signDetected;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="143" refid="class_camera_1a77cd72118fd9d03e04beaf60f7345138" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_camera_1a77cd72118fd9d03e04beaf60f7345138" kindref="member">Camera::setNowTurn</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>turn)<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/>nowTurn<sp/>=<sp/>turn;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="146" refid="class_camera_1a3186b8e7cf648308237a2ba440379e34" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_camera_1a3186b8e7cf648308237a2ba440379e34" kindref="member">Camera::setCount</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>c)<sp/>{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/>count<sp/>=<sp/>c;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="149" refid="class_camera_1a66d6f05a42feb58468bc4039b07b1b23" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_camera_1a66d6f05a42feb58468bc4039b07b1b23" kindref="member">Camera::setCountB</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cB)<sp/>{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/>countB<sp/>=<sp/>cB;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="152" refid="class_camera_1ab51102514272832890346b414759e716" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_camera_1ab51102514272832890346b414759e716" kindref="member">Camera::setSignDetected</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>sD)<sp/>{</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/>signDetected<sp/>=<sp/>sD;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="camera.cpp"/>
+  </compounddef>
+</doxygen>

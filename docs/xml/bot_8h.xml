@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="bot_8h" kind="file" language="C++">
+    <compoundname>bot.h</compoundname>
+    <includes local="yes">ros/ros.h</includes>
+    <includes local="yes">geometry_msgs/Twist.h</includes>
+    <includes local="no">math.h</includes>
+    <includes refid="sensor_8h" local="yes">sensor.h</includes>
+    <includes refid="camera_8h" local="yes">camera.h</includes>
+    <includedby refid="bot_8cpp" local="yes">bot.cpp</includedby>
+    <includedby refid="main_8cpp" local="yes">main.cpp</includedby>
+    <incdepgraph>
+      <node id="10">
+        <label>tf/transform_listener.h</label>
+      </node>
+      <node id="8">
+        <label>tf/LinearMath/Matrix3x3.h</label>
+      </node>
+      <node id="13">
+        <label>image_transport/image_transport.h</label>
+      </node>
+      <node id="6">
+        <label>nav_msgs/Odometry.h</label>
+      </node>
+      <node id="12">
+        <label>sensor_msgs/Image.h</label>
+      </node>
+      <node id="14">
+        <label>cv_bridge/cv_bridge.h</label>
+      </node>
+      <node id="9">
+        <label>tf/tf.h</label>
+      </node>
+      <node id="18">
+        <label>fstream</label>
+      </node>
+      <node id="11">
+        <label>camera.h</label>
+        <link refid="camera_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="0">
+        <label>/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/bot.h</label>
+        <link refid="bot_8h"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>sensor_msgs/image_encodings.h</label>
+      </node>
+      <node id="7">
+        <label>tf/transform_datatypes.h</label>
+      </node>
+      <node id="16">
+        <label>opencv2/imgproc/imgproc.hpp</label>
+      </node>
+      <node id="2">
+        <label>geometry_msgs/Twist.h</label>
+      </node>
+      <node id="4">
+        <label>sensor.h</label>
+        <link refid="sensor_8h"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ros/ros.h</label>
+      </node>
+      <node id="3">
+        <label>math.h</label>
+      </node>
+      <node id="17">
+        <label>opencv2/highgui/highgui.hpp</label>
+      </node>
+      <node id="5">
+        <label>sensor_msgs/LaserScan.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="19">
+        <label>/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/bot.h</label>
+        <link refid="bot_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+      <node id="20">
+        <label>bot.cpp</label>
+        <link refid="bot_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_bot" prot="public">Bot</innerclass>
+    <briefdescription>
+<para><ref refid="class_bot" kindref="compound">Bot</ref> class implementation;. </para>    </briefdescription>
+    <detaileddescription>
+<para>BSD 3-Clause License <simplesect kind="copyright"><para>(c) 2018, Krishna Bhatu, Siddhesh Rane All rights reserved. Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</para></simplesect>
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</para><para><simplesect kind="author"><para>Krishna Bhatu, Siddhesh Rane </para></simplesect>
+<simplesect kind="version"><para>1.0 </para></simplesect>
+</para><sect1 id="sensor_8cpp_1DESCRIPTION">
+<title>DESCRIPTION</title>
+<para>C++ header file for <ref refid="class_bot" kindref="compound">Bot</ref> class which controls motion of the robot . </para></sect1>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="35"><highlight class="preprocessor">#ifndef<sp/>INCLUDE_BOT_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>INCLUDE_BOT_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ros/ros.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;geometry_msgs/Twist.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;math.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="sensor_8h" kindref="compound">sensor.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="camera_8h" kindref="compound">camera.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="class_bot" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_bot" kindref="compound">Bot</ref><sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>geometry_msgs::Twist<sp/>msg;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>ros::Publisher<sp/>pubVel;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>ros::Subscriber<sp/>subSensor;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>ros::Subscriber<sp/>odom;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>ros::Subscriber<sp/>subImage;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>maxSpeed;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>ros::NodeHandle<sp/>nh;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>nextTurnRight;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>nextTurnLeft;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><ref refid="class_sensor" kindref="compound">Sensor</ref>*<sp/>sensor;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><ref refid="class_camera" kindref="compound">Camera</ref>*<sp/>camera;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><ref refid="class_bot_1a14b4bfcbda8c051d8447e73073567b50" kindref="member">Bot</ref>(<ref refid="class_sensor" kindref="compound">Sensor</ref>*<sp/>iSensor,<sp/><ref refid="class_camera" kindref="compound">Camera</ref>*<sp/>iCamera);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><ref refid="class_bot_1a4163b0f6c91f94cbeb3145eeda8cd361" kindref="member">~Bot</ref>();</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bot_1a5c1f98ef7f22894832865c5987d184c3" kindref="member">startMotion</ref>();</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bot_1aeae87db5fd2d6a130587f665e39a6557" kindref="member">resetBot</ref>();</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bot_1a07fd8d141a617b711eee7ab3c9e99171" kindref="member">turnRight</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>desiredAngle);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bot_1a6f9bf5628c1faedb8da493b381ba95ac" kindref="member">turnLeft</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>desiredAngle);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bot_1abc25556b72a44e45056d161eaa48e1c6" kindref="member">moveForward</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>desiredPos);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bot_1ab20d03ffaf12e27a1ee84714a3e83950" kindref="member">checkFreeDirection</ref>();</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bot_1a308e7e40f00a853d1397cfafcb7d2cd5" kindref="member">doorDetection</ref>();</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_bot_1a4a3b192232d8b938f11c1d253795c222" kindref="member">getMaxSpeed</ref>();</highlight></codeline>
+<codeline lineno="121"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/>//<sp/>INCLUDE_BOT_H_</highlight></codeline>
+    </programlisting>
+    <location file="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/bot.h"/>
+  </compounddef>
+</doxygen>

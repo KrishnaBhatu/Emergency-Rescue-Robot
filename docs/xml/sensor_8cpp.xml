@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="sensor_8cpp" kind="file" language="C++">
+    <compoundname>sensor.cpp</compoundname>
+    <includes refid="sensor_8h" local="yes">../include/sensor.h</includes>
+    <incdepgraph>
+      <node id="108">
+        <label>tf/transform_listener.h</label>
+      </node>
+      <node id="106">
+        <label>tf/LinearMath/Matrix3x3.h</label>
+      </node>
+      <node id="104">
+        <label>nav_msgs/Odometry.h</label>
+      </node>
+      <node id="107">
+        <label>tf/tf.h</label>
+      </node>
+      <node id="105">
+        <label>tf/transform_datatypes.h</label>
+      </node>
+      <node id="101">
+        <label>../include/sensor.h</label>
+        <link refid="sensor_8h"/>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="104" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+        <childnode refid="108" relation="include">
+        </childnode>
+      </node>
+      <node id="100">
+        <label>sensor.cpp</label>
+        <link refid="sensor_8cpp"/>
+        <childnode refid="101" relation="include">
+        </childnode>
+      </node>
+      <node id="102">
+        <label>ros/ros.h</label>
+      </node>
+      <node id="103">
+        <label>sensor_msgs/LaserScan.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+<para>walker class implementation; </para>    </briefdescription>
+    <detaileddescription>
+<para>BSD 3-Clause License <simplesect kind="copyright"><para>(c) 2018, Krishna Bhatu, Siddhesh Rane All rights reserved. Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</para></simplesect>
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</para><para><simplesect kind="author"><para>Krishna Bhatu, Siddhesh Rane </para></simplesect>
+<simplesect kind="version"><para>1.0 </para></simplesect>
+</para><sect1 id="sensor_8cpp_1DESCRIPTION">
+<title>DESCRIPTION</title>
+<para>C++ implementation for <ref refid="class_sensor" kindref="compound">Sensor</ref> class which collects lazer and odometry sensor data. </para></sect1>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="36"><highlight class="preprocessor">#include<sp/>&quot;../include/sensor.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="class_sensor_1a342d6d11ef572c8cba92cb76fb1a294b" refkind="member"><highlight class="normal"><ref refid="class_sensor_1a342d6d11ef572c8cba92cb76fb1a294b" kindref="member">Sensor::Sensor</ref>()</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>obstacleDetected(false),</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>safeDistance(1.2),</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>forwardReading(0),</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>rightReading(0),</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>leftReading(0)<sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Subscribe<sp/>to<sp/>/scan<sp/>topic<sp/>where<sp/>we<sp/>get<sp/>obstacle<sp/>distance</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>subSensor<sp/>=<sp/>nh.subscribe<sp/>&lt;<sp/>sensor_msgs::LaserScan</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;<sp/>(</highlight><highlight class="stringliteral">&quot;/scan&quot;</highlight><highlight class="normal">,<sp/>10,<sp/>&amp;<ref refid="class_sensor_1abc654feeb9c9b67efcda04b62072d828" kindref="member">Sensor::sensorCallback</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Subscribe<sp/>to<sp/>/odom<sp/>topic<sp/>to<sp/>get<sp/>the<sp/>position</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>odom<sp/>=<sp/>nh.subscribe(</highlight><highlight class="stringliteral">&quot;/odom&quot;</highlight><highlight class="normal">,<sp/>10,<sp/>&amp;<ref refid="class_sensor_1a69dc2c8fc57c2b421913fda9b1e19fbc" kindref="member">Sensor::odomCallback</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="49" refid="class_sensor_1aee8c70e7ef05ce65e7ee33686b5d7db2" refkind="member"><highlight class="normal"><ref refid="class_sensor_1aee8c70e7ef05ce65e7ee33686b5d7db2" kindref="member">Sensor::~Sensor</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="51" refid="class_sensor_1abc654feeb9c9b67efcda04b62072d828" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sensor_1abc654feeb9c9b67efcda04b62072d828" kindref="member">Sensor::sensorCallback</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>sensor_msgs::LaserScan::ConstPtr&amp;<sp/>msg)<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>ranges<sp/>array<sp/>contains<sp/>float<sp/>values<sp/>of<sp/>sensor<sp/>reading</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>rightReading<sp/>=<sp/>msg-&gt;ranges[0];</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>forwardReading<sp/>=<sp/>msg-&gt;ranges[319];</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>leftReading<sp/>=<sp/>msg-&gt;ranges[msg-&gt;ranges.size()<sp/>-<sp/>1];</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Read<sp/>all<sp/>readings<sp/>of<sp/>the<sp/>sensor<sp/>and<sp/>check<sp/>if<sp/>any<sp/>object/wall</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>is<sp/>within<sp/>the<sp/>safe<sp/>distance.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;m<sp/>:<sp/>msg-&gt;ranges)<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m<sp/>&lt;<sp/>safeDistance)<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>obstacleDetected<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>obstacleDetected<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="66" refid="class_sensor_1a69dc2c8fc57c2b421913fda9b1e19fbc" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sensor_1a69dc2c8fc57c2b421913fda9b1e19fbc" kindref="member">Sensor::odomCallback</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>nav_msgs::Odometry::ConstPtr&amp;<sp/>msg)<sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>tf::Quaternion<sp/>q(msg-&gt;pose.pose.orientation.x,<sp/>msg-&gt;pose.pose.orientation.y,</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg-&gt;pose.pose.orientation.z,<sp/>msg-&gt;pose.pose.orientation.w);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>tf::Matrix3x3<sp/>m(q);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>r,<sp/>p;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>m.getRPY(r,<sp/>p,<sp/>currentYaw);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>currentX<sp/>=<sp/>msg-&gt;pose.pose.position.x;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="74" refid="class_sensor_1a0cb8d226a7df00fa404c100f959868e6" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_sensor_1a0cb8d226a7df00fa404c100f959868e6" kindref="member">Sensor::getForwardReading</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>forwardReading;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="77" refid="class_sensor_1a784ee9b741908df505a51d0807dbbe9b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_sensor_1a784ee9b741908df505a51d0807dbbe9b" kindref="member">Sensor::getRightReading</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>rightReading;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="80" refid="class_sensor_1a68826b1eb0dcda3a0508f213a42db25b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_sensor_1a68826b1eb0dcda3a0508f213a42db25b" kindref="member">Sensor::getLeftReading</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>leftReading;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="83" refid="class_sensor_1a1984ff9826d1c92d7e91add776a4107b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_sensor_1a1984ff9826d1c92d7e91add776a4107b" kindref="member">Sensor::getCurrentYaw</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>currentYaw;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="86" refid="class_sensor_1a933dfb180d498c41862b5e14675cc97d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_sensor_1a933dfb180d498c41862b5e14675cc97d" kindref="member">Sensor::getCurrentX</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>currentX;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="89" refid="class_sensor_1af590a94a155718952a71ee842a0db661" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_sensor_1af590a94a155718952a71ee842a0db661" kindref="member">Sensor::getObstacleDetected</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>obstacleDetected;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="92" refid="class_sensor_1a1b7aad1c82fa6df205b166b311f45447" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_sensor_1a1b7aad1c82fa6df205b166b311f45447" kindref="member">Sensor::getSafeDistance</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>safeDistance;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="sensor.cpp"/>
+  </compounddef>
+</doxygen>

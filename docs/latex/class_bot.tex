@@ -1,0 +1,234 @@
+\hypertarget{class_bot}{}\section{Bot Class Reference}
+\label{class_bot}\index{Bot@{Bot}}
+
+
+{\ttfamily \#include $<$bot.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_bot_a14b4bfcbda8c051d8447e73073567b50}{Bot}} (\mbox{\hyperlink{class_sensor}{Sensor}} $\ast$i\+Sensor, \mbox{\hyperlink{class_camera}{Camera}} $\ast$i\+Camera)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_bot}{Bot}} class constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_bot_a4163b0f6c91f94cbeb3145eeda8cd361}{$\sim$\+Bot}} ()
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bot_a5c1f98ef7f22894832865c5987d184c3}{start\+Motion}} ()
+\begin{DoxyCompactList}\small\item\em Start running the bot. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bot_aeae87db5fd2d6a130587f665e39a6557}{reset\+Bot}} ()
+\begin{DoxyCompactList}\small\item\em reset velocities of the bot \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bot_a07fd8d141a617b711eee7ab3c9e99171}{turn\+Right}} (double desired\+Angle)
+\begin{DoxyCompactList}\small\item\em turn robot in right direction \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bot_a6f9bf5628c1faedb8da493b381ba95ac}{turn\+Left}} (double desired\+Angle)
+\begin{DoxyCompactList}\small\item\em turn robot in left direction \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bot_abc25556b72a44e45056d161eaa48e1c6}{move\+Forward}} (double desired\+Pos)
+\begin{DoxyCompactList}\small\item\em move forward by some distance \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bot_ab20d03ffaf12e27a1ee84714a3e83950}{check\+Free\+Direction}} ()
+\begin{DoxyCompactList}\small\item\em if sign is not present make decisions based on sensor reading to turn left or right \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bot_a308e7e40f00a853d1397cfafcb7d2cd5}{door\+Detection}} ()
+\begin{DoxyCompactList}\small\item\em if door is detected, move through the door \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_bot_a4a3b192232d8b938f11c1d253795c222}{get\+Max\+Speed}} ()
+\begin{DoxyCompactList}\small\item\em get maximum speed of robot \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 42 of file bot.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_bot_a14b4bfcbda8c051d8447e73073567b50}\label{class_bot_a14b4bfcbda8c051d8447e73073567b50}} 
+\index{Bot@{Bot}!Bot@{Bot}}
+\index{Bot@{Bot}!Bot@{Bot}}
+\subsubsection{\texorpdfstring{Bot()}{Bot()}}
+{\footnotesize\ttfamily Bot\+::\+Bot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sensor}{Sensor}} $\ast$}]{i\+Sensor,  }\item[{\mbox{\hyperlink{class_camera}{Camera}} $\ast$}]{i\+Camera }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_bot}{Bot}} class constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+Sensor} & pointer to \mbox{\hyperlink{class_sensor}{Sensor}} object \\
+\hline
+{\em i\+Camera} & pointer to \mbox{\hyperlink{class_sensor}{Sensor}} object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 37 of file bot.\+cpp.
+
+\mbox{\Hypertarget{class_bot_a4163b0f6c91f94cbeb3145eeda8cd361}\label{class_bot_a4163b0f6c91f94cbeb3145eeda8cd361}} 
+\index{Bot@{Bot}!````~Bot@{$\sim$\+Bot}}
+\index{````~Bot@{$\sim$\+Bot}!Bot@{Bot}}
+\subsubsection{\texorpdfstring{$\sim$\+Bot()}{~Bot()}}
+{\footnotesize\ttfamily Bot\+::$\sim$\+Bot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default destructor. 
+
+
+
+Definition at line 50 of file bot.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_bot_ab20d03ffaf12e27a1ee84714a3e83950}\label{class_bot_ab20d03ffaf12e27a1ee84714a3e83950}} 
+\index{Bot@{Bot}!check\+Free\+Direction@{check\+Free\+Direction}}
+\index{check\+Free\+Direction@{check\+Free\+Direction}!Bot@{Bot}}
+\subsubsection{\texorpdfstring{check\+Free\+Direction()}{checkFreeDirection()}}
+{\footnotesize\ttfamily void Bot\+::check\+Free\+Direction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+if sign is not present make decisions based on sensor reading to turn left or right 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 224 of file bot.\+cpp.
+
+\mbox{\Hypertarget{class_bot_a308e7e40f00a853d1397cfafcb7d2cd5}\label{class_bot_a308e7e40f00a853d1397cfafcb7d2cd5}} 
+\index{Bot@{Bot}!door\+Detection@{door\+Detection}}
+\index{door\+Detection@{door\+Detection}!Bot@{Bot}}
+\subsubsection{\texorpdfstring{door\+Detection()}{doorDetection()}}
+{\footnotesize\ttfamily void Bot\+::door\+Detection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+if door is detected, move through the door 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 280 of file bot.\+cpp.
+
+\mbox{\Hypertarget{class_bot_a4a3b192232d8b938f11c1d253795c222}\label{class_bot_a4a3b192232d8b938f11c1d253795c222}} 
+\index{Bot@{Bot}!get\+Max\+Speed@{get\+Max\+Speed}}
+\index{get\+Max\+Speed@{get\+Max\+Speed}!Bot@{Bot}}
+\subsubsection{\texorpdfstring{get\+Max\+Speed()}{getMaxSpeed()}}
+{\footnotesize\ttfamily float Bot\+::get\+Max\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get maximum speed of robot 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+
+
+Definition at line 171 of file bot.\+cpp.
+
+\mbox{\Hypertarget{class_bot_abc25556b72a44e45056d161eaa48e1c6}\label{class_bot_abc25556b72a44e45056d161eaa48e1c6}} 
+\index{Bot@{Bot}!move\+Forward@{move\+Forward}}
+\index{move\+Forward@{move\+Forward}!Bot@{Bot}}
+\subsubsection{\texorpdfstring{move\+Forward()}{moveForward()}}
+{\footnotesize\ttfamily void Bot\+::move\+Forward (\begin{DoxyParamCaption}\item[{double}]{desired\+Pos }\end{DoxyParamCaption})}
+
+
+
+move forward by some distance 
+
+
+\begin{DoxyParams}{Parameters}
+{\em desired\+Pos} & distance \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 209 of file bot.\+cpp.
+
+\mbox{\Hypertarget{class_bot_aeae87db5fd2d6a130587f665e39a6557}\label{class_bot_aeae87db5fd2d6a130587f665e39a6557}} 
+\index{Bot@{Bot}!reset\+Bot@{reset\+Bot}}
+\index{reset\+Bot@{reset\+Bot}!Bot@{Bot}}
+\subsubsection{\texorpdfstring{reset\+Bot()}{resetBot()}}
+{\footnotesize\ttfamily void Bot\+::reset\+Bot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+reset velocities of the bot 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 161 of file bot.\+cpp.
+
+\mbox{\Hypertarget{class_bot_a5c1f98ef7f22894832865c5987d184c3}\label{class_bot_a5c1f98ef7f22894832865c5987d184c3}} 
+\index{Bot@{Bot}!start\+Motion@{start\+Motion}}
+\index{start\+Motion@{start\+Motion}!Bot@{Bot}}
+\subsubsection{\texorpdfstring{start\+Motion()}{startMotion()}}
+{\footnotesize\ttfamily void Bot\+::start\+Motion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Start running the bot. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 54 of file bot.\+cpp.
+
+\mbox{\Hypertarget{class_bot_a6f9bf5628c1faedb8da493b381ba95ac}\label{class_bot_a6f9bf5628c1faedb8da493b381ba95ac}} 
+\index{Bot@{Bot}!turn\+Left@{turn\+Left}}
+\index{turn\+Left@{turn\+Left}!Bot@{Bot}}
+\subsubsection{\texorpdfstring{turn\+Left()}{turnLeft()}}
+{\footnotesize\ttfamily void Bot\+::turn\+Left (\begin{DoxyParamCaption}\item[{double}]{desired\+Angle }\end{DoxyParamCaption})}
+
+
+
+turn robot in left direction 
+
+
+\begin{DoxyParams}{Parameters}
+{\em desired\+Angle} & turn angle in radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 192 of file bot.\+cpp.
+
+\mbox{\Hypertarget{class_bot_a07fd8d141a617b711eee7ab3c9e99171}\label{class_bot_a07fd8d141a617b711eee7ab3c9e99171}} 
+\index{Bot@{Bot}!turn\+Right@{turn\+Right}}
+\index{turn\+Right@{turn\+Right}!Bot@{Bot}}
+\subsubsection{\texorpdfstring{turn\+Right()}{turnRight()}}
+{\footnotesize\ttfamily void Bot\+::turn\+Right (\begin{DoxyParamCaption}\item[{double}]{desired\+Angle }\end{DoxyParamCaption})}
+
+
+
+turn robot in right direction 
+
+
+\begin{DoxyParams}{Parameters}
+{\em desired\+Angle} & turn angle in radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 175 of file bot.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/siddhesh/ros/latest/src/\+Emergency-\/\+Rescue-\/\+Robot/include/\mbox{\hyperlink{bot_8h}{bot.\+h}}\item 
+\mbox{\hyperlink{bot_8cpp}{bot.\+cpp}}\end{DoxyCompactItemize}

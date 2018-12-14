@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="camera_8h" kind="file" language="C++">
+    <compoundname>camera.h</compoundname>
+    <includes local="yes">sensor_msgs/Image.h</includes>
+    <includes local="no">image_transport/image_transport.h</includes>
+    <includes local="no">cv_bridge/cv_bridge.h</includes>
+    <includes local="no">sensor_msgs/image_encodings.h</includes>
+    <includes local="no">opencv2/imgproc/imgproc.hpp</includes>
+    <includes local="no">opencv2/highgui/highgui.hpp</includes>
+    <includes local="no">fstream</includes>
+    <includedby refid="bot_8h" local="yes">/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/bot.h</includedby>
+    <includedby refid="camera_8cpp" local="yes">camera.cpp</includedby>
+    <incdepgraph>
+      <node id="24">
+        <label>image_transport/image_transport.h</label>
+      </node>
+      <node id="23">
+        <label>sensor_msgs/Image.h</label>
+      </node>
+      <node id="25">
+        <label>cv_bridge/cv_bridge.h</label>
+      </node>
+      <node id="29">
+        <label>fstream</label>
+      </node>
+      <node id="22">
+        <label>/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h</label>
+        <link refid="camera_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>sensor_msgs/image_encodings.h</label>
+      </node>
+      <node id="27">
+        <label>opencv2/imgproc/imgproc.hpp</label>
+      </node>
+      <node id="28">
+        <label>opencv2/highgui/highgui.hpp</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="30">
+        <label>/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h</label>
+        <link refid="camera_8h"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/bot.h</label>
+        <link refid="bot_8h"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>camera.cpp</label>
+        <link refid="camera_8cpp"/>
+      </node>
+      <node id="33">
+        <label>main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+      <node id="32">
+        <label>bot.cpp</label>
+        <link refid="bot_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_camera" prot="public">Camera</innerclass>
+    <briefdescription>
+<para><ref refid="class_camera" kindref="compound">Camera</ref> class source code;. </para>    </briefdescription>
+    <detaileddescription>
+<para>BSD 3-Clause License <simplesect kind="copyright"><para>(c) 2018, Krishna Bhatu, Siddhesh Rane All rights reserved. Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</para></simplesect>
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</para><para><simplesect kind="author"><para>Krishna Bhatu, Siddhesh Rane </para></simplesect>
+<simplesect kind="version"><para>1.0 </para></simplesect>
+</para><sect1 id="sensor_8cpp_1DESCRIPTION">
+<title>DESCRIPTION</title>
+<para>C++ header file for <ref refid="class_camera" kindref="compound">Camera</ref> class which collects image data. </para></sect1>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="35"><highlight class="preprocessor">#ifndef<sp/>INCLUDE_CAMERA_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>INCLUDE_CAMERA_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;sensor_msgs/Image.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;image_transport/image_transport.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cv_bridge/cv_bridge.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sensor_msgs/image_encodings.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;opencv2/imgproc/imgproc.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;opencv2/highgui/highgui.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="class_camera" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_camera" kindref="compound">Camera</ref><sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>ros::Subscriber<sp/>subImage;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>cv_bridge::CvImagePtr<sp/>cv_ptr;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>cv::Scalar<sp/>lowerRed;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>cv::Scalar<sp/>higherRed;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>cv::Scalar<sp/>lowerGreen;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>cv::Scalar<sp/>higherGreen;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>cv::Scalar<sp/>lowerBlue;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>cv::Scalar<sp/>higherBlue;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nowTurn;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>count;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>countB<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>signDetected;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>ros::NodeHandle<sp/>nh;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><ref refid="class_camera_1a01f94c3543f56ede7af49dc778f19331" kindref="member">Camera</ref>();</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><ref refid="class_camera_1ad1897942d0ccf91052386388a497349f" kindref="member">~Camera</ref>();</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_camera_1a0b67f2af6df1296fb25f3b0e160cc99f" kindref="member">checkImage</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>sensor_msgs::Image::ConstPtr&amp;<sp/>dataImage);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_camera_1a6b27e3016f42ac8af96601426e009c1b" kindref="member">getNowTurn</ref>();</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_camera_1ac33d3b84891fdc56e4cce90e59be1905" kindref="member">getCount</ref>();</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_camera_1ae345bbfa5530387acf5143a3e70bf103" kindref="member">getCountB</ref>();</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_camera_1a0f8951959a2822e6b729a9fe05b428ef" kindref="member">getSignDetected</ref>();</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_camera_1a77cd72118fd9d03e04beaf60f7345138" kindref="member">setNowTurn</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>turn);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_camera_1a3186b8e7cf648308237a2ba440379e34" kindref="member">setCount</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>c);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_camera_1a66d6f05a42feb58468bc4039b07b1b23" kindref="member">setCountB</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cB);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_camera_1ab51102514272832890346b414759e716" kindref="member">setSignDetected</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>sD);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>INCLUDE_CAMERA_H_</highlight></codeline>
+    </programlisting>
+    <location file="/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/camera.h"/>
+  </compounddef>
+</doxygen>

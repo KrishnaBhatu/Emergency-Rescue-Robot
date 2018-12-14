@@ -1,0 +1,256 @@
+\hypertarget{class_camera}{}\section{Camera Class Reference}
+\label{class_camera}\index{Camera@{Camera}}
+
+
+{\ttfamily \#include $<$camera.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_camera_a01f94c3543f56ede7af49dc778f19331}{Camera}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{class_camera}{Camera}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_camera_ad1897942d0ccf91052386388a497349f}{$\sim$\+Camera}} ()
+\begin{DoxyCompactList}\small\item\em Default destructor for \mbox{\hyperlink{class_camera}{Camera}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_a0b67f2af6df1296fb25f3b0e160cc99f}{check\+Image}} (const sensor\+\_\+msgs\+::\+Image\+::\+Const\+Ptr \&data\+Image)
+\begin{DoxyCompactList}\small\item\em Callback function for camera subscriber. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_camera_a6b27e3016f42ac8af96601426e009c1b}{get\+Now\+Turn}} ()
+\begin{DoxyCompactList}\small\item\em Get status for making turning decision. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_camera_ac33d3b84891fdc56e4cce90e59be1905}{get\+Count}} ()
+\begin{DoxyCompactList}\small\item\em Get value of sign tracker for green arrow. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_camera_ae345bbfa5530387acf5143a3e70bf103}{get\+CountB}} ()
+\begin{DoxyCompactList}\small\item\em Get value of sign tracker for blue arrow. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_camera_a0f8951959a2822e6b729a9fe05b428ef}{get\+Sign\+Detected}} ()
+\begin{DoxyCompactList}\small\item\em Check if sign is detected. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_a77cd72118fd9d03e04beaf60f7345138}{set\+Now\+Turn}} (int turn)
+\begin{DoxyCompactList}\small\item\em Set value of the integer which represents the direction of turn. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_a3186b8e7cf648308237a2ba440379e34}{set\+Count}} (int c)
+\begin{DoxyCompactList}\small\item\em Set value of the counter which determines the time after which the robot has to take turn after detecting the left turning point. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_a66d6f05a42feb58468bc4039b07b1b23}{set\+CountB}} (int cB)
+\begin{DoxyCompactList}\small\item\em Set value of the counter which determines the time after which the robot has to take turn after detecting the right turning point. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_ab51102514272832890346b414759e716}{set\+Sign\+Detected}} (bool sD)
+\begin{DoxyCompactList}\small\item\em Set the flag when sign is detected. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 44 of file camera.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_camera_a01f94c3543f56ede7af49dc778f19331}\label{class_camera_a01f94c3543f56ede7af49dc778f19331}} 
+\index{Camera@{Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!Camera@{Camera}}
+\subsubsection{\texorpdfstring{Camera()}{Camera()}}
+{\footnotesize\ttfamily Camera\+::\+Camera (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor for \mbox{\hyperlink{class_camera}{Camera}}. 
+
+
+
+Definition at line 36 of file camera.\+cpp.
+
+\mbox{\Hypertarget{class_camera_ad1897942d0ccf91052386388a497349f}\label{class_camera_ad1897942d0ccf91052386388a497349f}} 
+\index{Camera@{Camera}!````~Camera@{$\sim$\+Camera}}
+\index{````~Camera@{$\sim$\+Camera}!Camera@{Camera}}
+\subsubsection{\texorpdfstring{$\sim$\+Camera()}{~Camera()}}
+{\footnotesize\ttfamily Camera\+::$\sim$\+Camera (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default destructor for \mbox{\hyperlink{class_camera}{Camera}}. 
+
+
+
+Definition at line 45 of file camera.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_camera_a0b67f2af6df1296fb25f3b0e160cc99f}\label{class_camera_a0b67f2af6df1296fb25f3b0e160cc99f}} 
+\index{Camera@{Camera}!check\+Image@{check\+Image}}
+\index{check\+Image@{check\+Image}!Camera@{Camera}}
+\subsubsection{\texorpdfstring{check\+Image()}{checkImage()}}
+{\footnotesize\ttfamily void Camera\+::check\+Image (\begin{DoxyParamCaption}\item[{const sensor\+\_\+msgs\+::\+Image\+::\+Const\+Ptr \&}]{data\+Image }\end{DoxyParamCaption})}
+
+
+
+Callback function for camera subscriber. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & data from camera node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 47 of file camera.\+cpp.
+
+\mbox{\Hypertarget{class_camera_ac33d3b84891fdc56e4cce90e59be1905}\label{class_camera_ac33d3b84891fdc56e4cce90e59be1905}} 
+\index{Camera@{Camera}!get\+Count@{get\+Count}}
+\index{get\+Count@{get\+Count}!Camera@{Camera}}
+\subsubsection{\texorpdfstring{get\+Count()}{getCount()}}
+{\footnotesize\ttfamily int Camera\+::get\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get value of sign tracker for green arrow. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 134 of file camera.\+cpp.
+
+\mbox{\Hypertarget{class_camera_ae345bbfa5530387acf5143a3e70bf103}\label{class_camera_ae345bbfa5530387acf5143a3e70bf103}} 
+\index{Camera@{Camera}!get\+CountB@{get\+CountB}}
+\index{get\+CountB@{get\+CountB}!Camera@{Camera}}
+\subsubsection{\texorpdfstring{get\+Count\+B()}{getCountB()}}
+{\footnotesize\ttfamily int Camera\+::get\+CountB (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get value of sign tracker for blue arrow. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 137 of file camera.\+cpp.
+
+\mbox{\Hypertarget{class_camera_a6b27e3016f42ac8af96601426e009c1b}\label{class_camera_a6b27e3016f42ac8af96601426e009c1b}} 
+\index{Camera@{Camera}!get\+Now\+Turn@{get\+Now\+Turn}}
+\index{get\+Now\+Turn@{get\+Now\+Turn}!Camera@{Camera}}
+\subsubsection{\texorpdfstring{get\+Now\+Turn()}{getNowTurn()}}
+{\footnotesize\ttfamily int Camera\+::get\+Now\+Turn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get status for making turning decision. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 131 of file camera.\+cpp.
+
+\mbox{\Hypertarget{class_camera_a0f8951959a2822e6b729a9fe05b428ef}\label{class_camera_a0f8951959a2822e6b729a9fe05b428ef}} 
+\index{Camera@{Camera}!get\+Sign\+Detected@{get\+Sign\+Detected}}
+\index{get\+Sign\+Detected@{get\+Sign\+Detected}!Camera@{Camera}}
+\subsubsection{\texorpdfstring{get\+Sign\+Detected()}{getSignDetected()}}
+{\footnotesize\ttfamily bool Camera\+::get\+Sign\+Detected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Check if sign is detected. 
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 140 of file camera.\+cpp.
+
+\mbox{\Hypertarget{class_camera_a3186b8e7cf648308237a2ba440379e34}\label{class_camera_a3186b8e7cf648308237a2ba440379e34}} 
+\index{Camera@{Camera}!set\+Count@{set\+Count}}
+\index{set\+Count@{set\+Count}!Camera@{Camera}}
+\subsubsection{\texorpdfstring{set\+Count()}{setCount()}}
+{\footnotesize\ttfamily void Camera\+::set\+Count (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption})}
+
+
+
+Set value of the counter which determines the time after which the robot has to take turn after detecting the left turning point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & blue count value to be set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 146 of file camera.\+cpp.
+
+\mbox{\Hypertarget{class_camera_a66d6f05a42feb58468bc4039b07b1b23}\label{class_camera_a66d6f05a42feb58468bc4039b07b1b23}} 
+\index{Camera@{Camera}!set\+CountB@{set\+CountB}}
+\index{set\+CountB@{set\+CountB}!Camera@{Camera}}
+\subsubsection{\texorpdfstring{set\+Count\+B()}{setCountB()}}
+{\footnotesize\ttfamily void Camera\+::set\+CountB (\begin{DoxyParamCaption}\item[{int}]{cB }\end{DoxyParamCaption})}
+
+
+
+Set value of the counter which determines the time after which the robot has to take turn after detecting the right turning point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cB} & green count value to be set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 149 of file camera.\+cpp.
+
+\mbox{\Hypertarget{class_camera_a77cd72118fd9d03e04beaf60f7345138}\label{class_camera_a77cd72118fd9d03e04beaf60f7345138}} 
+\index{Camera@{Camera}!set\+Now\+Turn@{set\+Now\+Turn}}
+\index{set\+Now\+Turn@{set\+Now\+Turn}!Camera@{Camera}}
+\subsubsection{\texorpdfstring{set\+Now\+Turn()}{setNowTurn()}}
+{\footnotesize\ttfamily void Camera\+::set\+Now\+Turn (\begin{DoxyParamCaption}\item[{int}]{turn }\end{DoxyParamCaption})}
+
+
+
+Set value of the integer which represents the direction of turn. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em turn} & now\+Turn value to be set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 143 of file camera.\+cpp.
+
+\mbox{\Hypertarget{class_camera_ab51102514272832890346b414759e716}\label{class_camera_ab51102514272832890346b414759e716}} 
+\index{Camera@{Camera}!set\+Sign\+Detected@{set\+Sign\+Detected}}
+\index{set\+Sign\+Detected@{set\+Sign\+Detected}!Camera@{Camera}}
+\subsubsection{\texorpdfstring{set\+Sign\+Detected()}{setSignDetected()}}
+{\footnotesize\ttfamily void Camera\+::set\+Sign\+Detected (\begin{DoxyParamCaption}\item[{bool}]{sD }\end{DoxyParamCaption})}
+
+
+
+Set the flag when sign is detected. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sD} & boolean value that is given to the flag \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 152 of file camera.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/siddhesh/ros/latest/src/\+Emergency-\/\+Rescue-\/\+Robot/include/\mbox{\hyperlink{camera_8h}{camera.\+h}}\item 
+\mbox{\hyperlink{camera_8cpp}{camera.\+cpp}}\end{DoxyCompactItemize}

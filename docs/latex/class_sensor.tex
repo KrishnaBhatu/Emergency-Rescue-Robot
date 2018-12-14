@@ -1,0 +1,241 @@
+\hypertarget{class_sensor}{}\section{Sensor Class Reference}
+\label{class_sensor}\index{Sensor@{Sensor}}
+
+
+{\ttfamily \#include $<$sensor.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sensor_a342d6d11ef572c8cba92cb76fb1a294b}{Sensor}} ()
+\begin{DoxyCompactList}\small\item\em Default \mbox{\hyperlink{class_sensor}{Sensor}} class constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_sensor_aee8c70e7ef05ce65e7ee33686b5d7db2}{$\sim$\+Sensor}} ()
+\begin{DoxyCompactList}\small\item\em Default \mbox{\hyperlink{class_sensor}{Sensor}} class destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sensor_abc654feeb9c9b67efcda04b62072d828}{sensor\+Callback}} (const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&msg)
+\begin{DoxyCompactList}\small\item\em Callback method for laser subsciber. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sensor_a69dc2c8fc57c2b421913fda9b1e19fbc}{odom\+Callback}} (const nav\+\_\+msgs\+::\+Odometry\+::\+Const\+Ptr \&msg)
+\begin{DoxyCompactList}\small\item\em Callback method for odom subscriber. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_sensor_a0cb8d226a7df00fa404c100f959868e6}{get\+Forward\+Reading}} ()
+\begin{DoxyCompactList}\small\item\em Get sensor reading at 0deg. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_sensor_a784ee9b741908df505a51d0807dbbe9b}{get\+Right\+Reading}} ()
+\begin{DoxyCompactList}\small\item\em Get sensor reading at -\/30deg. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_sensor_a68826b1eb0dcda3a0508f213a42db25b}{get\+Left\+Reading}} ()
+\begin{DoxyCompactList}\small\item\em Get sensor reading at 30deg. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_sensor_af590a94a155718952a71ee842a0db661}{get\+Obstacle\+Detected}} ()
+\begin{DoxyCompactList}\small\item\em check if obstacle is detected \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_sensor_a1b7aad1c82fa6df205b166b311f45447}{get\+Safe\+Distance}} ()
+\begin{DoxyCompactList}\small\item\em Get max safe distance. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_sensor_a1984ff9826d1c92d7e91add776a4107b}{get\+Current\+Yaw}} ()
+\begin{DoxyCompactList}\small\item\em Get sensor reading of current yaw angle. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_sensor_a933dfb180d498c41862b5e14675cc97d}{get\+CurrentX}} ()
+\begin{DoxyCompactList}\small\item\em Get sensor reading of current x position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 45 of file sensor.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_sensor_a342d6d11ef572c8cba92cb76fb1a294b}\label{class_sensor_a342d6d11ef572c8cba92cb76fb1a294b}} 
+\index{Sensor@{Sensor}!Sensor@{Sensor}}
+\index{Sensor@{Sensor}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{Sensor()}{Sensor()}}
+{\footnotesize\ttfamily Sensor\+::\+Sensor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default \mbox{\hyperlink{class_sensor}{Sensor}} class constructor. 
+
+
+
+Definition at line 37 of file sensor.\+cpp.
+
+\mbox{\Hypertarget{class_sensor_aee8c70e7ef05ce65e7ee33686b5d7db2}\label{class_sensor_aee8c70e7ef05ce65e7ee33686b5d7db2}} 
+\index{Sensor@{Sensor}!````~Sensor@{$\sim$\+Sensor}}
+\index{````~Sensor@{$\sim$\+Sensor}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{$\sim$\+Sensor()}{~Sensor()}}
+{\footnotesize\ttfamily Sensor\+::$\sim$\+Sensor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default \mbox{\hyperlink{class_sensor}{Sensor}} class destructor. 
+
+
+
+Definition at line 49 of file sensor.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_sensor_a933dfb180d498c41862b5e14675cc97d}\label{class_sensor_a933dfb180d498c41862b5e14675cc97d}} 
+\index{Sensor@{Sensor}!get\+CurrentX@{get\+CurrentX}}
+\index{get\+CurrentX@{get\+CurrentX}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{get\+Current\+X()}{getCurrentX()}}
+{\footnotesize\ttfamily double Sensor\+::get\+CurrentX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get sensor reading of current x position. 
+
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+
+
+Definition at line 86 of file sensor.\+cpp.
+
+\mbox{\Hypertarget{class_sensor_a1984ff9826d1c92d7e91add776a4107b}\label{class_sensor_a1984ff9826d1c92d7e91add776a4107b}} 
+\index{Sensor@{Sensor}!get\+Current\+Yaw@{get\+Current\+Yaw}}
+\index{get\+Current\+Yaw@{get\+Current\+Yaw}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{get\+Current\+Yaw()}{getCurrentYaw()}}
+{\footnotesize\ttfamily double Sensor\+::get\+Current\+Yaw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get sensor reading of current yaw angle. 
+
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+
+
+Definition at line 83 of file sensor.\+cpp.
+
+\mbox{\Hypertarget{class_sensor_a0cb8d226a7df00fa404c100f959868e6}\label{class_sensor_a0cb8d226a7df00fa404c100f959868e6}} 
+\index{Sensor@{Sensor}!get\+Forward\+Reading@{get\+Forward\+Reading}}
+\index{get\+Forward\+Reading@{get\+Forward\+Reading}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{get\+Forward\+Reading()}{getForwardReading()}}
+{\footnotesize\ttfamily float Sensor\+::get\+Forward\+Reading (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get sensor reading at 0deg. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+
+
+Definition at line 74 of file sensor.\+cpp.
+
+\mbox{\Hypertarget{class_sensor_a68826b1eb0dcda3a0508f213a42db25b}\label{class_sensor_a68826b1eb0dcda3a0508f213a42db25b}} 
+\index{Sensor@{Sensor}!get\+Left\+Reading@{get\+Left\+Reading}}
+\index{get\+Left\+Reading@{get\+Left\+Reading}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{get\+Left\+Reading()}{getLeftReading()}}
+{\footnotesize\ttfamily float Sensor\+::get\+Left\+Reading (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get sensor reading at 30deg. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+
+
+Definition at line 80 of file sensor.\+cpp.
+
+\mbox{\Hypertarget{class_sensor_af590a94a155718952a71ee842a0db661}\label{class_sensor_af590a94a155718952a71ee842a0db661}} 
+\index{Sensor@{Sensor}!get\+Obstacle\+Detected@{get\+Obstacle\+Detected}}
+\index{get\+Obstacle\+Detected@{get\+Obstacle\+Detected}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{get\+Obstacle\+Detected()}{getObstacleDetected()}}
+{\footnotesize\ttfamily bool Sensor\+::get\+Obstacle\+Detected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+check if obstacle is detected 
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 89 of file sensor.\+cpp.
+
+\mbox{\Hypertarget{class_sensor_a784ee9b741908df505a51d0807dbbe9b}\label{class_sensor_a784ee9b741908df505a51d0807dbbe9b}} 
+\index{Sensor@{Sensor}!get\+Right\+Reading@{get\+Right\+Reading}}
+\index{get\+Right\+Reading@{get\+Right\+Reading}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{get\+Right\+Reading()}{getRightReading()}}
+{\footnotesize\ttfamily float Sensor\+::get\+Right\+Reading (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get sensor reading at -\/30deg. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+
+
+Definition at line 77 of file sensor.\+cpp.
+
+\mbox{\Hypertarget{class_sensor_a1b7aad1c82fa6df205b166b311f45447}\label{class_sensor_a1b7aad1c82fa6df205b166b311f45447}} 
+\index{Sensor@{Sensor}!get\+Safe\+Distance@{get\+Safe\+Distance}}
+\index{get\+Safe\+Distance@{get\+Safe\+Distance}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{get\+Safe\+Distance()}{getSafeDistance()}}
+{\footnotesize\ttfamily double Sensor\+::get\+Safe\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get max safe distance. 
+
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+
+
+Definition at line 92 of file sensor.\+cpp.
+
+\mbox{\Hypertarget{class_sensor_a69dc2c8fc57c2b421913fda9b1e19fbc}\label{class_sensor_a69dc2c8fc57c2b421913fda9b1e19fbc}} 
+\index{Sensor@{Sensor}!odom\+Callback@{odom\+Callback}}
+\index{odom\+Callback@{odom\+Callback}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{odom\+Callback()}{odomCallback()}}
+{\footnotesize\ttfamily void Sensor\+::odom\+Callback (\begin{DoxyParamCaption}\item[{const nav\+\_\+msgs\+::\+Odometry\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})}
+
+
+
+Callback method for odom subscriber. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & odometry data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 66 of file sensor.\+cpp.
+
+\mbox{\Hypertarget{class_sensor_abc654feeb9c9b67efcda04b62072d828}\label{class_sensor_abc654feeb9c9b67efcda04b62072d828}} 
+\index{Sensor@{Sensor}!sensor\+Callback@{sensor\+Callback}}
+\index{sensor\+Callback@{sensor\+Callback}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{sensor\+Callback()}{sensorCallback()}}
+{\footnotesize\ttfamily void Sensor\+::sensor\+Callback (\begin{DoxyParamCaption}\item[{const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})}
+
+
+
+Callback method for laser subsciber. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & laser data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 51 of file sensor.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/siddhesh/ros/latest/src/\+Emergency-\/\+Rescue-\/\+Robot/include/\mbox{\hyperlink{sensor_8h}{sensor.\+h}}\item 
+\mbox{\hyperlink{sensor_8cpp}{sensor.\+cpp}}\end{DoxyCompactItemize}

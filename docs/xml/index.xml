@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.15">
+  <compound refid="class_bot" kind="class"><name>Bot</name>
+    <member refid="class_bot_1a6563480c8547eb0feec9025b7e241009" kind="variable"><name>msg</name></member>
+    <member refid="class_bot_1a40dae54210656cbb6e10e4aeb4084b27" kind="variable"><name>pubVel</name></member>
+    <member refid="class_bot_1af884c7a0ca3d4a9ef60c3bb5ab7d6f00" kind="variable"><name>subSensor</name></member>
+    <member refid="class_bot_1ae0990aeaa6abf46dd81b5d1076754597" kind="variable"><name>odom</name></member>
+    <member refid="class_bot_1ab91d31ca464f83e19a63043a7e0011b7" kind="variable"><name>subImage</name></member>
+    <member refid="class_bot_1ae0825c74b529cd429eb176b248e1151a" kind="variable"><name>maxSpeed</name></member>
+    <member refid="class_bot_1aa568a58988fee2097440dabc762e012e" kind="variable"><name>nh</name></member>
+    <member refid="class_bot_1a37001cff3449ec8c8ca2bd2fdf66cac4" kind="variable"><name>nextTurnRight</name></member>
+    <member refid="class_bot_1abbfde3c8b3e89ef05456401ecde523fd" kind="variable"><name>nextTurnLeft</name></member>
+    <member refid="class_bot_1af0d4ca7ce59c4f1c1d4f149cea0576e9" kind="variable"><name>sensor</name></member>
+    <member refid="class_bot_1ac729f9c337c032587a14bd1b210b63f5" kind="variable"><name>camera</name></member>
+    <member refid="class_bot_1a14b4bfcbda8c051d8447e73073567b50" kind="function"><name>Bot</name></member>
+    <member refid="class_bot_1a4163b0f6c91f94cbeb3145eeda8cd361" kind="function"><name>~Bot</name></member>
+    <member refid="class_bot_1a5c1f98ef7f22894832865c5987d184c3" kind="function"><name>startMotion</name></member>
+    <member refid="class_bot_1aeae87db5fd2d6a130587f665e39a6557" kind="function"><name>resetBot</name></member>
+    <member refid="class_bot_1a07fd8d141a617b711eee7ab3c9e99171" kind="function"><name>turnRight</name></member>
+    <member refid="class_bot_1a6f9bf5628c1faedb8da493b381ba95ac" kind="function"><name>turnLeft</name></member>
+    <member refid="class_bot_1abc25556b72a44e45056d161eaa48e1c6" kind="function"><name>moveForward</name></member>
+    <member refid="class_bot_1ab20d03ffaf12e27a1ee84714a3e83950" kind="function"><name>checkFreeDirection</name></member>
+    <member refid="class_bot_1a308e7e40f00a853d1397cfafcb7d2cd5" kind="function"><name>doorDetection</name></member>
+    <member refid="class_bot_1a4a3b192232d8b938f11c1d253795c222" kind="function"><name>getMaxSpeed</name></member>
+  </compound>
+  <compound refid="class_camera" kind="class"><name>Camera</name>
+    <member refid="class_camera_1a5cad2aac63933c6112ba3645ccbab7b7" kind="variable"><name>subImage</name></member>
+    <member refid="class_camera_1aa3f6bb43c9365a1167714eb5190d7243" kind="variable"><name>cv_ptr</name></member>
+    <member refid="class_camera_1a212bb0a6d7d67c3fff6eeeb5f2e8ce2e" kind="variable"><name>lowerRed</name></member>
+    <member refid="class_camera_1a9ac1fc448135710ae600e4fe30346884" kind="variable"><name>higherRed</name></member>
+    <member refid="class_camera_1a5c3b932218027d3c6c510546288c93be" kind="variable"><name>lowerGreen</name></member>
+    <member refid="class_camera_1a834a625982d096ab8c435ca9df091737" kind="variable"><name>higherGreen</name></member>
+    <member refid="class_camera_1a8a777b5f3e6d2c055b8ee622103a3e08" kind="variable"><name>lowerBlue</name></member>
+    <member refid="class_camera_1a4aef0595b1fec2b3e38eefb5a5c21cfc" kind="variable"><name>higherBlue</name></member>
+    <member refid="class_camera_1a5791ef345f719ea7747ba3e2c017fd6a" kind="variable"><name>nowTurn</name></member>
+    <member refid="class_camera_1a2d8958392b67bc37090ead843af51a71" kind="variable"><name>count</name></member>
+    <member refid="class_camera_1a8544ca9432e62957eec89fba33b3cefe" kind="variable"><name>countB</name></member>
+    <member refid="class_camera_1a83af6914a14bbe6da2d2938746c9a97f" kind="variable"><name>signDetected</name></member>
+    <member refid="class_camera_1a8e5072bfde6efd4cb45a7231cca8ed52" kind="variable"><name>nh</name></member>
+    <member refid="class_camera_1a01f94c3543f56ede7af49dc778f19331" kind="function"><name>Camera</name></member>
+    <member refid="class_camera_1ad1897942d0ccf91052386388a497349f" kind="function"><name>~Camera</name></member>
+    <member refid="class_camera_1a0b67f2af6df1296fb25f3b0e160cc99f" kind="function"><name>checkImage</name></member>
+    <member refid="class_camera_1a6b27e3016f42ac8af96601426e009c1b" kind="function"><name>getNowTurn</name></member>
+    <member refid="class_camera_1ac33d3b84891fdc56e4cce90e59be1905" kind="function"><name>getCount</name></member>
+    <member refid="class_camera_1ae345bbfa5530387acf5143a3e70bf103" kind="function"><name>getCountB</name></member>
+    <member refid="class_camera_1a0f8951959a2822e6b729a9fe05b428ef" kind="function"><name>getSignDetected</name></member>
+    <member refid="class_camera_1a77cd72118fd9d03e04beaf60f7345138" kind="function"><name>setNowTurn</name></member>
+    <member refid="class_camera_1a3186b8e7cf648308237a2ba440379e34" kind="function"><name>setCount</name></member>
+    <member refid="class_camera_1a66d6f05a42feb58468bc4039b07b1b23" kind="function"><name>setCountB</name></member>
+    <member refid="class_camera_1ab51102514272832890346b414759e716" kind="function"><name>setSignDetected</name></member>
+  </compound>
+  <compound refid="class_sensor" kind="class"><name>Sensor</name>
+    <member refid="class_sensor_1a63111c11fd5837a191de378d09f0fc52" kind="variable"><name>subSensor</name></member>
+    <member refid="class_sensor_1afd504ff5af17069dd284d99868ac75a9" kind="variable"><name>odom</name></member>
+    <member refid="class_sensor_1a27064baa2cd09cb3bcbc437c263dc87f" kind="variable"><name>forwardReading</name></member>
+    <member refid="class_sensor_1ac51f33041eee56a51cad07000151d4aa" kind="variable"><name>rightReading</name></member>
+    <member refid="class_sensor_1a93637fd8bf1b980c05ff4b3487b528c1" kind="variable"><name>leftReading</name></member>
+    <member refid="class_sensor_1a4739b8e2aee4b276117c856f697c524c" kind="variable"><name>obstacleDetected</name></member>
+    <member refid="class_sensor_1a4362f2d734e50d38f37410cc79af9bc0" kind="variable"><name>safeDistance</name></member>
+    <member refid="class_sensor_1a17abdc5882f6961424f9c8edcbb16e94" kind="variable"><name>currentYaw</name></member>
+    <member refid="class_sensor_1a256c20feb37ecd2679c83da0816458f2" kind="variable"><name>currentX</name></member>
+    <member refid="class_sensor_1a0d0b8c751a2ab87abffe94b5b39f236d" kind="variable"><name>nh</name></member>
+    <member refid="class_sensor_1a342d6d11ef572c8cba92cb76fb1a294b" kind="function"><name>Sensor</name></member>
+    <member refid="class_sensor_1aee8c70e7ef05ce65e7ee33686b5d7db2" kind="function"><name>~Sensor</name></member>
+    <member refid="class_sensor_1abc654feeb9c9b67efcda04b62072d828" kind="function"><name>sensorCallback</name></member>
+    <member refid="class_sensor_1a69dc2c8fc57c2b421913fda9b1e19fbc" kind="function"><name>odomCallback</name></member>
+    <member refid="class_sensor_1a0cb8d226a7df00fa404c100f959868e6" kind="function"><name>getForwardReading</name></member>
+    <member refid="class_sensor_1a784ee9b741908df505a51d0807dbbe9b" kind="function"><name>getRightReading</name></member>
+    <member refid="class_sensor_1a68826b1eb0dcda3a0508f213a42db25b" kind="function"><name>getLeftReading</name></member>
+    <member refid="class_sensor_1af590a94a155718952a71ee842a0db661" kind="function"><name>getObstacleDetected</name></member>
+    <member refid="class_sensor_1a1b7aad1c82fa6df205b166b311f45447" kind="function"><name>getSafeDistance</name></member>
+    <member refid="class_sensor_1a1984ff9826d1c92d7e91add776a4107b" kind="function"><name>getCurrentYaw</name></member>
+    <member refid="class_sensor_1a933dfb180d498c41862b5e14675cc97d" kind="function"><name>getCurrentX</name></member>
+  </compound>
+  <compound refid="bot_8h" kind="file"><name>bot.h</name>
+  </compound>
+  <compound refid="camera_8h" kind="file"><name>camera.h</name>
+  </compound>
+  <compound refid="sensor_8h" kind="file"><name>sensor.h</name>
+  </compound>
+  <compound refid="bot_8cpp" kind="file"><name>bot.cpp</name>
+  </compound>
+  <compound refid="camera_8cpp" kind="file"><name>camera.cpp</name>
+  </compound>
+  <compound refid="main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="sensor_8cpp" kind="file"><name>sensor.cpp</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include</name>
+  </compound>
+</doxygenindex>

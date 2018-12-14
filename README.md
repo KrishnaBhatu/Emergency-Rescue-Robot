@@ -22,7 +22,7 @@ ENPM808X-Final Project (Frontier Exploration Robot: Explore an unknown space)
 
 This project implements the frontier exploration task where the robot has to react in an emergency situation and lead the person to the exit of the building. The project is just a simulation of the robot in Gazebo which will show the autonomous exploration of the unknown environment and finding the exit of the building by following the exit signs.
 
-While traveling and exploring the unknown environment, the robot will face static obstacles which it has to avoid and also the robot has to interpret the direction of the exit signs and turn accordingly. The robot moves in the direction of the exit sign until an obstacle is detected by the laser sensor. The robot then follows the boundary of the obstacle until the sign is visible again. Also, for the demonstration purpose, the direction of the exit signs are interpreted by different colors.
+While traveling and exploring the unknown environment, the robot will face obstacles such as walls of the corridor, which it has to avoid and also it has to interpret the direction of the exit signs and turn accordingly. The robot moves in the direction of the exit sign until a turning point is detected by the laser sensor. The robot then takes the turn according to the turning direction interpreted from that sign. For the demonstration purpose, the direction of the exit signs are interpreted by different colors.
 
 <p align="center">
 <img src="images/map.png" width="75%" height="75%">
@@ -238,3 +238,29 @@ $ doxywizard
 Add the details of the project including title, description and version. Select your project directory as the source directory and create a new directory at the location of your choice and set it as the destination directory. 
 Go to Expert > Input > INPUT and click on the file icon and select all the header files from 'include' directory of your project. Rest of the steps are easy to follow from instructions on the GUI. Finally click on 'run doxygen'. Your doxygen documentation will be generated in your destination folder.
 
+## Record ROSBAG
+Rostopics can be recorded for each map by providing an argument to each map using the following commands:
+For map 1:
+```
+roslaunch rescue_robot daredevil_map1.launch run_rosbag:=true
+```
+For map 2:
+```
+roslaunch rescue_robot daredevil_map2.launch run_rosbag:=true
+```
+For map 3:
+```
+roslaunch rescue_robot daredevil_map3.launch run_rosbag:=true
+```
+Output will be stored in the results directory.
+
+## Run ROSBAG
+To play the bag files, go to the results directory and run the following command:
+```
+rosbag play {name_of_the_bag_file}.bag
+```
+Alternatively, you can use rqt_bag to view, inspect and publish the bag files. 
+Navigate to the results folder and run the following command:
+```
+rqt_bag {name_of_the_bag_file}.bag
+```
