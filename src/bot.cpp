@@ -33,6 +33,11 @@
  * C++ implementation for Bot class which controls motion of the robot
  */
 #include "../include/bot.h"
+#include <math.h>
+#include "../include/sensor.h"
+#include "../include/camera.h"
+#include "ros/ros.h"
+#include "geometry_msgs/Twist.h"
 // Implementation of default Bot constructor
 Bot::Bot(Sensor* iSensor, Camera* iCamera)
     : sensor(iSensor),

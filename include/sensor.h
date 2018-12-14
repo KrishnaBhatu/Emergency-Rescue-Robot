@@ -38,10 +38,6 @@
 #include "ros/ros.h"
 #include "sensor_msgs/LaserScan.h"
 #include "nav_msgs/Odometry.h"
-#include <tf/transform_datatypes.h>
-#include <tf/LinearMath/Matrix3x3.h>
-#include "tf/tf.h"
-#include <tf/transform_listener.h>
 class Sensor {
  private:
   /// Subscriber object

@@ -171,13 +171,19 @@ functions to reach the exit door.
 <img src="images/testMap.png" width="75%" height="75%">
 </p>  
 
-To run the ros tests follow the commands;
+To run the ros tests follow the commands:
 ```
 cd ~/catkin_ws/
 source devel/setup.bash
-roslaunch rescue_robot daredevi_test.launch
+rostest rescue_robot test_rescue_bot
 ```
-
+Or you can also run the test using following commands:
+```
+cd ~/catkin_ws/
+source devel/setup.bash
+catkin_make run_tests
+```
+<b>Note: It would take about 53 seconds to run all the tests.</b>
 ## Run Cpplint
 
 In order to check if the Google style guide is followed, we run the cpplint check;
@@ -192,7 +198,7 @@ To run the cpplint, follow the given commands;
 cd ~/catkin_ws/
 cpplint $( find . -name \*.hpp -or -name \*.cpp | grep -vE -e "^./build/" -e "^./vendor/" -e "^./docs/" -e "^./results" )
 ```
-## Run Cpplint
+## Run Cppcheck
 
 To detect bugs and perform static code analysis, we use the Cppcheck tool.
 To install Cppcheck follow the given commands;

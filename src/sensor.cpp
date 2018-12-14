@@ -34,6 +34,13 @@
  * sensor data.
  */
 #include "../include/sensor.h"
+#include <tf/transform_datatypes.h>
+#include <tf/LinearMath/Matrix3x3.h>
+#include <tf/transform_listener.h>
+#include "tf/tf.h"
+#include "ros/ros.h"
+#include "sensor_msgs/LaserScan.h"
+#include "nav_msgs/Odometry.h"
 Sensor::Sensor()
     : obstacleDetected(false),
       safeDistance(1.2),
