@@ -180,7 +180,7 @@ To run the ros tests follow the commands:
 ```
 cd ~/catkin_ws/
 source devel/setup.bash
-rostest rescue_robot test_rescue_bot
+rostest rescue_robot daredevil_test.launch
 ```
 Or you can also run the test using following commands:
 ```
