@@ -32,6 +32,11 @@ While traveling and exploring the unknown environment, the robot will face obsta
 
 Emergency situations are chaotic, and it is more difficult for the visually impaired people to face such situation which requires the evacuation of the building. So, the product could be installed in every building, which will be triggered into action as a reaction to an emergency situation to provide aid. This product will look for an emergency exit signs and guide the person to the exit as soon as possible.
 
+## Presentation
+Following are the links to the slides and videos that we have made to explain the working of the project.
+Presentation slide - [Link](https://docs.google.com/presentation/d/1NDTfmdz0UXApkUZ3Be9xrmb683-EmEj5gZsjbjoGR80/edit?usp=sharing)
+Presentation video - [Link]()
+
 ## Project Output Flow
 
 The project is basically the exploration of the building environment, from which the robot has to detect and follow the exit signs which will lead the robot to the exit. It is divided into 4 major tasks:
@@ -161,7 +166,7 @@ Commands to run the simulation in the map without direction signs (map3);
 ```
 cd ~/catkin_ws/
 source devel/setup.bash
-roslaunch rescue_robot daredevil_map2.launch
+roslaunch rescue_robot daredevil_map3.launch
 ```
 
 ## Run Test Instructions
