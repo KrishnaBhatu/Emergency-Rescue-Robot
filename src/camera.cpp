@@ -33,19 +33,12 @@
  * C++ implementation for Camera which collects image data.
  */
 #include "../include/camera.h"
-#include <sensor_msgs/image_encodings.h>
-#include <image_transport/image_transport.h>
-#include <cv_bridge/cv_bridge.h>
-#include <fstream>
-#include <opencv2/imgproc/imgproc.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include "sensor_msgs/Image.h"
 Camera::Camera()
     : signDetected(false),
       nowTurn(0),
       count(0),
       countB(0) {
-  // Subscribe to /camera/rgb/image_raw topic
+  /// Subscribe to /camera/rgb/image_raw topic
     subImage = nh.subscribe < sensor_msgs::Image
         > ("/camera/rgb/image_raw", 10, &Camera::checkImage, this);
 }
@@ -57,6 +50,9 @@ void Camera::checkImage(const sensor_msgs::Image::ConstPtr& dataImage) {
   } catch (cv_bridge::Exception &e) {
     return;
   }
+  imageProcessing(cv_ptr->image);
+}
+void Camera::imageProcessing(cv::Mat image) {
   lowerRed = cv::Scalar(0, 70, 50);
   higherRed = cv::Scalar(10, 255, 250);
   lowerGreen = cv::Scalar(45, 100, 50);
@@ -68,7 +64,7 @@ void Camera::checkImage(const sensor_msgs::Image::ConstPtr& dataImage) {
   cv::Mat res;
   cv::Mat res_gray;
   cv::Mat thresh;
-  cv::cvtColor(cv_ptr->image, imageHSV, cv::COLOR_BGR2HSV);
+  cv::cvtColor(image, imageHSV, cv::COLOR_BGR2HSV);
   cv::inRange(imageHSV, lowerGreen, higherGreen, mask);
   cv::bitwise_and(imageHSV, imageHSV, res, mask);
   cv::cvtColor(res, res_gray, CV_BGR2GRAY);
@@ -93,7 +89,7 @@ void Camera::checkImage(const sensor_msgs::Image::ConstPtr& dataImage) {
   cv::Mat resB;
   cv::Mat res_grayB;
   cv::Mat threshB;
-  cv::cvtColor(cv_ptr->image, imageHSVB, cv::COLOR_BGR2HSV);
+  cv::cvtColor(image, imageHSVB, cv::COLOR_BGR2HSV);
   cv::inRange(imageHSVB, lowerBlue, higherBlue, maskB);
   cv::bitwise_and(imageHSVB, imageHSVB, resB, maskB);
   cv::cvtColor(resB, res_grayB, CV_BGR2GRAY);
@@ -118,7 +114,7 @@ void Camera::checkImage(const sensor_msgs::Image::ConstPtr& dataImage) {
   cv::Mat resR;
   cv::Mat res_grayR;
   cv::Mat threshR;
-  cv::cvtColor(cv_ptr->image, imageHSVR, cv::COLOR_BGR2HSV);
+  cv::cvtColor(image, imageHSVR, cv::COLOR_BGR2HSV);
   cv::inRange(imageHSVR, lowerRed, higherRed, maskR);
   cv::bitwise_and(imageHSVR, imageHSVR, resR, maskR);
   cv::cvtColor(resR, res_grayR, CV_BGR2GRAY);

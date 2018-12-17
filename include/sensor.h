@@ -116,5 +116,41 @@ class Sensor {
    * @return double
    */
   double getCurrentX();
+  /**
+   * @brief Set current value of forward reading
+   * @param fwd distance value
+   * @return void
+   */
+  void setForwardReading(float fwd);
+  /**
+   * @brief Set current value of the right reading
+   * @param right right distance value
+   * @return void
+   */
+  void setRightReading(float right);
+  /**
+   * @brief Set current value of the left reading
+   * @param left left distance value
+   * @return void
+   */
+  void setLeftReading(float left);
+  /**
+   * @brief Set current value of the x position
+   * @param cX current x
+   * @return void
+   */
+  void setCurrentX(double cX);
+  /**
+   * @brief Set current value of the yaw angle
+   * @param yaw yaw angle
+   * @return void
+   */
+  void setCurrentYaw(double yaw);
+  /**
+   * @brief Set status of obstacle detection
+   * @param obs true of false value
+   * @return void
+   */
+  void setObstacleDetected(bool obs);
 };
 #endif // INCLUDE_SENSOR_H_

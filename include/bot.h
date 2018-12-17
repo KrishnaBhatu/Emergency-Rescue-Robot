@@ -63,6 +63,10 @@ class Bot {
   Sensor* sensor;
   /// Object of Camera class
   Camera* camera;
+  /// Search angle of bot
+  double searchAngle;
+  /// Turn angle of bot
+  double turnAngle;
  public:
   /**
    * @brief Bot class constructor
@@ -107,7 +111,7 @@ class Bot {
    * based on sensor reading to turn left or right
    * @return void
    */
-  void checkFreeDirection();
+  void checkFreeDirection(double searchAngle, double turnAngle);
   /**
    * @brief if door is detected, move through the door
    * @return void
@@ -118,5 +122,17 @@ class Bot {
    * @return float
    */
   float getMaxSpeed();
+  /**
+   * @brief set search angle of the robot
+   * @param search angle in radians
+   * @return void
+   */
+  void setSearchAngle(double search);
+  /**
+   * @brief set turn angle of the robot
+   * @param turn angle in radians
+   * @return void
+   */
+  void setTurnAngle(double turn);
 };
 #endif  // INCLUDE_BOT_H_

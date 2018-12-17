@@ -44,7 +44,9 @@ Bot::Bot(Sensor* iSensor, Camera* iCamera)
       camera(iCamera),
       nextTurnRight(false),
       nextTurnLeft(false),
-      maxSpeed(0.5) {
+      maxSpeed(0.5),
+      turnAngle(1.57),
+      searchAngle(1.2) {
   // Publisher to publish messages on /navi topic
   pubVel = nh.advertise < geometry_msgs::Twist
       > ("/cmd_vel_mux/input/navi", 1000);
@@ -91,7 +93,7 @@ void Bot::startMotion() {
       }
       pubVel.publish(msg);
       ROS_INFO("No Adjustment");
-      checkFreeDirection();
+      checkFreeDirection(searchAngle, turnAngle);
     } else {
       ROS_INFO("Path is clear!");
       auto error = fabs(
@@ -226,22 +228,28 @@ void Bot::moveForward(double desiredPos) {
   }
 }
 // Search for the free path
-void Bot::checkFreeDirection() {
+void Bot::checkFreeDirection(double searchAngle, double turnAngle) {
   ROS_INFO("Checking free direction");
+  // door reached
+  if (sensor->getForwardReading() > 10 && searchAngle == 0.0
+      && turnAngle == 0.0) {
+    sensor->setObstacleDetected(false);
+    return;
+  }
   // Get values from the sensor
   auto safeDistance = sensor->getSafeDistance();
-  turnRight(1.2);
+  turnRight(searchAngle);
   // turn 60 and get right value which will be 180deg
   // value for original configuration
   ROS_INFO("Right reading: %f", sensor->getRightReading());
   auto extremeRightVal = sensor->getRightReading();
-  turnLeft(1.2);
-  turnLeft(1.2);
+  turnLeft(searchAngle);
+  turnLeft(searchAngle);
   // turn 60 and get left value which will be 180deg
   // value for original configuration
   ROS_INFO("Left reading: %f", sensor->getLeftReading());
   auto extremeLeftVal = sensor->getLeftReading();
-  turnRight(1.2);
+  turnRight(searchAngle);
   ROS_INFO("Straight: %f, Right: %f, Left: %f", sensor->getForwardReading(),
            sensor->getRightReading(),
            sensor->getLeftReading());
@@ -251,33 +259,33 @@ void Bot::checkFreeDirection() {
     maxSpeed = 0.5;
     return;
   }
-  if (isnanf(extremeRightVal)) {
+  if (isnanf(extremeRightVal) || sensor->getRightReading() > 5) {
     ROS_INFO("Right Path is longer");
-    turnRight(1.57);
+    turnRight(turnAngle);
     return;
   }
-  if (isnanf(extremeLeftVal)) {
+  if (isnanf(extremeLeftVal) || sensor->getLeftReading() > 5) {
     ROS_INFO("Left Path is longer");
-    turnLeft(1.57);
+    turnLeft(turnAngle);
     return;
   }
   if (sensor->getForwardReading() < safeDistance
       && extremeRightVal > extremeLeftVal
       && extremeRightVal > 3) {
     ROS_INFO("Right Path is longer");
-    turnRight(1.57);
+    turnRight(turnAngle);
     return;
   }
   if (sensor->getForwardReading() < safeDistance
       && extremeRightVal < extremeLeftVal
       && extremeLeftVal > 3) {
     ROS_INFO("Left Path is longer");
-    turnLeft(1.57);
+    turnLeft(turnAngle);
     return;
   } else {
     ROS_INFO("Turn Around");
-    turnLeft(1.57);
-    turnLeft(1.57);
+    turnLeft(turnAngle);
+    turnLeft(turnAngle);
     return;
   }
 }
@@ -312,4 +320,10 @@ void Bot::doorDetection() {
     ros::spinOnce();
     loop_rate.sleep();
   }
+}
+void Bot::setSearchAngle(double search) {
+  searchAngle = search;
+}
+void Bot::setTurnAngle(double turn) {
+  turnAngle = turn;
 }

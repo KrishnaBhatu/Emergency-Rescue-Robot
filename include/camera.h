@@ -130,5 +130,11 @@ class Camera {
     * @return void
     */
   void setSignDetected(bool sD);
+  /**
+   * @brief Start processing the image received from img sensor
+   * @param image openCv image
+   * @return void
+   */
+  void imageProcessing(cv::Mat image);
 };
 #endif // INCLUDE_CAMERA_H_

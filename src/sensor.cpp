@@ -46,7 +46,9 @@ Sensor::Sensor()
       safeDistance(1.2),
       forwardReading(0),
       rightReading(0),
-      leftReading(0) {
+      leftReading(0),
+      currentX(0),
+      currentYaw(0) {
   // Subscribe to /scan topic where we get obstacle distance
   subSensor = nh.subscribe < sensor_msgs::LaserScan
        > ("/scan", 10, &Sensor::sensorCallback, this);
@@ -57,18 +59,18 @@ Sensor::~Sensor() {
 }
 void Sensor::sensorCallback(const sensor_msgs::LaserScan::ConstPtr& msg) {
   // ranges array contains float values of sensor reading
-  rightReading = msg->ranges[0];
-  forwardReading = msg->ranges[319];
-  leftReading = msg->ranges[msg->ranges.size() - 1];
+  setRightReading(msg->ranges[0]);
+  setForwardReading(msg->ranges[319]);
+  setLeftReading(msg->ranges[msg->ranges.size() - 1]);
   // Read all readings of the sensor and check if any object/wall
   // is within the safe distance.
   for (const float &m : msg->ranges) {
     if (m < safeDistance) {
-      obstacleDetected = true;
+      setObstacleDetected(true);
       return;
     }
   }
-  obstacleDetected = false;
+  setObstacleDetected(false);
 }
 void Sensor::odomCallback(const nav_msgs::Odometry::ConstPtr& msg) {
   tf::Quaternion q(msg->pose.pose.orientation.x, msg->pose.pose.orientation.y,
@@ -76,7 +78,7 @@ void Sensor::odomCallback(const nav_msgs::Odometry::ConstPtr& msg) {
   tf::Matrix3x3 m(q);
   double r, p;
   m.getRPY(r, p, currentYaw);
-  currentX = msg->pose.pose.position.x;
+  setCurrentX(msg->pose.pose.position.x);
 }
 float Sensor::getForwardReading() {
   return forwardReading;
@@ -98,4 +100,22 @@ bool Sensor::getObstacleDetected() {
 }
 double Sensor::getSafeDistance() {
   return safeDistance;
+}
+void Sensor::setForwardReading(float fwd) {
+  forwardReading = fwd;
+}
+void Sensor::setRightReading(float right) {
+  rightReading = right;
+}
+void Sensor::setLeftReading(float left) {
+  leftReading = left;
+}
+void Sensor::setCurrentX(double cX) {
+  currentX = cX;
+}
+void Sensor::setCurrentYaw(double yaw) {
+  currentYaw = yaw;
+}
+void Sensor::setObstacleDetected(bool obs) {
+  obstacleDetected = obs;
 }
