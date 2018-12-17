@@ -77,17 +77,6 @@ TEST(BotTest, moveForwardTest) {
   EXPECT_EQ(1.0, bot.getMaxSpeed());
 }
 /**
- * @brief Test door detection function
-TEST(BotTest, doorDetectionTest) {
-  Camera camera;
-  Sensor sensor;
-  Bot bot(&sensor, &camera);
-  sensor.setForwardReading(2.0);
-  sensor.setRightReading(2.0);
-  sensor.setLeftReading(2.0);
-  bot.doorDetection();
-}
-/**
  * @brief Test move Forward
  */
 TEST(BotTest, startMotionTest) {
@@ -109,23 +98,27 @@ TEST(BotTest, checkFreeDirectionTest) {
   sensor.setForwardReading(0.5);
   sensor.setRightReading(6);
   bot.checkFreeDirection(0.0, 0.0);
+  EXPECT_FALSE(sensor.getObstacleDetected());
 
   sensor.setRightReading(0.5);
   sensor.setLeftReading(6);
   bot.checkFreeDirection(0.0, 0.0);
+  EXPECT_FALSE(sensor.getObstacleDetected());
 
   sensor.setForwardReading(0.5);
   sensor.setRightReading(4);
   sensor.setLeftReading(3);
   bot.checkFreeDirection(0.0, 0.0);
+  EXPECT_FALSE(sensor.getObstacleDetected());
 
   sensor.setRightReading(3);
   sensor.setLeftReading(4);
   bot.checkFreeDirection(0.0, 0.0);
-
   sensor.setRightReading(0.5);
   sensor.setLeftReading(0.5);
   bot.checkFreeDirection(0.0, 0.0);
+  EXPECT_FALSE(sensor.getObstacleDetected());
+
 }
 /**
  * @brief obstacle detection test
@@ -140,4 +133,5 @@ TEST(BotTest, obstacleDetectionTest) {
   bot.setSearchAngle(0.0);
   bot.setTurnAngle(0.0);
   bot.startMotion();
+  EXPECT_FALSE(sensor.getObstacleDetected());
 }
