@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/KrishnaBhatu/Emergency-Rescue-Robot.svg?branch=master)](https://travis-ci.org/KrishnaBhatu/Emergency-Rescue-Robot)
-[![Coverage Status](https://coveralls.io/repos/github/KrishnaBhatu/Emergency-Rescue-Robot/badge.svg?branch=master)](https://coveralls.io/github/KrishnaBhatu/Emergency-Rescue-Robot?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/KrishnaBhatu/Emergency-Rescue-Robot/badge.svg)](https://coveralls.io/github/KrishnaBhatu/Emergency-Rescue-Robot)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
 <h1 align = "center">
