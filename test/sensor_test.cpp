@@ -34,10 +34,10 @@
  */
 #include <gtest/gtest.h>
 #include <ros/ros.h>
-#include "../include/sensor.h"
 #include <sensor_msgs/LaserScan.h>
 #include <geometry_msgs/Twist.h>
 #include <nav_msgs/Odometry.h>
+#include "../include/sensor.h"
 /**
  * @brief Test to check sensor initiailization
  */

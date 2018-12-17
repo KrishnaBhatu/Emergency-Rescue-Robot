@@ -118,7 +118,6 @@ TEST(BotTest, checkFreeDirectionTest) {
   sensor.setLeftReading(0.5);
   bot.checkFreeDirection(0.0, 0.0);
   EXPECT_FALSE(sensor.getObstacleDetected());
-
 }
 /**
  * @brief obstacle detection test

@@ -95,37 +95,35 @@ TEST(CameraTest, setSignDetectedTest) {
 /**
  * @brief Test to check if green sign is detected
  */
-TEST(CameraTest, greenSignTest) { 
+TEST(CameraTest, greenSignTest) {
   Camera camera;
-  cv::Mat image = cv::imread("images/test1.png",1);
+  cv::Mat image = cv::imread("images/test1.png", 1);
   int i = 0;
-  while(i<45){
-   camera.imageProcessing(image);
-   i++;
+  while (i < 45) {
+    camera.imageProcessing(image);
+    i++;
   }
-   EXPECT_EQ(5, camera.getNowTurn()); 
+  EXPECT_EQ(5, camera.getNowTurn());
 }
 /**
  * @brief Test to check if blue sign is detected
  */
-TEST(CameraTest, blueSignTest) { 
+TEST(CameraTest, blueSignTest) {
   Camera camera;
-  cv::Mat image = cv::imread("images/test3.png",1);
+  cv::Mat image = cv::imread("images/test3.png", 1);
   int i = 0;
-  while(i<46){
-   camera.imageProcessing(image);
-   i++;
+  while (i < 46) {
+    camera.imageProcessing(image);
+    i++;
   }
-  //EXPECT_TRUE(camera.getSignDetected());
-  EXPECT_EQ(10, camera.getNowTurn()); 
+  EXPECT_EQ(10, camera.getNowTurn());
 }
 /**
  * @brief Test to check if red sign is detected
  */
-TEST(CameraTest, redSignTest) { 
+TEST(CameraTest, redSignTest) {
   Camera camera;
-  cv::Mat image = cv::imread("images/test2.png",1);
-  int i = 0;
+  cv::Mat image = cv::imread("images/test2.png", 1);
   camera.imageProcessing(image);
-  EXPECT_EQ(15, camera.getNowTurn()); 
+  EXPECT_EQ(15, camera.getNowTurn());
 }
