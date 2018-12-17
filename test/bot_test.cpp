@@ -47,12 +47,24 @@ TEST(BotTest, botInitialization) {
 /**
  * @brief Test robot motion function
  */
-TEST(BotTest, startMotionTest) {
+TEST(BotTest, turnRightTest) {
   Camera camera;
   Sensor sensor;
   Bot bot(&sensor, &camera);
-  bot.startMotion();
-  EXPECT_FALSE(sensor.getObstacleDetected());
+  sensor.setCurrentYaw(1.2);
+  bot.turnRight(0.005);
+  EXPECT_DOUBLE_EQ(1.2, sensor.getCurrentYaw());
+}
+/**
+ * @brief Test robot motion function
+ */
+TEST(BotTest, turnLeftTest) {
+  Camera camera;
+  Sensor sensor;
+  Bot bot(&sensor, &camera);
+  sensor.setCurrentYaw(1.2);
+  bot.turnLeft(0.0);
+  EXPECT_DOUBLE_EQ(1.2, sensor.getCurrentYaw());
 }
 /**
  * @brief Test moveFoward function
@@ -63,4 +75,69 @@ TEST(BotTest, moveForwardTest) {
   Bot bot(&sensor, &camera);
   bot.moveForward(2.0);
   EXPECT_EQ(1.0, bot.getMaxSpeed());
+}
+/**
+ * @brief Test door detection function
+TEST(BotTest, doorDetectionTest) {
+  Camera camera;
+  Sensor sensor;
+  Bot bot(&sensor, &camera);
+  sensor.setForwardReading(2.0);
+  sensor.setRightReading(2.0);
+  sensor.setLeftReading(2.0);
+  bot.doorDetection();
+}
+/**
+ * @brief Test move Forward
+ */
+TEST(BotTest, startMotionTest) {
+  Camera camera;
+  Sensor sensor;
+  Bot bot(&sensor, &camera);
+  camera.setNowTurn(15);
+  bot.startMotion();
+}
+/**
+ * @brief Test move Forward
+ */
+TEST(BotTest, checkFreeDirectionTest) {
+  Camera camera;
+  Sensor sensor;
+  Bot bot(&sensor, &camera);
+  sensor.setForwardReading(5);
+  bot.checkFreeDirection(0.0, 0.0);
+  sensor.setForwardReading(0.5);
+  sensor.setRightReading(6);
+  bot.checkFreeDirection(0.0, 0.0);
+
+  sensor.setRightReading(0.5);
+  sensor.setLeftReading(6);
+  bot.checkFreeDirection(0.0, 0.0);
+
+  sensor.setForwardReading(0.5);
+  sensor.setRightReading(4);
+  sensor.setLeftReading(3);
+  bot.checkFreeDirection(0.0, 0.0);
+
+  sensor.setRightReading(3);
+  sensor.setLeftReading(4);
+  bot.checkFreeDirection(0.0, 0.0);
+
+  sensor.setRightReading(0.5);
+  sensor.setLeftReading(0.5);
+  bot.checkFreeDirection(0.0, 0.0);
+}
+/**
+ * @brief obstacle detection test
+ */
+TEST(BotTest, obstacleDetectionTest) {
+  Camera camera;
+  Sensor sensor;
+  Bot bot(&sensor, &camera);
+  sensor.setObstacleDetected(true);
+  sensor.setForwardReading(12);
+  camera.setNowTurn(15);
+  bot.setSearchAngle(0.0);
+  bot.setTurnAngle(0.0);
+  bot.startMotion();
 }

@@ -35,8 +35,11 @@
 #include <gtest/gtest.h>
 #include <ros/ros.h>
 #include "../include/sensor.h"
+#include <sensor_msgs/LaserScan.h>
+#include <geometry_msgs/Twist.h>
+#include <nav_msgs/Odometry.h>
 /**
- * @brief Test to check if sensor class is initiailizing
+ * @brief Test to check sensor initiailization
  */
 TEST(SensorTest, SensorInitializationTest) {
   Sensor sensor;
@@ -46,49 +49,70 @@ TEST(SensorTest, SensorInitializationTest) {
  * @brief Test to check sensorcallback function
  */
 TEST(SensorTest, sensorCallbackTest) {
-  Sensor sensor;
-  EXPECT_NEAR(0, sensor.getForwardReading(), 1);
-  EXPECT_NEAR(0, sensor.getRightReading(), 1);
-  EXPECT_NEAR(0, sensor.getLeftReading(), 1.5);
+  ros::NodeHandle nh;
+  ros::Publisher mockPub = nh.advertise < sensor_msgs::LaserScan
+      > ("/scan", 50);
+  sensor_msgs::LaserScan mockLaserData;
+  mockLaserData.angle_min = -0.52;
+  mockLaserData.angle_max = 0.52;
+  mockLaserData.angle_increment = 0.0016;
+  mockLaserData.time_increment = 0.0;
+  mockLaserData.range_min = 0.44;
+  mockLaserData.range_max = 3.0;
+  mockLaserData.ranges.resize(50);
+  mockLaserData.intensities.resize(50);
+
+  for (auto& i : mockLaserData.ranges) {
+    i = 0.0;
+  }
+  int counter = 0;
+
+  while (ros::ok()) {
+    mockPub.publish(mockLaserData);
+    Sensor sensor;
+
+    if (counter == 3) {
+      break;
+    }
+    ros::spinOnce();
+    EXPECT_EQ(1, mockPub.getNumSubscribers());
+    counter++;
+  }
 }
 /**
  * @brief Test to check odometer callback function
  */
 TEST(SensorTest, odomCallbackTest) {
+  ros::NodeHandle nh;
+  ros::Publisher mockPub = nh.advertise < nav_msgs::Odometry > ("/odom", 50);
+  nav_msgs::Odometry mockOdom;
+  mockPub.publish(mockOdom);
   Sensor sensor;
-  /// Initially yaw angle should be near to 0
-  EXPECT_NEAR(0, sensor.getCurrentYaw(), 0.2);
-  /// Initially x position should be near to 0
-  EXPECT_NEAR(0, sensor.getCurrentX(), 1);
+  EXPECT_EQ(1, mockPub.getNumSubscribers());
 }
 /**
  * @brief Test to check forward reading measurment
  */
 TEST(SensorTest, getForwarReadingTest) {
   Sensor sensor;
-  EXPECT_NEAR(0, sensor.getForwardReading(), 1);
+  sensor.setForwardReading(2.0);
+  EXPECT_DOUBLE_EQ(2.0, sensor.getForwardReading());
 }
 /**
  * @brief Test to check right reading measurment
  */
 TEST(SensorTest, getRightReadingTest) {
   Sensor sensor;
-  EXPECT_NEAR(0, sensor.getRightReading(), 1);
+  sensor.setRightReading(2.0);
+  EXPECT_DOUBLE_EQ(2.0, sensor.getRightReading());
 }
 /**
  * @brief Test to check left reading measurment
  */
 TEST(SensorTest, getLeftReadingTest) {
   Sensor sensor;
-  EXPECT_NEAR(0, sensor.getLeftReading(), 1.5);
-}
-/**
- * @brief Test to check current yaw reading
- */
-TEST(SensorTest, getObstacleDetectedTest) {
-  Sensor sensor;
-  /// Initially their is no obstacle.
-  EXPECT_FALSE(sensor.getObstacleDetected());
+  sensor.setLeftReading(2.0);
+  EXPECT_DOUBLE_EQ(2.0, sensor.getLeftReading());
 }
 /**
  * @brief Test to check current yaw reading
@@ -96,4 +120,20 @@ TEST(SensorTest, getObstacleDetectedTest) {
 TEST(SensorTest, getSafeDistanceTest) {
   Sensor sensor;
   EXPECT_DOUBLE_EQ(1.2, sensor.getSafeDistance());
+}
+/**
+ * @brief Test to check obstacle detection flag
+ */
+TEST(SensorTest, getObstacleDetectionTest) {
+  Sensor sensor;
+  sensor.setObstacleDetected(false);
+  EXPECT_FALSE(sensor.getObstacleDetected());
+}
+/**
+ * @brief Get currentX test
+ */
+TEST(SensorTest, getCurrentXTest) {
+  Sensor sensor;
+  sensor.setCurrentX(1.0);
+  EXPECT_DOUBLE_EQ(1.0, sensor.getCurrentX());
 }

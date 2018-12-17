@@ -34,6 +34,10 @@
  */
 #include <gtest/gtest.h>
 #include <ros/ros.h>
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include "opencv2/imgproc.hpp"
+#include "opencv2/highgui.hpp"
 #include "../include/camera.h"
 /**
  * @brief Test to check if Camera class is initiailizing
@@ -52,8 +56,7 @@ TEST(CameraTest, checkImageTest) {
   Camera camera;
   ros::WallDuration(5, 0).sleep();
   ros::spinOnce();
-  /// Initially bot is far away from
-  EXPECT_TRUE(camera.getSignDetected());
+  EXPECT_FALSE(camera.getSignDetected());
 }
 /**
  * @brief Test to check if nowTurn is being set
@@ -88,4 +91,41 @@ TEST(CameraTest, setSignDetectedTest) {
   EXPECT_TRUE(camera.getSignDetected());
   camera.setSignDetected(false);
   EXPECT_FALSE(camera.getSignDetected());
+}
+/**
+ * @brief Test to check if green sign is detected
+ */
+TEST(CameraTest, greenSignTest) { 
+  Camera camera;
+  cv::Mat image = cv::imread("images/test1.png",1);
+  int i = 0;
+  while(i<45){
+   camera.imageProcessing(image);
+   i++;
+  }
+   EXPECT_EQ(5, camera.getNowTurn()); 
+}
+/**
+ * @brief Test to check if blue sign is detected
+ */
+TEST(CameraTest, blueSignTest) { 
+  Camera camera;
+  cv::Mat image = cv::imread("images/test3.png",1);
+  int i = 0;
+  while(i<46){
+   camera.imageProcessing(image);
+   i++;
+  }
+  //EXPECT_TRUE(camera.getSignDetected());
+  EXPECT_EQ(10, camera.getNowTurn()); 
+}
+/**
+ * @brief Test to check if red sign is detected
+ */
+TEST(CameraTest, redSignTest) { 
+  Camera camera;
+  cv::Mat image = cv::imread("images/test2.png",1);
+  int i = 0;
+  camera.imageProcessing(image);
+  EXPECT_EQ(15, camera.getNowTurn()); 
 }
