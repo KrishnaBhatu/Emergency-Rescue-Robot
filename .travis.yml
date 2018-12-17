@@ -94,7 +94,7 @@ script:
   - source /opt/ros/$ROS_DISTRO/setup.bash
   - cd ~/.ros
   - mkdir images
-  - cd ~/catkin_ws/src/testing/images
+  - cd ~/catkin_ws/src/Emergency-Rescue-Robot/images/
   - mv *.png ~/.ros/images
   - cd ~/catkin_ws
   - catkin_make $( [ -f $CATKIN_OPTIONS ] && cat $CATKIN_OPTIONS )
