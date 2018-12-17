@@ -273,3 +273,9 @@ Navigate to the results folder and run the following command:
 ```
 rqt_bag {name_of_the_bag_file}.bag
 ```
+
+## Coverage
+
+The code coverage of this code is 84% because of the following reason:
+
+The Bot class has startMotion method which is the autonomous functionality of the turtlebot, which adapts with the changing environment so the entire method cannot be encorporated in the test unless all the conditions of the change in environments are encountered which cannot occour simultaneously. 
