@@ -5,7 +5,7 @@
 #---------------------------------------------------------------------------
 DOXYFILE_ENCODING      = UTF-8
 PROJECT_NAME           = "Daredevil - Emergency Rescue Robot"
-PROJECT_NUMBER         = 1.0
+PROJECT_NUMBER         = 0.2
 PROJECT_BRIEF          = "This project implements the frontier exploration task where the robot has to react in an emergency situation and lead the person to the exit of the building. The project is just a simulation of the robot in Gazebo which will show the autonomous exploration of the unknown environment and finding the exit of the building by following the exit signs."
 PROJECT_LOGO           = /home/siddhesh/Downloads/logoImage.png
 OUTPUT_DIRECTORY       = /home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/doc

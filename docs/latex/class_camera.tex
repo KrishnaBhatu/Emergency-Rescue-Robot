@@ -28,7 +28,9 @@ void \mbox{\hyperlink{class_camera_a3186b8e7cf648308237a2ba440379e34}{set\+Count
 void \mbox{\hyperlink{class_camera_a66d6f05a42feb58468bc4039b07b1b23}{set\+CountB}} (int cB)
 \begin{DoxyCompactList}\small\item\em Set value of the counter which determines the time after which the robot has to take turn after detecting the right turning point. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_camera_ab51102514272832890346b414759e716}{set\+Sign\+Detected}} (bool sD)
-\begin{DoxyCompactList}\small\item\em Set the flag when sign is detected. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Set the flag when sign is detected. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_a476073362ca2d7f38cfc4662aeeafb0e}{image\+Processing}} (cv\+::\+Mat image)
+\begin{DoxyCompactList}\small\item\em Start processing the image received from img sensor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -49,7 +51,7 @@ Definition at line 44 of file camera.\+h.
 
 Default constructor for \mbox{\hyperlink{class_camera}{Camera}}. 
 
-
+Subscribe to /camera/rgb/image\+\_\+raw topic 
 
 Definition at line 36 of file camera.\+cpp.
 
@@ -107,7 +109,7 @@ int
 \end{DoxyReturn}
 
 
-Definition at line 134 of file camera.\+cpp.
+Definition at line 137 of file camera.\+cpp.
 
 \mbox{\Hypertarget{class_camera_ae345bbfa5530387acf5143a3e70bf103}\label{class_camera_ae345bbfa5530387acf5143a3e70bf103}} 
 \index{Camera@{Camera}!get\+CountB@{get\+CountB}}
@@ -124,7 +126,7 @@ int
 \end{DoxyReturn}
 
 
-Definition at line 137 of file camera.\+cpp.
+Definition at line 140 of file camera.\+cpp.
 
 \mbox{\Hypertarget{class_camera_a6b27e3016f42ac8af96601426e009c1b}\label{class_camera_a6b27e3016f42ac8af96601426e009c1b}} 
 \index{Camera@{Camera}!get\+Now\+Turn@{get\+Now\+Turn}}
@@ -141,7 +143,7 @@ int
 \end{DoxyReturn}
 
 
-Definition at line 131 of file camera.\+cpp.
+Definition at line 134 of file camera.\+cpp.
 
 \mbox{\Hypertarget{class_camera_a0f8951959a2822e6b729a9fe05b428ef}\label{class_camera_a0f8951959a2822e6b729a9fe05b428ef}} 
 \index{Camera@{Camera}!get\+Sign\+Detected@{get\+Sign\+Detected}}
@@ -158,7 +160,29 @@ bool
 \end{DoxyReturn}
 
 
-Definition at line 140 of file camera.\+cpp.
+Definition at line 143 of file camera.\+cpp.
+
+\mbox{\Hypertarget{class_camera_a476073362ca2d7f38cfc4662aeeafb0e}\label{class_camera_a476073362ca2d7f38cfc4662aeeafb0e}} 
+\index{Camera@{Camera}!image\+Processing@{image\+Processing}}
+\index{image\+Processing@{image\+Processing}!Camera@{Camera}}
+\subsubsection{\texorpdfstring{image\+Processing()}{imageProcessing()}}
+{\footnotesize\ttfamily void Camera\+::image\+Processing (\begin{DoxyParamCaption}\item[{cv\+::\+Mat}]{image }\end{DoxyParamCaption})}
+
+
+
+Start processing the image received from img sensor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & open\+Cv image \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 55 of file camera.\+cpp.
 
 \mbox{\Hypertarget{class_camera_a3186b8e7cf648308237a2ba440379e34}\label{class_camera_a3186b8e7cf648308237a2ba440379e34}} 
 \index{Camera@{Camera}!set\+Count@{set\+Count}}
@@ -180,7 +204,7 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 146 of file camera.\+cpp.
+Definition at line 149 of file camera.\+cpp.
 
 \mbox{\Hypertarget{class_camera_a66d6f05a42feb58468bc4039b07b1b23}\label{class_camera_a66d6f05a42feb58468bc4039b07b1b23}} 
 \index{Camera@{Camera}!set\+CountB@{set\+CountB}}
@@ -202,7 +226,7 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 149 of file camera.\+cpp.
+Definition at line 152 of file camera.\+cpp.
 
 \mbox{\Hypertarget{class_camera_a77cd72118fd9d03e04beaf60f7345138}\label{class_camera_a77cd72118fd9d03e04beaf60f7345138}} 
 \index{Camera@{Camera}!set\+Now\+Turn@{set\+Now\+Turn}}
@@ -224,7 +248,7 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 143 of file camera.\+cpp.
+Definition at line 146 of file camera.\+cpp.
 
 \mbox{\Hypertarget{class_camera_ab51102514272832890346b414759e716}\label{class_camera_ab51102514272832890346b414759e716}} 
 \index{Camera@{Camera}!set\+Sign\+Detected@{set\+Sign\+Detected}}
@@ -246,11 +270,11 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 152 of file camera.\+cpp.
+Definition at line 155 of file camera.\+cpp.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/siddhesh/ros/latest/src/\+Emergency-\/\+Rescue-\/\+Robot/include/\mbox{\hyperlink{camera_8h}{camera.\+h}}\item 
+/home/siddhesh/ros/\+Ultimate\+Final/src/\+Emergency-\/\+Rescue-\/\+Robot/include/\mbox{\hyperlink{camera_8h}{camera.\+h}}\item 
 \mbox{\hyperlink{camera_8cpp}{camera.\+cpp}}\end{DoxyCompactItemize}

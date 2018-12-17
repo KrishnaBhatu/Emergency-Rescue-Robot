@@ -31,7 +31,7 @@
   <td id="projectlogo"><img alt="Logo" src="logoImage.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Daredevil - Emergency Rescue Robot
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">0.2</span>
    </div>
    <div id="projectbrief">This project implements the frontier exploration task where the robot has to react in an emergency situation and lead the person to the exit of the building. The project is just a simulation of the robot in Gazebo which will show the autonomous exploration of the unknown environment and finding the exit of the building by following the exit signs.</div>
   </td>
@@ -133,10 +133,28 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a933dfb180d498c41862b5e14675cc97d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor.html#a933dfb180d498c41862b5e14675cc97d">getCurrentX</a> ()</td></tr>
 <tr class="memdesc:a933dfb180d498c41862b5e14675cc97d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get sensor reading of current x position.  <a href="#a933dfb180d498c41862b5e14675cc97d">More...</a><br /></td></tr>
 <tr class="separator:a933dfb180d498c41862b5e14675cc97d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae406fca85ea14092ddc0857cf1c00f13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor.html#ae406fca85ea14092ddc0857cf1c00f13">setForwardReading</a> (float fwd)</td></tr>
+<tr class="memdesc:ae406fca85ea14092ddc0857cf1c00f13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set current value of forward reading.  <a href="#ae406fca85ea14092ddc0857cf1c00f13">More...</a><br /></td></tr>
+<tr class="separator:ae406fca85ea14092ddc0857cf1c00f13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6549b1585b750c48673def64a199bac1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor.html#a6549b1585b750c48673def64a199bac1">setRightReading</a> (float right)</td></tr>
+<tr class="memdesc:a6549b1585b750c48673def64a199bac1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set current value of the right reading.  <a href="#a6549b1585b750c48673def64a199bac1">More...</a><br /></td></tr>
+<tr class="separator:a6549b1585b750c48673def64a199bac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a510ede2de9130fb4dad6306606524f55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor.html#a510ede2de9130fb4dad6306606524f55">setLeftReading</a> (float left)</td></tr>
+<tr class="memdesc:a510ede2de9130fb4dad6306606524f55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set current value of the left reading.  <a href="#a510ede2de9130fb4dad6306606524f55">More...</a><br /></td></tr>
+<tr class="separator:a510ede2de9130fb4dad6306606524f55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a380fab1afde78a51e06ae1498164bfc7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor.html#a380fab1afde78a51e06ae1498164bfc7">setCurrentX</a> (double cX)</td></tr>
+<tr class="memdesc:a380fab1afde78a51e06ae1498164bfc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set current value of the x position.  <a href="#a380fab1afde78a51e06ae1498164bfc7">More...</a><br /></td></tr>
+<tr class="separator:a380fab1afde78a51e06ae1498164bfc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a725c0cc64bdf279e35f9ca4e96d8235d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor.html#a725c0cc64bdf279e35f9ca4e96d8235d">setCurrentYaw</a> (double yaw)</td></tr>
+<tr class="memdesc:a725c0cc64bdf279e35f9ca4e96d8235d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set current value of the yaw angle.  <a href="#a725c0cc64bdf279e35f9ca4e96d8235d">More...</a><br /></td></tr>
+<tr class="separator:a725c0cc64bdf279e35f9ca4e96d8235d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3914c5ebf7891ec734c4d17e7c4cd3d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor.html#ae3914c5ebf7891ec734c4d17e7c4cd3d">setObstacleDetected</a> (bool obs)</td></tr>
+<tr class="memdesc:ae3914c5ebf7891ec734c4d17e7c4cd3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set status of obstacle detection.  <a href="#ae3914c5ebf7891ec734c4d17e7c4cd3d">More...</a><br /></td></tr>
+<tr class="separator:ae3914c5ebf7891ec734c4d17e7c4cd3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="sensor_8h_source.html#l00045">45</a> of file <a class="el" href="sensor_8h_source.html">sensor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sensor_8h_source.html#l00041">41</a> of file <a class="el" href="sensor_8h_source.html">sensor.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a342d6d11ef572c8cba92cb76fb1a294b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a342d6d11ef572c8cba92cb76fb1a294b">&#9670;&nbsp;</a></span>Sensor()</h2>
@@ -155,7 +173,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Default <a class="el" href="class_sensor.html">Sensor</a> class constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00037">37</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00044">44</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
 
 </div>
 </div>
@@ -176,7 +194,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Default <a class="el" href="class_sensor.html">Sensor</a> class destructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00049">49</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00058">58</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
 
 </div>
 </div>
@@ -199,7 +217,7 @@ Public Member Functions</h2></td></tr>
 <p>Get sensor reading of current x position. </p>
 <dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00086">86</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00095">95</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
 
 </div>
 </div>
@@ -221,7 +239,7 @@ Public Member Functions</h2></td></tr>
 <p>Get sensor reading of current yaw angle. </p>
 <dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00083">83</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00092">92</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
 
 </div>
 </div>
@@ -243,7 +261,7 @@ Public Member Functions</h2></td></tr>
 <p>Get sensor reading at 0deg. </p>
 <dl class="section return"><dt>Returns</dt><dd>float </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00074">74</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00083">83</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
 
 </div>
 </div>
@@ -265,7 +283,7 @@ Public Member Functions</h2></td></tr>
 <p>Get sensor reading at 30deg. </p>
 <dl class="section return"><dt>Returns</dt><dd>float </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00080">80</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00089">89</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
 
 </div>
 </div>
@@ -287,7 +305,7 @@ Public Member Functions</h2></td></tr>
 <p>check if obstacle is detected </p>
 <dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00089">89</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00098">98</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
 
 </div>
 </div>
@@ -309,7 +327,7 @@ Public Member Functions</h2></td></tr>
 <p>Get sensor reading at -30deg. </p>
 <dl class="section return"><dt>Returns</dt><dd>float </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00077">77</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00086">86</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
 
 </div>
 </div>
@@ -331,7 +349,7 @@ Public Member Functions</h2></td></tr>
 <p>Get max safe distance. </p>
 <dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00092">92</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00101">101</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
 
 </div>
 </div>
@@ -360,7 +378,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00066">66</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00075">75</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
 
 </div>
 </div>
@@ -389,12 +407,186 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00051">51</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00060">60</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a380fab1afde78a51e06ae1498164bfc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a380fab1afde78a51e06ae1498164bfc7">&#9670;&nbsp;</a></span>setCurrentX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Sensor::setCurrentX </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>cX</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set current value of the x position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cX</td><td>current x </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00113">113</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a725c0cc64bdf279e35f9ca4e96d8235d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a725c0cc64bdf279e35f9ca4e96d8235d">&#9670;&nbsp;</a></span>setCurrentYaw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Sensor::setCurrentYaw </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>yaw</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set current value of the yaw angle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">yaw</td><td>yaw angle </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00116">116</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ae406fca85ea14092ddc0857cf1c00f13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae406fca85ea14092ddc0857cf1c00f13">&#9670;&nbsp;</a></span>setForwardReading()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Sensor::setForwardReading </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>fwd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set current value of forward reading. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fwd</td><td>distance value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00104">104</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a510ede2de9130fb4dad6306606524f55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a510ede2de9130fb4dad6306606524f55">&#9670;&nbsp;</a></span>setLeftReading()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Sensor::setLeftReading </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>left</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set current value of the left reading. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">left</td><td>left distance value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00110">110</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ae3914c5ebf7891ec734c4d17e7c4cd3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3914c5ebf7891ec734c4d17e7c4cd3d">&#9670;&nbsp;</a></span>setObstacleDetected()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Sensor::setObstacleDetected </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>obs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set status of obstacle detection. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obs</td><td>true of false value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00119">119</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a6549b1585b750c48673def64a199bac1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6549b1585b750c48673def64a199bac1">&#9670;&nbsp;</a></span>setRightReading()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Sensor::setRightReading </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>right</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set current value of the right reading. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">right</td><td>right distance value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="sensor_8cpp_source.html#l00107">107</a> of file <a class="el" href="sensor_8cpp_source.html">sensor.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/<a class="el" href="sensor_8h_source.html">sensor.h</a></li>
+<li>/home/siddhesh/ros/UltimateFinal/src/Emergency-Rescue-Robot/include/<a class="el" href="sensor_8h_source.html">sensor.h</a></li>
 <li><a class="el" href="sensor_8cpp_source.html">sensor.cpp</a></li>
 </ul>
 </div><!-- contents -->

@@ -31,7 +31,7 @@
   <td id="projectlogo"><img alt="Logo" src="logoImage.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Daredevil - Emergency Rescue Robot
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">0.2</span>
    </div>
    <div id="projectbrief">This project implements the frontier exploration task where the robot has to react in an emergency situation and lead the person to the exit of the building. The project is just a simulation of the robot in Gazebo which will show the autonomous exploration of the unknown environment and finding the exit of the building by following the exit signs.</div>
   </td>
@@ -96,6 +96,11 @@ $(document).ready(function(){initNavTree('bot_8cpp.html','');});
 <p><a class="el" href="class_bot.html">Bot</a> class implementation;.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="bot_8h_source.html">../include/bot.h</a>&quot;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="sensor_8h_source.html">../include/sensor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="camera_8h_source.html">../include/camera.h</a>&quot;</code><br />
+<code>#include &quot;ros/ros.h&quot;</code><br />
+<code>#include &quot;geometry_msgs/Twist.h&quot;</code><br />
 </div>
 <p><a href="bot_8cpp_source.html">Go to the source code of this file.</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

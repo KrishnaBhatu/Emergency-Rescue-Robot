@@ -31,7 +31,7 @@
   <td id="projectlogo"><img alt="Logo" src="logoImage.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Daredevil - Emergency Rescue Robot
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">0.2</span>
    </div>
    <div id="projectbrief">This project implements the frontier exploration task where the robot has to react in an emergency situation and lead the person to the exit of the building. The project is just a simulation of the robot in Gazebo which will show the autonomous exploration of the unknown environment and finding the exit of the building by following the exit signs.</div>
   </td>
@@ -96,6 +96,13 @@ $(document).ready(function(){initNavTree('sensor_8cpp.html','');});
 <p>walker class implementation;  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="sensor_8h_source.html">../include/sensor.h</a>&quot;</code><br />
+<code>#include &lt;tf/transform_datatypes.h&gt;</code><br />
+<code>#include &lt;tf/LinearMath/Matrix3x3.h&gt;</code><br />
+<code>#include &lt;tf/transform_listener.h&gt;</code><br />
+<code>#include &quot;tf/tf.h&quot;</code><br />
+<code>#include &quot;ros/ros.h&quot;</code><br />
+<code>#include &quot;sensor_msgs/LaserScan.h&quot;</code><br />
+<code>#include &quot;nav_msgs/Odometry.h&quot;</code><br />
 </div>
 <p><a href="sensor_8cpp_source.html">Go to the source code of this file.</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

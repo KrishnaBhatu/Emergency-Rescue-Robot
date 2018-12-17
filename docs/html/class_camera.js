@@ -7,6 +7,7 @@ var class_camera =
     [ "getCountB", "class_camera.html#ae345bbfa5530387acf5143a3e70bf103", null ],
     [ "getNowTurn", "class_camera.html#a6b27e3016f42ac8af96601426e009c1b", null ],
     [ "getSignDetected", "class_camera.html#a0f8951959a2822e6b729a9fe05b428ef", null ],
+    [ "imageProcessing", "class_camera.html#a476073362ca2d7f38cfc4662aeeafb0e", null ],
     [ "setCount", "class_camera.html#a3186b8e7cf648308237a2ba440379e34", null ],
     [ "setCountB", "class_camera.html#a66d6f05a42feb58468bc4039b07b1b23", null ],
     [ "setNowTurn", "class_camera.html#a77cd72118fd9d03e04beaf60f7345138", null ],

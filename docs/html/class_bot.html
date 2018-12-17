@@ -31,7 +31,7 @@
   <td id="projectlogo"><img alt="Logo" src="logoImage.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Daredevil - Emergency Rescue Robot
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">0.2</span>
    </div>
    <div id="projectbrief">This project implements the frontier exploration task where the robot has to react in an emergency situation and lead the person to the exit of the building. The project is just a simulation of the robot in Gazebo which will show the autonomous exploration of the unknown environment and finding the exit of the building by following the exit signs.</div>
   </td>
@@ -121,15 +121,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abc25556b72a44e45056d161eaa48e1c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot.html#abc25556b72a44e45056d161eaa48e1c6">moveForward</a> (double desiredPos)</td></tr>
 <tr class="memdesc:abc25556b72a44e45056d161eaa48e1c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">move forward by some distance  <a href="#abc25556b72a44e45056d161eaa48e1c6">More...</a><br /></td></tr>
 <tr class="separator:abc25556b72a44e45056d161eaa48e1c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab20d03ffaf12e27a1ee84714a3e83950"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot.html#ab20d03ffaf12e27a1ee84714a3e83950">checkFreeDirection</a> ()</td></tr>
-<tr class="memdesc:ab20d03ffaf12e27a1ee84714a3e83950"><td class="mdescLeft">&#160;</td><td class="mdescRight">if sign is not present make decisions based on sensor reading to turn left or right  <a href="#ab20d03ffaf12e27a1ee84714a3e83950">More...</a><br /></td></tr>
-<tr class="separator:ab20d03ffaf12e27a1ee84714a3e83950"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a057a268f423e1d8aa71f01ff4bf23149"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot.html#a057a268f423e1d8aa71f01ff4bf23149">checkFreeDirection</a> (double searchAngle, double turnAngle)</td></tr>
+<tr class="memdesc:a057a268f423e1d8aa71f01ff4bf23149"><td class="mdescLeft">&#160;</td><td class="mdescRight">if sign is not present make decisions based on sensor reading to turn left or right  <a href="#a057a268f423e1d8aa71f01ff4bf23149">More...</a><br /></td></tr>
+<tr class="separator:a057a268f423e1d8aa71f01ff4bf23149"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a308e7e40f00a853d1397cfafcb7d2cd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot.html#a308e7e40f00a853d1397cfafcb7d2cd5">doorDetection</a> ()</td></tr>
 <tr class="memdesc:a308e7e40f00a853d1397cfafcb7d2cd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">if door is detected, move through the door  <a href="#a308e7e40f00a853d1397cfafcb7d2cd5">More...</a><br /></td></tr>
 <tr class="separator:a308e7e40f00a853d1397cfafcb7d2cd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a3b192232d8b938f11c1d253795c222"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot.html#a4a3b192232d8b938f11c1d253795c222">getMaxSpeed</a> ()</td></tr>
 <tr class="memdesc:a4a3b192232d8b938f11c1d253795c222"><td class="mdescLeft">&#160;</td><td class="mdescRight">get maximum speed of robot  <a href="#a4a3b192232d8b938f11c1d253795c222">More...</a><br /></td></tr>
 <tr class="separator:a4a3b192232d8b938f11c1d253795c222"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2b0ed8f324e0ed8777b0ed82bd5a718"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot.html#ab2b0ed8f324e0ed8777b0ed82bd5a718">setSearchAngle</a> (double search)</td></tr>
+<tr class="memdesc:ab2b0ed8f324e0ed8777b0ed82bd5a718"><td class="mdescLeft">&#160;</td><td class="mdescRight">set search angle of the robot  <a href="#ab2b0ed8f324e0ed8777b0ed82bd5a718">More...</a><br /></td></tr>
+<tr class="separator:ab2b0ed8f324e0ed8777b0ed82bd5a718"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1df4f3955f1e3dfae7aba746c852945c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot.html#a1df4f3955f1e3dfae7aba746c852945c">setTurnAngle</a> (double turn)</td></tr>
+<tr class="memdesc:a1df4f3955f1e3dfae7aba746c852945c"><td class="mdescLeft">&#160;</td><td class="mdescRight">set turn angle of the robot  <a href="#a1df4f3955f1e3dfae7aba746c852945c">More...</a><br /></td></tr>
+<tr class="separator:a1df4f3955f1e3dfae7aba746c852945c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -170,7 +176,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="bot_8cpp_source.html#l00037">37</a> of file <a class="el" href="bot_8cpp_source.html">bot.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bot_8cpp_source.html#l00042">42</a> of file <a class="el" href="bot_8cpp_source.html">bot.cpp</a>.</p>
 
 </div>
 </div>
@@ -191,13 +197,13 @@ Public Member Functions</h2></td></tr>
 
 <p>Default destructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="bot_8cpp_source.html#l00050">50</a> of file <a class="el" href="bot_8cpp_source.html">bot.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bot_8cpp_source.html#l00057">57</a> of file <a class="el" href="bot_8cpp_source.html">bot.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab20d03ffaf12e27a1ee84714a3e83950"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab20d03ffaf12e27a1ee84714a3e83950">&#9670;&nbsp;</a></span>checkFreeDirection()</h2>
+<a id="a057a268f423e1d8aa71f01ff4bf23149"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a057a268f423e1d8aa71f01ff4bf23149">&#9670;&nbsp;</a></span>checkFreeDirection()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -205,8 +211,19 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Bot::checkFreeDirection </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>searchAngle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>turnAngle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -214,7 +231,7 @@ Public Member Functions</h2></td></tr>
 <p>if sign is not present make decisions based on sensor reading to turn left or right </p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="bot_8cpp_source.html#l00224">224</a> of file <a class="el" href="bot_8cpp_source.html">bot.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bot_8cpp_source.html#l00231">231</a> of file <a class="el" href="bot_8cpp_source.html">bot.cpp</a>.</p>
 
 </div>
 </div>
@@ -236,7 +253,7 @@ Public Member Functions</h2></td></tr>
 <p>if door is detected, move through the door </p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="bot_8cpp_source.html#l00280">280</a> of file <a class="el" href="bot_8cpp_source.html">bot.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bot_8cpp_source.html#l00293">293</a> of file <a class="el" href="bot_8cpp_source.html">bot.cpp</a>.</p>
 
 </div>
 </div>
@@ -258,7 +275,7 @@ Public Member Functions</h2></td></tr>
 <p>get maximum speed of robot </p>
 <dl class="section return"><dt>Returns</dt><dd>float </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="bot_8cpp_source.html#l00171">171</a> of file <a class="el" href="bot_8cpp_source.html">bot.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bot_8cpp_source.html#l00178">178</a> of file <a class="el" href="bot_8cpp_source.html">bot.cpp</a>.</p>
 
 </div>
 </div>
@@ -287,7 +304,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="bot_8cpp_source.html#l00209">209</a> of file <a class="el" href="bot_8cpp_source.html">bot.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bot_8cpp_source.html#l00216">216</a> of file <a class="el" href="bot_8cpp_source.html">bot.cpp</a>.</p>
 
 </div>
 </div>
@@ -309,7 +326,65 @@ Public Member Functions</h2></td></tr>
 <p>reset velocities of the bot </p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="bot_8cpp_source.html#l00161">161</a> of file <a class="el" href="bot_8cpp_source.html">bot.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bot_8cpp_source.html#l00168">168</a> of file <a class="el" href="bot_8cpp_source.html">bot.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ab2b0ed8f324e0ed8777b0ed82bd5a718"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2b0ed8f324e0ed8777b0ed82bd5a718">&#9670;&nbsp;</a></span>setSearchAngle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Bot::setSearchAngle </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>search</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>set search angle of the robot </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">search</td><td>angle in radians </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="bot_8cpp_source.html#l00324">324</a> of file <a class="el" href="bot_8cpp_source.html">bot.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1df4f3955f1e3dfae7aba746c852945c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1df4f3955f1e3dfae7aba746c852945c">&#9670;&nbsp;</a></span>setTurnAngle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Bot::setTurnAngle </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>turn</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>set turn angle of the robot </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">turn</td><td>angle in radians </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="bot_8cpp_source.html#l00327">327</a> of file <a class="el" href="bot_8cpp_source.html">bot.cpp</a>.</p>
 
 </div>
 </div>
@@ -331,7 +406,7 @@ Public Member Functions</h2></td></tr>
 <p>Start running the bot. </p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="bot_8cpp_source.html#l00054">54</a> of file <a class="el" href="bot_8cpp_source.html">bot.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bot_8cpp_source.html#l00061">61</a> of file <a class="el" href="bot_8cpp_source.html">bot.cpp</a>.</p>
 
 </div>
 </div>
@@ -360,7 +435,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="bot_8cpp_source.html#l00192">192</a> of file <a class="el" href="bot_8cpp_source.html">bot.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bot_8cpp_source.html#l00199">199</a> of file <a class="el" href="bot_8cpp_source.html">bot.cpp</a>.</p>
 
 </div>
 </div>
@@ -389,12 +464,12 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="bot_8cpp_source.html#l00175">175</a> of file <a class="el" href="bot_8cpp_source.html">bot.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bot_8cpp_source.html#l00182">182</a> of file <a class="el" href="bot_8cpp_source.html">bot.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/siddhesh/ros/latest/src/Emergency-Rescue-Robot/include/<a class="el" href="bot_8h_source.html">bot.h</a></li>
+<li>/home/siddhesh/ros/UltimateFinal/src/Emergency-Rescue-Robot/include/<a class="el" href="bot_8h_source.html">bot.h</a></li>
 <li><a class="el" href="bot_8cpp_source.html">bot.cpp</a></li>
 </ul>
 </div><!-- contents -->

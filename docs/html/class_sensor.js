@@ -10,5 +10,11 @@ var class_sensor =
     [ "getRightReading", "class_sensor.html#a784ee9b741908df505a51d0807dbbe9b", null ],
     [ "getSafeDistance", "class_sensor.html#a1b7aad1c82fa6df205b166b311f45447", null ],
     [ "odomCallback", "class_sensor.html#a69dc2c8fc57c2b421913fda9b1e19fbc", null ],
-    [ "sensorCallback", "class_sensor.html#abc654feeb9c9b67efcda04b62072d828", null ]
+    [ "sensorCallback", "class_sensor.html#abc654feeb9c9b67efcda04b62072d828", null ],
+    [ "setCurrentX", "class_sensor.html#a380fab1afde78a51e06ae1498164bfc7", null ],
+    [ "setCurrentYaw", "class_sensor.html#a725c0cc64bdf279e35f9ca4e96d8235d", null ],
+    [ "setForwardReading", "class_sensor.html#ae406fca85ea14092ddc0857cf1c00f13", null ],
+    [ "setLeftReading", "class_sensor.html#a510ede2de9130fb4dad6306606524f55", null ],
+    [ "setObstacleDetected", "class_sensor.html#ae3914c5ebf7891ec734c4d17e7c4cd3d", null ],
+    [ "setRightReading", "class_sensor.html#a6549b1585b750c48673def64a199bac1", null ]
 ];

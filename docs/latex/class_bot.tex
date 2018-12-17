@@ -21,12 +21,16 @@ void \mbox{\hyperlink{class_bot_a6f9bf5628c1faedb8da493b381ba95ac}{turn\+Left}} 
 \begin{DoxyCompactList}\small\item\em turn robot in left direction \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_bot_abc25556b72a44e45056d161eaa48e1c6}{move\+Forward}} (double desired\+Pos)
 \begin{DoxyCompactList}\small\item\em move forward by some distance \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_bot_ab20d03ffaf12e27a1ee84714a3e83950}{check\+Free\+Direction}} ()
+void \mbox{\hyperlink{class_bot_a057a268f423e1d8aa71f01ff4bf23149}{check\+Free\+Direction}} (double search\+Angle, double turn\+Angle)
 \begin{DoxyCompactList}\small\item\em if sign is not present make decisions based on sensor reading to turn left or right \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_bot_a308e7e40f00a853d1397cfafcb7d2cd5}{door\+Detection}} ()
 \begin{DoxyCompactList}\small\item\em if door is detected, move through the door \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{class_bot_a4a3b192232d8b938f11c1d253795c222}{get\+Max\+Speed}} ()
-\begin{DoxyCompactList}\small\item\em get maximum speed of robot \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em get maximum speed of robot \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bot_ab2b0ed8f324e0ed8777b0ed82bd5a718}{set\+Search\+Angle}} (double search)
+\begin{DoxyCompactList}\small\item\em set search angle of the robot \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bot_a1df4f3955f1e3dfae7aba746c852945c}{set\+Turn\+Angle}} (double turn)
+\begin{DoxyCompactList}\small\item\em set turn angle of the robot \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -56,7 +60,7 @@ Definition at line 42 of file bot.\+h.
 \end{DoxyParams}
 
 
-Definition at line 37 of file bot.\+cpp.
+Definition at line 42 of file bot.\+cpp.
 
 \mbox{\Hypertarget{class_bot_a4163b0f6c91f94cbeb3145eeda8cd361}\label{class_bot_a4163b0f6c91f94cbeb3145eeda8cd361}} 
 \index{Bot@{Bot}!````~Bot@{$\sim$\+Bot}}
@@ -70,16 +74,16 @@ Default destructor.
 
 
 
-Definition at line 50 of file bot.\+cpp.
+Definition at line 57 of file bot.\+cpp.
 
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_bot_ab20d03ffaf12e27a1ee84714a3e83950}\label{class_bot_ab20d03ffaf12e27a1ee84714a3e83950}} 
+\mbox{\Hypertarget{class_bot_a057a268f423e1d8aa71f01ff4bf23149}\label{class_bot_a057a268f423e1d8aa71f01ff4bf23149}} 
 \index{Bot@{Bot}!check\+Free\+Direction@{check\+Free\+Direction}}
 \index{check\+Free\+Direction@{check\+Free\+Direction}!Bot@{Bot}}
 \subsubsection{\texorpdfstring{check\+Free\+Direction()}{checkFreeDirection()}}
-{\footnotesize\ttfamily void Bot\+::check\+Free\+Direction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Bot\+::check\+Free\+Direction (\begin{DoxyParamCaption}\item[{double}]{search\+Angle,  }\item[{double}]{turn\+Angle }\end{DoxyParamCaption})}
 
 
 
@@ -90,7 +94,7 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 224 of file bot.\+cpp.
+Definition at line 231 of file bot.\+cpp.
 
 \mbox{\Hypertarget{class_bot_a308e7e40f00a853d1397cfafcb7d2cd5}\label{class_bot_a308e7e40f00a853d1397cfafcb7d2cd5}} 
 \index{Bot@{Bot}!door\+Detection@{door\+Detection}}
@@ -107,7 +111,7 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 280 of file bot.\+cpp.
+Definition at line 293 of file bot.\+cpp.
 
 \mbox{\Hypertarget{class_bot_a4a3b192232d8b938f11c1d253795c222}\label{class_bot_a4a3b192232d8b938f11c1d253795c222}} 
 \index{Bot@{Bot}!get\+Max\+Speed@{get\+Max\+Speed}}
@@ -124,7 +128,7 @@ float
 \end{DoxyReturn}
 
 
-Definition at line 171 of file bot.\+cpp.
+Definition at line 178 of file bot.\+cpp.
 
 \mbox{\Hypertarget{class_bot_abc25556b72a44e45056d161eaa48e1c6}\label{class_bot_abc25556b72a44e45056d161eaa48e1c6}} 
 \index{Bot@{Bot}!move\+Forward@{move\+Forward}}
@@ -146,7 +150,7 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 209 of file bot.\+cpp.
+Definition at line 216 of file bot.\+cpp.
 
 \mbox{\Hypertarget{class_bot_aeae87db5fd2d6a130587f665e39a6557}\label{class_bot_aeae87db5fd2d6a130587f665e39a6557}} 
 \index{Bot@{Bot}!reset\+Bot@{reset\+Bot}}
@@ -163,7 +167,51 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 161 of file bot.\+cpp.
+Definition at line 168 of file bot.\+cpp.
+
+\mbox{\Hypertarget{class_bot_ab2b0ed8f324e0ed8777b0ed82bd5a718}\label{class_bot_ab2b0ed8f324e0ed8777b0ed82bd5a718}} 
+\index{Bot@{Bot}!set\+Search\+Angle@{set\+Search\+Angle}}
+\index{set\+Search\+Angle@{set\+Search\+Angle}!Bot@{Bot}}
+\subsubsection{\texorpdfstring{set\+Search\+Angle()}{setSearchAngle()}}
+{\footnotesize\ttfamily void Bot\+::set\+Search\+Angle (\begin{DoxyParamCaption}\item[{double}]{search }\end{DoxyParamCaption})}
+
+
+
+set search angle of the robot 
+
+
+\begin{DoxyParams}{Parameters}
+{\em search} & angle in radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 324 of file bot.\+cpp.
+
+\mbox{\Hypertarget{class_bot_a1df4f3955f1e3dfae7aba746c852945c}\label{class_bot_a1df4f3955f1e3dfae7aba746c852945c}} 
+\index{Bot@{Bot}!set\+Turn\+Angle@{set\+Turn\+Angle}}
+\index{set\+Turn\+Angle@{set\+Turn\+Angle}!Bot@{Bot}}
+\subsubsection{\texorpdfstring{set\+Turn\+Angle()}{setTurnAngle()}}
+{\footnotesize\ttfamily void Bot\+::set\+Turn\+Angle (\begin{DoxyParamCaption}\item[{double}]{turn }\end{DoxyParamCaption})}
+
+
+
+set turn angle of the robot 
+
+
+\begin{DoxyParams}{Parameters}
+{\em turn} & angle in radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 327 of file bot.\+cpp.
 
 \mbox{\Hypertarget{class_bot_a5c1f98ef7f22894832865c5987d184c3}\label{class_bot_a5c1f98ef7f22894832865c5987d184c3}} 
 \index{Bot@{Bot}!start\+Motion@{start\+Motion}}
@@ -180,7 +228,7 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 54 of file bot.\+cpp.
+Definition at line 61 of file bot.\+cpp.
 
 \mbox{\Hypertarget{class_bot_a6f9bf5628c1faedb8da493b381ba95ac}\label{class_bot_a6f9bf5628c1faedb8da493b381ba95ac}} 
 \index{Bot@{Bot}!turn\+Left@{turn\+Left}}
@@ -202,7 +250,7 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 192 of file bot.\+cpp.
+Definition at line 199 of file bot.\+cpp.
 
 \mbox{\Hypertarget{class_bot_a07fd8d141a617b711eee7ab3c9e99171}\label{class_bot_a07fd8d141a617b711eee7ab3c9e99171}} 
 \index{Bot@{Bot}!turn\+Right@{turn\+Right}}
@@ -224,11 +272,11 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 175 of file bot.\+cpp.
+Definition at line 182 of file bot.\+cpp.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/siddhesh/ros/latest/src/\+Emergency-\/\+Rescue-\/\+Robot/include/\mbox{\hyperlink{bot_8h}{bot.\+h}}\item 
+/home/siddhesh/ros/\+Ultimate\+Final/src/\+Emergency-\/\+Rescue-\/\+Robot/include/\mbox{\hyperlink{bot_8h}{bot.\+h}}\item 
 \mbox{\hyperlink{bot_8cpp}{bot.\+cpp}}\end{DoxyCompactItemize}

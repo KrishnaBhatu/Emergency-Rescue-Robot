@@ -28,13 +28,25 @@ double \mbox{\hyperlink{class_sensor_a1b7aad1c82fa6df205b166b311f45447}{get\+Saf
 double \mbox{\hyperlink{class_sensor_a1984ff9826d1c92d7e91add776a4107b}{get\+Current\+Yaw}} ()
 \begin{DoxyCompactList}\small\item\em Get sensor reading of current yaw angle. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_sensor_a933dfb180d498c41862b5e14675cc97d}{get\+CurrentX}} ()
-\begin{DoxyCompactList}\small\item\em Get sensor reading of current x position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get sensor reading of current x position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sensor_ae406fca85ea14092ddc0857cf1c00f13}{set\+Forward\+Reading}} (float fwd)
+\begin{DoxyCompactList}\small\item\em Set current value of forward reading. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sensor_a6549b1585b750c48673def64a199bac1}{set\+Right\+Reading}} (float right)
+\begin{DoxyCompactList}\small\item\em Set current value of the right reading. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sensor_a510ede2de9130fb4dad6306606524f55}{set\+Left\+Reading}} (float left)
+\begin{DoxyCompactList}\small\item\em Set current value of the left reading. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sensor_a380fab1afde78a51e06ae1498164bfc7}{set\+CurrentX}} (double cX)
+\begin{DoxyCompactList}\small\item\em Set current value of the x position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sensor_a725c0cc64bdf279e35f9ca4e96d8235d}{set\+Current\+Yaw}} (double yaw)
+\begin{DoxyCompactList}\small\item\em Set current value of the yaw angle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sensor_ae3914c5ebf7891ec734c4d17e7c4cd3d}{set\+Obstacle\+Detected}} (bool obs)
+\begin{DoxyCompactList}\small\item\em Set status of obstacle detection. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 
 
-Definition at line 45 of file sensor.\+h.
+Definition at line 41 of file sensor.\+h.
 
 
 
@@ -51,7 +63,7 @@ Default \mbox{\hyperlink{class_sensor}{Sensor}} class constructor.
 
 
 
-Definition at line 37 of file sensor.\+cpp.
+Definition at line 44 of file sensor.\+cpp.
 
 \mbox{\Hypertarget{class_sensor_aee8c70e7ef05ce65e7ee33686b5d7db2}\label{class_sensor_aee8c70e7ef05ce65e7ee33686b5d7db2}} 
 \index{Sensor@{Sensor}!````~Sensor@{$\sim$\+Sensor}}
@@ -65,7 +77,7 @@ Default \mbox{\hyperlink{class_sensor}{Sensor}} class destructor.
 
 
 
-Definition at line 49 of file sensor.\+cpp.
+Definition at line 58 of file sensor.\+cpp.
 
 
 
@@ -85,7 +97,7 @@ double
 \end{DoxyReturn}
 
 
-Definition at line 86 of file sensor.\+cpp.
+Definition at line 95 of file sensor.\+cpp.
 
 \mbox{\Hypertarget{class_sensor_a1984ff9826d1c92d7e91add776a4107b}\label{class_sensor_a1984ff9826d1c92d7e91add776a4107b}} 
 \index{Sensor@{Sensor}!get\+Current\+Yaw@{get\+Current\+Yaw}}
@@ -102,7 +114,7 @@ double
 \end{DoxyReturn}
 
 
-Definition at line 83 of file sensor.\+cpp.
+Definition at line 92 of file sensor.\+cpp.
 
 \mbox{\Hypertarget{class_sensor_a0cb8d226a7df00fa404c100f959868e6}\label{class_sensor_a0cb8d226a7df00fa404c100f959868e6}} 
 \index{Sensor@{Sensor}!get\+Forward\+Reading@{get\+Forward\+Reading}}
@@ -119,7 +131,7 @@ float
 \end{DoxyReturn}
 
 
-Definition at line 74 of file sensor.\+cpp.
+Definition at line 83 of file sensor.\+cpp.
 
 \mbox{\Hypertarget{class_sensor_a68826b1eb0dcda3a0508f213a42db25b}\label{class_sensor_a68826b1eb0dcda3a0508f213a42db25b}} 
 \index{Sensor@{Sensor}!get\+Left\+Reading@{get\+Left\+Reading}}
@@ -136,7 +148,7 @@ float
 \end{DoxyReturn}
 
 
-Definition at line 80 of file sensor.\+cpp.
+Definition at line 89 of file sensor.\+cpp.
 
 \mbox{\Hypertarget{class_sensor_af590a94a155718952a71ee842a0db661}\label{class_sensor_af590a94a155718952a71ee842a0db661}} 
 \index{Sensor@{Sensor}!get\+Obstacle\+Detected@{get\+Obstacle\+Detected}}
@@ -153,7 +165,7 @@ bool
 \end{DoxyReturn}
 
 
-Definition at line 89 of file sensor.\+cpp.
+Definition at line 98 of file sensor.\+cpp.
 
 \mbox{\Hypertarget{class_sensor_a784ee9b741908df505a51d0807dbbe9b}\label{class_sensor_a784ee9b741908df505a51d0807dbbe9b}} 
 \index{Sensor@{Sensor}!get\+Right\+Reading@{get\+Right\+Reading}}
@@ -170,7 +182,7 @@ float
 \end{DoxyReturn}
 
 
-Definition at line 77 of file sensor.\+cpp.
+Definition at line 86 of file sensor.\+cpp.
 
 \mbox{\Hypertarget{class_sensor_a1b7aad1c82fa6df205b166b311f45447}\label{class_sensor_a1b7aad1c82fa6df205b166b311f45447}} 
 \index{Sensor@{Sensor}!get\+Safe\+Distance@{get\+Safe\+Distance}}
@@ -187,7 +199,7 @@ double
 \end{DoxyReturn}
 
 
-Definition at line 92 of file sensor.\+cpp.
+Definition at line 101 of file sensor.\+cpp.
 
 \mbox{\Hypertarget{class_sensor_a69dc2c8fc57c2b421913fda9b1e19fbc}\label{class_sensor_a69dc2c8fc57c2b421913fda9b1e19fbc}} 
 \index{Sensor@{Sensor}!odom\+Callback@{odom\+Callback}}
@@ -209,7 +221,7 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 66 of file sensor.\+cpp.
+Definition at line 75 of file sensor.\+cpp.
 
 \mbox{\Hypertarget{class_sensor_abc654feeb9c9b67efcda04b62072d828}\label{class_sensor_abc654feeb9c9b67efcda04b62072d828}} 
 \index{Sensor@{Sensor}!sensor\+Callback@{sensor\+Callback}}
@@ -231,11 +243,143 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 51 of file sensor.\+cpp.
+Definition at line 60 of file sensor.\+cpp.
+
+\mbox{\Hypertarget{class_sensor_a380fab1afde78a51e06ae1498164bfc7}\label{class_sensor_a380fab1afde78a51e06ae1498164bfc7}} 
+\index{Sensor@{Sensor}!set\+CurrentX@{set\+CurrentX}}
+\index{set\+CurrentX@{set\+CurrentX}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{set\+Current\+X()}{setCurrentX()}}
+{\footnotesize\ttfamily void Sensor\+::set\+CurrentX (\begin{DoxyParamCaption}\item[{double}]{cX }\end{DoxyParamCaption})}
+
+
+
+Set current value of the x position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cX} & current x \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 113 of file sensor.\+cpp.
+
+\mbox{\Hypertarget{class_sensor_a725c0cc64bdf279e35f9ca4e96d8235d}\label{class_sensor_a725c0cc64bdf279e35f9ca4e96d8235d}} 
+\index{Sensor@{Sensor}!set\+Current\+Yaw@{set\+Current\+Yaw}}
+\index{set\+Current\+Yaw@{set\+Current\+Yaw}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{set\+Current\+Yaw()}{setCurrentYaw()}}
+{\footnotesize\ttfamily void Sensor\+::set\+Current\+Yaw (\begin{DoxyParamCaption}\item[{double}]{yaw }\end{DoxyParamCaption})}
+
+
+
+Set current value of the yaw angle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em yaw} & yaw angle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 116 of file sensor.\+cpp.
+
+\mbox{\Hypertarget{class_sensor_ae406fca85ea14092ddc0857cf1c00f13}\label{class_sensor_ae406fca85ea14092ddc0857cf1c00f13}} 
+\index{Sensor@{Sensor}!set\+Forward\+Reading@{set\+Forward\+Reading}}
+\index{set\+Forward\+Reading@{set\+Forward\+Reading}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{set\+Forward\+Reading()}{setForwardReading()}}
+{\footnotesize\ttfamily void Sensor\+::set\+Forward\+Reading (\begin{DoxyParamCaption}\item[{float}]{fwd }\end{DoxyParamCaption})}
+
+
+
+Set current value of forward reading. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fwd} & distance value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 104 of file sensor.\+cpp.
+
+\mbox{\Hypertarget{class_sensor_a510ede2de9130fb4dad6306606524f55}\label{class_sensor_a510ede2de9130fb4dad6306606524f55}} 
+\index{Sensor@{Sensor}!set\+Left\+Reading@{set\+Left\+Reading}}
+\index{set\+Left\+Reading@{set\+Left\+Reading}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{set\+Left\+Reading()}{setLeftReading()}}
+{\footnotesize\ttfamily void Sensor\+::set\+Left\+Reading (\begin{DoxyParamCaption}\item[{float}]{left }\end{DoxyParamCaption})}
+
+
+
+Set current value of the left reading. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & left distance value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 110 of file sensor.\+cpp.
+
+\mbox{\Hypertarget{class_sensor_ae3914c5ebf7891ec734c4d17e7c4cd3d}\label{class_sensor_ae3914c5ebf7891ec734c4d17e7c4cd3d}} 
+\index{Sensor@{Sensor}!set\+Obstacle\+Detected@{set\+Obstacle\+Detected}}
+\index{set\+Obstacle\+Detected@{set\+Obstacle\+Detected}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{set\+Obstacle\+Detected()}{setObstacleDetected()}}
+{\footnotesize\ttfamily void Sensor\+::set\+Obstacle\+Detected (\begin{DoxyParamCaption}\item[{bool}]{obs }\end{DoxyParamCaption})}
+
+
+
+Set status of obstacle detection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obs} & true of false value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 119 of file sensor.\+cpp.
+
+\mbox{\Hypertarget{class_sensor_a6549b1585b750c48673def64a199bac1}\label{class_sensor_a6549b1585b750c48673def64a199bac1}} 
+\index{Sensor@{Sensor}!set\+Right\+Reading@{set\+Right\+Reading}}
+\index{set\+Right\+Reading@{set\+Right\+Reading}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{set\+Right\+Reading()}{setRightReading()}}
+{\footnotesize\ttfamily void Sensor\+::set\+Right\+Reading (\begin{DoxyParamCaption}\item[{float}]{right }\end{DoxyParamCaption})}
+
+
+
+Set current value of the right reading. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em right} & right distance value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 107 of file sensor.\+cpp.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/siddhesh/ros/latest/src/\+Emergency-\/\+Rescue-\/\+Robot/include/\mbox{\hyperlink{sensor_8h}{sensor.\+h}}\item 
+/home/siddhesh/ros/\+Ultimate\+Final/src/\+Emergency-\/\+Rescue-\/\+Robot/include/\mbox{\hyperlink{sensor_8h}{sensor.\+h}}\item 
 \mbox{\hyperlink{sensor_8cpp}{sensor.\+cpp}}\end{DoxyCompactItemize}
