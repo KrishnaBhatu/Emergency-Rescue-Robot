@@ -35,7 +35,7 @@ Emergency situations are chaotic, and it is more difficult for the visually impa
 ## Presentation
 Following are the links to the slides and videos that we have made to explain the working of the project.
 Presentation slide - [Link](https://docs.google.com/presentation/d/1NDTfmdz0UXApkUZ3Be9xrmb683-EmEj5gZsjbjoGR80/edit?usp=sharing)
-Presentation video - [Link]()
+Presentation video - [Link](https://youtu.be/6M0HYS2UndE)
 
 ## Project Output Flow
 
