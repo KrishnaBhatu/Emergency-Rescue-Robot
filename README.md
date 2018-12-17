@@ -170,23 +170,21 @@ roslaunch rescue_robot daredevil_map3.launch
 ```
 
 ## Run Test Instructions
-We have built the following world file for running the test so that robot will use most of it's
-functions to reach the exit door.
-<p align="center">
-<img src="images/testMap.png" width="75%" height="75%">
-</p>  
+We need the test images from the image folder to run the camera tests.
+For which we have to move these images into .ros folder.
+Follow the given command
+```
+mkdir ~/.ros/images
+cd ~/catkin_ws/src/Emergency-Rescue-Robot/images/
+mv *.png ~/.ros/images/
+```
+Then we can run the tests as follows;
 
 To run the ros tests follow the commands:
 ```
 cd ~/catkin_ws/
 source devel/setup.bash
 rostest rescue_robot daredevil_test.launch
-```
-Or you can also run the test using following commands:
-```
-cd ~/catkin_ws/
-source devel/setup.bash
-catkin_make run_tests
 ```
 <b>Note: It would take about 53 seconds to run all the tests.</b>
 ## Run Cpplint
